@@ -1,3 +1,5 @@
+import Link from "next/link"
+
 const CollectionStyle = () => {
     return (
         <>
@@ -16,12 +18,12 @@ const CollectionStyle = () => {
                             <div className="cls-heading gap-8 mb_17 gap-8 mb_17">
                                 <h3 className="">
                                     {" "}
-                                    <a
-                                        href="product-detail.html"
+                                    <Link
+                                        href="/products/100"
                                         className="link text_white wow fadeInUp"
                                     >
                                         Ergonomic Chair Sale
-                                    </a>
+                                    </Link>
                                 </h3>
                                 <p
                                     className="text_white text-body-default  wow fadeInUp"
@@ -30,13 +32,13 @@ const CollectionStyle = () => {
                                     Reserved for long work hours.
                                 </p>
                             </div>
-                            <a
+                            <Link
                                 href="product-detail.html"
                                 className="tf-btn btn-white  mx-auto wow fadeInUp"
                                 data-wow-delay="0.2s"
                             >
                                 Explore Collection <i className="icon-arrow-up-right" />
-                            </a>
+                            </Link>
                         </div>
                     </div>
                     <div className="collection-position hover-img style-6">
@@ -52,12 +54,12 @@ const CollectionStyle = () => {
                             <div className="cls-heading gap-8 mb_17">
                                 <h3 className="">
                                     {" "}
-                                    <a
-                                        href="product-detail.html"
+                                    <Link
+                                        href="/categories/100"
                                         className="link text_white wow fadeInUp"
                                     >
                                         Storage Cabinet Deals
-                                    </a>
+                                    </Link>
                                 </h3>
                                 <p
                                     className="text_white text-body-default  wow fadeInUp"
@@ -66,14 +68,14 @@ const CollectionStyle = () => {
                                     Reserved for organized workspaces.
                                 </p>
                             </div>
-                            <a
-                                href="product-detail.html"
+                            <Link
+                                href="/products/100"
                                 className="tf-btn btn-white  mx-auto wow fadeInUp"
                                 data-wow-delay="0.2s"
                             >
                                 View All Products
                                 <i className="icon-arrow-up-right" />
-                            </a>
+                            </Link>
                         </div>
                     </div>
                     <div className="collection-position hover-img style-6">
@@ -89,12 +91,12 @@ const CollectionStyle = () => {
                             <div className="cls-heading gap-8 mb_17">
                                 <h3 className="">
                                     {" "}
-                                    <a
+                                    <Link
                                         href="product-detail.html"
                                         className="link text_white wow fadeInUp"
                                     >
                                         Super Sale Up To 50%
-                                    </a>
+                                    </Link>
                                 </h3>
                                 <p
                                     className="text_white text-body-default  wow fadeInUp"
@@ -103,13 +105,13 @@ const CollectionStyle = () => {
                                     Reserved for special occasions
                                 </p>
                             </div>
-                            <a
-                                href="product-detail.html"
+                            <Link
+                                href="/categories/100"
                                 className="tf-btn btn-white  mx-auto wow fadeInUp"
                                 data-wow-delay="0.2s"
                             >
                                 Explore Collection <i className="icon-arrow-up-right" />
-                            </a>
+                            </Link>
                         </div>
                     </div>
                 </div>

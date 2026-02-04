@@ -1,3 +1,5 @@
+import Link from "next/link"
+
 const TopSellers = () => {
     return (
         <>
@@ -16,9 +18,9 @@ const TopSellers = () => {
                                     </p>
                                 </div>
                                 <div className="right wow fadeInUp">
-                                    <a href="shop-default.html" className="btn-line">
+                                    <Link href="shop-default.html" className="btn-line">
                                         <span>View All Products</span>
-                                    </a>
+                                    </Link>
                                 </div>
                             </div>
                             <div className="sw-button-over">
@@ -40,7 +42,7 @@ const TopSellers = () => {
                                                 data-wow-delay="0s"
                                             >
                                                 <div className="card-product-wrapper">
-                                                    <a href="product-detail.html" className="image-wrap">
+                                                    <Link href="/products/100" className="image-wrap">
                                                         <img
                                                             className="lazyload img-product"
                                                             data-src="images/shop/product-9.jpg"
@@ -53,16 +55,16 @@ const TopSellers = () => {
                                                             src="images/shop/product-9.1.jpg"
                                                             alt="image-product"
                                                         />
-                                                    </a>
+                                                    </Link>
                                                     <div className="list-product-btn">
-                                                        <a
+                                                        <Link
                                                             href="javascript:void(0);"
                                                             className="box-icon wishlist btn-icon-action"
                                                         >
                                                             <span className="icon icon-heart" />
                                                             <span className="tooltip">Wishlist</span>
-                                                        </a>
-                                                        <a
+                                                        </Link>
+                                                        <Link
                                                             href="#compare"
                                                             data-bs-toggle="modal"
                                                             aria-controls="compare"
@@ -70,33 +72,33 @@ const TopSellers = () => {
                                                         >
                                                             <span className="icon icon-compare" />
                                                             <span className="tooltip">Compare</span>
-                                                        </a>
-                                                        <a
+                                                        </Link>
+                                                        <Link
                                                             href="#quickView"
                                                             data-bs-toggle="modal"
                                                             className="box-icon quickview tf-btn-loading"
                                                         >
                                                             <span className="icon icon-eye" />
                                                             <span className="tooltip">Quick View</span>
-                                                        </a>
+                                                        </Link>
                                                     </div>
                                                     <div className="list-btn-main">
-                                                        <a
+                                                        <Link
                                                             href="#shoppingCart"
                                                             data-bs-toggle="modal"
                                                             className="btn-main-product"
                                                         >
                                                             Add To cart
-                                                        </a>
+                                                        </Link>
                                                     </div>
                                                 </div>
                                                 <div className="card-product-info ">
-                                                    <a
-                                                        href="product-detail.html"
+                                                    <Link
+                                                        href="/products/100"
                                                         className=" text-title title link"
                                                     >
                                                         Softside Chair
-                                                    </a>
+                                                    </Link>
                                                     <div className="price text-body-default ">$79.99</div>
                                                     <ul className="list-color-product">
                                                         <li className="list-color-item color-swatch active">
@@ -133,7 +135,7 @@ const TopSellers = () => {
                                                 data-wow-delay="0s"
                                             >
                                                 <div className="card-product-wrapper">
-                                                    <a href="product-detail.html" className="image-wrap">
+                                                    <Link href="/products/100" className="image-wrap">
                                                         <img
                                                             className="lazyload img-product"
                                                             data-src="images/shop/product-10.jpg"
@@ -146,19 +148,19 @@ const TopSellers = () => {
                                                             src="images/shop/product-10.1.jpg"
                                                             alt="image-product"
                                                         />
-                                                    </a>
+                                                    </Link>
                                                     <div className="on-sale-wrap">
                                                         <span className="on-sale-item">-25%</span>
                                                     </div>
                                                     <div className="list-product-btn">
-                                                        <a
+                                                        <Link
                                                             href="javascript:void(0);"
                                                             className="box-icon wishlist btn-icon-action"
                                                         >
                                                             <span className="icon icon-heart" />
                                                             <span className="tooltip">Wishlist</span>
-                                                        </a>
-                                                        <a
+                                                        </Link>
+                                                        <Link
                                                             href="#compare"
                                                             data-bs-toggle="modal"
                                                             aria-controls="compare"
@@ -166,33 +168,33 @@ const TopSellers = () => {
                                                         >
                                                             <span className="icon icon-compare" />
                                                             <span className="tooltip">Compare</span>
-                                                        </a>
-                                                        <a
+                                                        </Link>
+                                                        <Link
                                                             href="#quickView"
                                                             data-bs-toggle="modal"
                                                             className="box-icon quickview tf-btn-loading"
                                                         >
                                                             <span className="icon icon-eye" />
                                                             <span className="tooltip">Quick View</span>
-                                                        </a>
+                                                        </Link>
                                                     </div>
                                                     <div className="list-btn-main">
-                                                        <a
+                                                        <Link
                                                             href="#shoppingCart"
                                                             data-bs-toggle="modal"
                                                             className="btn-main-product"
                                                         >
                                                             Add To cart
-                                                        </a>
+                                                        </Link>
                                                     </div>
                                                 </div>
                                                 <div className="card-product-info ">
-                                                    <a
-                                                        href="product-detail.html"
+                                                    <Link
+                                                        href="/products/100"
                                                         className=" text-title title link"
                                                     >
                                                         Softside Chair
-                                                    </a>
+                                                    </Link>
                                                     <div className="price text-body-default ">
                                                         <span className="text-caption-1 old-price">
                                                             $98.00
@@ -234,7 +236,7 @@ const TopSellers = () => {
                                                 data-wow-delay="0s"
                                             >
                                                 <div className="card-product-wrapper">
-                                                    <a href="product-detail.html" className="image-wrap">
+                                                    <Link href="/products/100" className="image-wrap">
                                                         <img
                                                             className="lazyload img-product"
                                                             data-src="images/shop/product-11.jpg"
@@ -247,19 +249,19 @@ const TopSellers = () => {
                                                             src="images/shop/product-11.1.jpg"
                                                             alt="image-product"
                                                         />
-                                                    </a>
+                                                    </Link>
                                                     <div className="on-sale-wrap">
                                                         <span className="on-sale-item">-25%</span>
                                                     </div>
                                                     <div className="list-product-btn">
-                                                        <a
+                                                        <Link
                                                             href="javascript:void(0);"
                                                             className="box-icon wishlist btn-icon-action"
                                                         >
                                                             <span className="icon icon-heart" />
                                                             <span className="tooltip">Wishlist</span>
-                                                        </a>
-                                                        <a
+                                                        </Link>
+                                                        <Link
                                                             href="#compare"
                                                             data-bs-toggle="modal"
                                                             aria-controls="compare"
@@ -267,33 +269,33 @@ const TopSellers = () => {
                                                         >
                                                             <span className="icon icon-compare" />
                                                             <span className="tooltip">Compare</span>
-                                                        </a>
-                                                        <a
+                                                        </Link>
+                                                        <Link
                                                             href="#quickView"
                                                             data-bs-toggle="modal"
                                                             className="box-icon quickview tf-btn-loading"
                                                         >
                                                             <span className="icon icon-eye" />
                                                             <span className="tooltip">Quick View</span>
-                                                        </a>
+                                                        </Link>
                                                     </div>
                                                     <div className="list-btn-main">
-                                                        <a
+                                                        <Link
                                                             href="#shoppingCart"
                                                             data-bs-toggle="modal"
                                                             className="btn-main-product"
                                                         >
                                                             Add To cart
-                                                        </a>
+                                                        </Link>
                                                     </div>
                                                 </div>
                                                 <div className="card-product-info ">
-                                                    <a
-                                                        href="product-detail.html"
+                                                    <Link
+                                                        href="/products/100"
                                                         className=" text-title title link"
                                                     >
                                                         Double Standing Desk
-                                                    </a>
+                                                    </Link>
                                                     <div className="price text-body-default ">
                                                         <span className="text-caption-1 old-price">
                                                             $98.00
@@ -335,7 +337,7 @@ const TopSellers = () => {
                                                 data-wow-delay="0s"
                                             >
                                                 <div className="card-product-wrapper">
-                                                    <a href="product-detail.html" className="image-wrap">
+                                                    <Link href="/products/100" className="image-wrap">
                                                         <img
                                                             className="lazyload img-product"
                                                             data-src="images/shop/product-12.jpg"
@@ -348,16 +350,16 @@ const TopSellers = () => {
                                                             src="images/shop/product-12.1.jpg"
                                                             alt="image-product"
                                                         />
-                                                    </a>
+                                                    </Link>
                                                     <div className="list-product-btn">
-                                                        <a
+                                                        <Link
                                                             href="javascript:void(0);"
                                                             className="box-icon wishlist btn-icon-action"
                                                         >
                                                             <span className="icon icon-heart" />
                                                             <span className="tooltip">Wishlist</span>
-                                                        </a>
-                                                        <a
+                                                        </Link>
+                                                        <Link
                                                             href="#compare"
                                                             data-bs-toggle="modal"
                                                             aria-controls="compare"
@@ -365,33 +367,33 @@ const TopSellers = () => {
                                                         >
                                                             <span className="icon icon-compare" />
                                                             <span className="tooltip">Compare</span>
-                                                        </a>
-                                                        <a
+                                                        </Link>
+                                                        <Link
                                                             href="#quickView"
                                                             data-bs-toggle="modal"
                                                             className="box-icon quickview tf-btn-loading"
                                                         >
                                                             <span className="icon icon-eye" />
                                                             <span className="tooltip">Quick View</span>
-                                                        </a>
+                                                        </Link>
                                                     </div>
                                                     <div className="list-btn-main">
-                                                        <a
+                                                        <Link
                                                             href="#shoppingCart"
                                                             data-bs-toggle="modal"
                                                             className="btn-main-product"
                                                         >
                                                             Add To cart
-                                                        </a>
+                                                        </Link>
                                                     </div>
                                                 </div>
                                                 <div className="card-product-info ">
-                                                    <a
-                                                        href="product-detail.html"
+                                                    <Link
+                                                        href="/products/100"
                                                         className=" text-title title link"
                                                     >
                                                         Duo Standing Desk
-                                                    </a>
+                                                    </Link>
                                                     <div className="price text-body-default ">$69.99</div>
                                                     <ul className="list-color-product">
                                                         <li className="list-color-item color-swatch active">
@@ -437,7 +439,7 @@ const TopSellers = () => {
                                         <div className="swiper-slide">
                                             <div className="card-product style-1">
                                                 <div className="card-product-wrapper">
-                                                    <a href="product-detail.html" className="image-wrap">
+                                                    <Link href="/products/100" className="image-wrap">
                                                         <img
                                                             className="lazyload img-product"
                                                             data-src="images/shop/product-1.jpg"
@@ -450,16 +452,16 @@ const TopSellers = () => {
                                                             src="images/shop/product-1.1.jpg"
                                                             alt="image-product"
                                                         />
-                                                    </a>
+                                                    </Link>
                                                     <div className="list-product-btn">
-                                                        <a
+                                                        <Link
                                                             href="javascript:void(0);"
                                                             className="box-icon wishlist btn-icon-action"
                                                         >
                                                             <span className="icon icon-heart" />
                                                             <span className="tooltip">Wishlist</span>
-                                                        </a>
-                                                        <a
+                                                        </Link>
+                                                        <Link
                                                             href="#compare"
                                                             data-bs-toggle="modal"
                                                             aria-controls="compare"
@@ -467,33 +469,33 @@ const TopSellers = () => {
                                                         >
                                                             <span className="icon icon-compare" />
                                                             <span className="tooltip">Compare</span>
-                                                        </a>
-                                                        <a
+                                                        </Link>
+                                                        <Link
                                                             href="#quickView"
                                                             data-bs-toggle="modal"
                                                             className="box-icon quickview tf-btn-loading"
                                                         >
                                                             <span className="icon icon-eye" />
                                                             <span className="tooltip">Quick View</span>
-                                                        </a>
+                                                        </Link>
                                                     </div>
                                                     <div className="list-btn-main">
-                                                        <a
+                                                        <Link
                                                             href="#shoppingCart"
                                                             data-bs-toggle="modal"
                                                             className="btn-main-product"
                                                         >
                                                             Add To cart
-                                                        </a>
+                                                        </Link>
                                                     </div>
                                                 </div>
                                                 <div className="card-product-info ">
-                                                    <a
-                                                        href="product-detail.html"
+                                                    <Link
+                                                        href="/products/100"
                                                         className=" text-title title link"
                                                     >
                                                         Alumina Lamp
-                                                    </a>
+                                                    </Link>
                                                     <div className="price text-body-default ">
                                                         <span className="text-caption-1 old-price">
                                                             $98.00

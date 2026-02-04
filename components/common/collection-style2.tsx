@@ -1,3 +1,5 @@
+import Link from "next/link"
+
 const CollectionStyle2 = () => {
     return (
         <section className="flat-spacing-2 pt-0">
@@ -18,10 +20,10 @@ const CollectionStyle2 = () => {
                                     <div className="cls-heading mb_21">
                                         <h3 className="">
                                             {" "}
-                                            <a href="#" className="link text_white">
+                                            <Link href="/products/100" className="link text_white">
                                                 {" "}
                                                 Ergonomic Chair Sale
-                                            </a>
+                                            </Link>
                                         </h3>
                                         <p className="text_white text-body-default ">
                                             Reserved for long work hours.
@@ -45,9 +47,9 @@ const CollectionStyle2 = () => {
                                     <div className="cls-heading mb_21">
                                         <h3 className="">
                                             {" "}
-                                            <a href="#" className="link text_white">
+                                            <Link href="/products/100" className="link text_white">
                                                 Storage Cabinet Deals
-                                            </a>
+                                            </Link>
                                         </h3>
                                         <p className="text_white text-body-default ">
                                             Reserved for organized workspaces.
