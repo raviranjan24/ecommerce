@@ -9,7 +9,7 @@ const Header = () => {
                         <div className="row wrapper-header align-items-center">
                             <div className="col-xl-2 col-md-4 col-8 text-center">
                                 <Link href="/" className="logo-header">
-                                    <img src="/images/logo.png" alt="logo" className="logo" />
+                                    <img src="/images/logo.jpeg" alt="logo" className="logo" />
                                 </Link>
                             </div>
                             <div className="col-xl-6 d-none d-xl-block">

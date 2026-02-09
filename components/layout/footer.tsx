@@ -81,8 +81,9 @@ const Footer = () => {
                                             </div>
                                         </div>
                                         <div className="footer-phone-number">
+                                            <h4 className="text_white number">Plot no. 37, Sector 155, Noida-201301</h4>
                                             <h4 className="text_white number">+91-7870561523</h4>
-                                            <h4 className="text_white mail">hello@ravi.com</h4>
+                                            <h4 className="text_white mail">info@helioshome.co.in</h4>
                                         </div>
                                     </div>
                                 </div>
@@ -159,7 +160,7 @@ const Footer = () => {
                                 <div className="footer-bottom-wrap">
                                     <div className="left">
                                         <p className="text-body-default text_white">
-                                            Copyright ©2026 Holistic Ecommerce. All Rights Reserved.
+                                            Copyright ©2026 Helios Home. All Rights Reserved.
                                         </p>
                                     </div>
                                     <div className="center">
