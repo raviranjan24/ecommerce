@@ -1,3 +1,5 @@
+import Link from "next/link"
+
 const Footer = () => {
     return (
         <>
@@ -16,12 +18,12 @@ const Footer = () => {
                                                 <div className="tf-collapse-content">
                                                     <ul className="footer-menu-list">
                                                         <li className="text-body-default">
-                                                            <a
-                                                                href="#"
+                                                            <Link
+                                                                href="/about-us"
                                                                 className="link footer-menu_item"
                                                             >
                                                                 About Us
-                                                            </a>
+                                                            </Link>
                                                         </li>
                                                         <li className="text-body-default">
                                                             <a
@@ -37,12 +39,12 @@ const Footer = () => {
                                                             </a>
                                                         </li>
                                                         <li className="text-body-default">
-                                                            <a
-                                                                href="#"
+                                                            <Link
+                                                                href="/contact-us"
                                                                 className="link footer-menu_item"
                                                             >
                                                                 Contact us
-                                                            </a>
+                                                            </Link>
                                                         </li>
                                                     </ul>
                                                 </div>
@@ -54,27 +56,35 @@ const Footer = () => {
                                                 <div className="tf-collapse-content">
                                                     <ul className="footer-menu-list">
                                                         <li className="text-body-default">
-                                                            <a href="#" className="link footer-menu_item">
-                                                                Shipping
-                                                            </a>
+                                                            <Link href="/shipping-policy" className="link footer-menu_item">
+                                                                Shipping Policy
+                                                            </Link>
                                                         </li>
                                                         <li className="text-body-default">
-                                                            <a href="#" className="link footer-menu_item">
-                                                                Return &amp; Refund
-                                                            </a>
+                                                            <Link href="/refund-policy" className="link footer-menu_item">
+                                                                Return &amp; Refund Policy
+                                                            </Link>
                                                         </li>
                                                         <li className="text-body-default">
-                                                            <a href="#" className="link footer-menu_item">
+                                                            <Link href="/privacy-policy" className="link footer-menu_item">
                                                                 Privacy Policy
-                                                            </a>
+                                                            </Link>
                                                         </li>
                                                         <li className="text-body-default">
-                                                            <a
-                                                                href="term-of-use.html"
+                                                            <Link
+                                                                href="/terms-of-service"
                                                                 className="link footer-menu_item"
                                                             >
-                                                                Terms &amp; Conditions
-                                                            </a>
+                                                                Terms of service
+                                                            </Link>
+                                                        </li>
+                                                        <li className="text-body-default">
+                                                            <Link
+                                                                href="/contact-information"
+                                                                className="link footer-menu_item"
+                                                            >
+                                                                Contact information
+                                                            </Link>
                                                         </li>
                                                     </ul>
                                                 </div>

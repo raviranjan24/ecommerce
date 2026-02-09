@@ -3380,6 +3380,7 @@ form .cols > * {
   padding: 8px 15px;
   border-radius: 8px;
   color: var(--Secondary2);
+  border: 1px solid #848282;
 }
 .form-search input::placeholder {
   font-size: 16px;
@@ -3416,6 +3417,7 @@ form .cols > * {
 }
 .form-login .wrap input {
   height: 46px;
+  border: 1px solid #9e9c9c;
 }
 .form-login .forget-password {
   text-decoration: underline;
