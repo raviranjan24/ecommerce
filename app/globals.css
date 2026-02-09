@@ -66,3 +66,9 @@
   font-size: 13px;
   color: #666;
 }
+
+.box-nav-ul li:not(:last-child):after {
+  content: ' | ';
+  color: #000; /* Adjust color */
+  margin: 0 10px;
+}
