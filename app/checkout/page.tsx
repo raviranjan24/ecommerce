@@ -19,21 +19,20 @@ export default function Checkout() {
                                 <h3 className="title">Check Out</h3>
                                 <ul className="breadcrumb">
                                     <li>
-                                        <Link href="index-2.html">Home</Link>
+                                        <Link href="/">Home</Link>
                                     </li>
-                                    <li>Check Out</li>
+                                    <li>Checkout</li>
                                 </ul>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
-            {/* /.page-title */}
-            {/* Section checkout */}
+
             <section>
                 <div className="container">
                     <div className="row">
-                        <div className="col-xl-6">
+                        <div className="col-xl-12">
                             <div className="flat-spacing tf-page-checkout">
                                 <div className="wrap">
                                     <div className="title-login">
@@ -394,114 +393,6 @@ export default function Checkout() {
                                             <i className="icon-arrow-up-right" />
                                         </button>
                                     </form>
-                                </div>
-                            </div>
-                        </div>
-                        <div className="col-xl-1">
-                            <div className="line-separation" />
-                        </div>
-                        <div className="col-xl-5">
-                            <div className="flat-spacing flat-sidebar-checkout">
-                                <div className="sidebar-checkout-content">
-                                    <h5 className="title">Shopping Cart</h5>
-                                    <div className="list-product">
-                                        <div className="item-product">
-                                            <a href="product-detail.html" className="img-product">
-                                                <img src="images/shop/product-6.jpg" alt="img-product" />
-                                            </a>
-                                            <div className="content-box">
-                                                <div className="info">
-                                                    <a
-                                                        href="product-detail.html"
-                                                        className="name-product link text-title"
-                                                    >
-                                                        Open Box - Adjustable...
-                                                    </a>
-                                                    <div className="variant text-caption-1 ">
-                                                        Gray, Size C
-                                                    </div>
-                                                </div>
-                                                <div className="total-price text-button">
-                                                    <span className="count">1</span>X
-                                                    <span className="price">$60.00</span>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div className="item-product">
-                                            <a href="product-detail.html" className="img-product">
-                                                <img src="images/shop/product-4.jpg" alt="img-product" />
-                                            </a>
-                                            <div className="content-box">
-                                                <div className="info">
-                                                    <a
-                                                        href="product-detail.html"
-                                                        className="name-product link text-title"
-                                                    >
-                                                        Ergonomic Chair Pro
-                                                    </a>
-                                                    <div className="variant text-caption-1">
-                                                        Gray, Size C
-                                                    </div>
-                                                </div>
-                                                <div className="total-price text-button">
-                                                    <span className="count">1</span>X
-                                                    <span className="price">$60.00</span>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div className="item-product">
-                                            <a href="product-detail.html" className="img-product">
-                                                <img src="images/shop/product-1.jpg" alt="img-product" />
-                                            </a>
-                                            <div className="content-box">
-                                                <div className="info">
-                                                    <a
-                                                        href="product-detail.html"
-                                                        className="name-product link text-title"
-                                                    >
-                                                        Double Standing Desk
-                                                    </a>
-                                                    <div className="variant text-caption-1">
-                                                        Gray, Size C
-                                                    </div>
-                                                </div>
-                                                <div className="total-price text-button">
-                                                    <span className="count">1</span>X
-                                                    <span className="price">$60.00</span>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div className="sec-discount">
-                                        <div className="ip-discount-code">
-                                            <input type="text" placeholder="Add voucher discount" />
-                                            <button className="tf-btn  btn-onsurface">
-                                                Apply Code
-                                            </button>
-                                        </div>
-                                        <p className="text-body-default">
-                                            Discount code is only used for orders with a total value of
-                                            products over $500.00
-                                        </p>
-                                    </div>
-                                    <div className="sec-total-price">
-                                        <div className="top">
-                                            <div className="item d-flex align-items-center justify-content-between text-button">
-                                                <span>Shipping</span>
-                                                <span>Free</span>
-                                            </div>
-                                            <div className="item d-flex align-items-center justify-content-between text-button">
-                                                <span>Discounts</span>
-                                                <span>-$80.00</span>
-                                            </div>
-                                        </div>
-                                        <div className="bottom">
-                                            <h5 className="d-flex justify-content-between">
-                                                <span>Total</span>
-                                                <span className="total-price-checkout">$186,99</span>
-                                            </h5>
-                                        </div>
-                                    </div>
                                 </div>
                             </div>
                         </div>

@@ -2,7 +2,7 @@ export const sliderData = [
     {
         id: 1,
         slideClass: "slide-1",
-        image: "images/slider/slider-1.jpg",
+        image: "images/homeSlider/banner1.gif",
         title: "Ergonomic Chair Pro",
         description:
             "Get superior support and better posture with ergonomic chairs for long work hours",
@@ -11,7 +11,7 @@ export const sliderData = [
     {
         id: 2,
         slideClass: "slide-2",
-        image: "images/slider/slider-2.jpg",
+        image: "images/homeSlider/banner2.jpg",
         title: "Wireless Charging Dock",
         description:
             "Get superior support and better posture with ergonomic chairs for long work hours",
@@ -20,7 +20,7 @@ export const sliderData = [
     {
         id: 3,
         slideClass: "slide-3",
-        image: "images/slider/slider-3.jpg",
+        image: "images/homeSlider/banner1.gif",
         title: "Ergonomic Chair Pro",
         description:
             "Get superior support and better posture with ergonomic chairs for long work hours",
@@ -29,7 +29,7 @@ export const sliderData = [
     {
         id: 4,
         slideClass: "slide-1",
-        image: "images/slider/slider-1.jpg",
+        image: "images/homeSlider/banner2.jpg",
         title: "Ergonomic Duo Bundle",
         description:
             "Get superior support and better posture with ergonomic chairs for long work hours",

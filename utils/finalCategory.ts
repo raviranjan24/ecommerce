@@ -293,68 +293,68 @@ export const finalCategory: Department[] = [
       },
     ],
   },
-  {
-    department: "Bath & Laundry",
-    image: "Bath & Laundry",
-    categories: [
-      {
-        title: "Bath Linen",
-        items: ["Towels", "Robes", "Bathmats"],
-      },
-      {
-        title: "Bath Accessories",
-        items: [
-          "Holders & Tumblers",
-          "Soap Dispensers",
-          "Soap Dishes",
-          "Bath Sets",
-          "Storage & Mirrors",
-          "Towel Holders",
-          "Toilet Accessories",
-          "Shower Curtains",
-          "Bath Stools",
-        ],
-      },
-      {
-        title: "Laundry",
-        items: [
-          "Laundry Storage & Baskets",
-          "Cleaning Accessories",
-          "Cloth Dryers",
-          "Hangers & Hooks",
-        ],
-      },
-    ],
-  },
-  {
-    department: "Gifting",
-    image: "Gifting",
-    categories: [
-      { title: "Housewarming Gifts", items: [] },
-      { title: "Wedding Gifts", items: [] },
-      { title: "Anniversary Gifts", items: [] },
-      { title: "Birthday Gifts", items: [] },
-      { title: "Gifts for Him", items: [] },
-      { title: "Gifts for Her", items: [] },
-      {
-        title: "Festive Gifts",
-        items: ["New Year Gifts"],
-      },
-      {
-        title: "Special Occasions",
-        items: ["Valentine’s Day Gifts"],
-      },
-      {
-        title: "Shop by Price",
-        items: [
-          "Gifts under ₹200",
-          "Gifts under ₹500",
-          "Gifts under ₹1000",
-          "Gifts under ₹1500",
-          "Gifts under ₹2000",
-          "Gifts above ₹2000",
-        ],
-      },
-    ],
-  },
+  // {
+  //   department: "Bath & Laundry",
+  //   image: "Bath & Laundry",
+  //   categories: [
+  //     {
+  //       title: "Bath Linen",
+  //       items: ["Towels", "Robes", "Bathmats"],
+  //     },
+  //     {
+  //       title: "Bath Accessories",
+  //       items: [
+  //         "Holders & Tumblers",
+  //         "Soap Dispensers",
+  //         "Soap Dishes",
+  //         "Bath Sets",
+  //         "Storage & Mirrors",
+  //         "Towel Holders",
+  //         "Toilet Accessories",
+  //         "Shower Curtains",
+  //         "Bath Stools",
+  //       ],
+  //     },
+  //     {
+  //       title: "Laundry",
+  //       items: [
+  //         "Laundry Storage & Baskets",
+  //         "Cleaning Accessories",
+  //         "Cloth Dryers",
+  //         "Hangers & Hooks",
+  //       ],
+  //     },
+  //   ],
+  // },
+  // {
+  //   department: "Gifting",
+  //   image: "Gifting",
+  //   categories: [
+  //     { title: "Housewarming Gifts", items: [] },
+  //     { title: "Wedding Gifts", items: [] },
+  //     { title: "Anniversary Gifts", items: [] },
+  //     { title: "Birthday Gifts", items: [] },
+  //     { title: "Gifts for Him", items: [] },
+  //     { title: "Gifts for Her", items: [] },
+  //     {
+  //       title: "Festive Gifts",
+  //       items: ["New Year Gifts"],
+  //     },
+  //     {
+  //       title: "Special Occasions",
+  //       items: ["Valentine’s Day Gifts"],
+  //     },
+  //     {
+  //       title: "Shop by Price",
+  //       items: [
+  //         "Gifts under ₹200",
+  //         "Gifts under ₹500",
+  //         "Gifts under ₹1000",
+  //         "Gifts under ₹1500",
+  //         "Gifts under ₹2000",
+  //         "Gifts above ₹2000",
+  //       ],
+  //     },
+  //   ],
+  // },
 ];

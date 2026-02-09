@@ -281,10 +281,10 @@ export default function Cart() {
                                                 </a>
                                             </label>
                                         </fieldset>
-                                        <a href="checkout.html" className="tf-btn btn-onsurface ">
+                                        <Link href="/checkout" className="tf-btn btn-onsurface ">
                                             Process To Checkout
                                             <i className="icon-arrow-up-right" />
-                                        </a>
+                                        </Link>
                                         <a
                                             href="shop-default.html"
                                             className="text-button text-center link"
