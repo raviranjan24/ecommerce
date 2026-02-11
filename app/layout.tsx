@@ -5,8 +5,8 @@ import TopBar from "@/components/common/topBar";
 import Header from "@/components/layout/header";
 import Footer from "@/components/layout/footer";
 import MobileMenu from "@/components/common/mobileMenu";
-import "./globals.css";
 import JqueryLoader from "@/components/common/JqueryLoader";
+import "./globals.css";
 
 export const metadata: Metadata = {
   title: "Helios Home",

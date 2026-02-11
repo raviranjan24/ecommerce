@@ -1,34 +1,9 @@
-import Link from "next/link";
+import Breadcrum from "@/components/common/breadcrum";
 
 export default function Checkout() {
     return (
         <>
-            <div className="page-title relative">
-                <div
-                    className="paralaximg"
-                    data-parallax="scroll"
-                    data-image-src="/images/page-title/page-title-4.jpg"
-                    style={{
-                        backgroundImage: "url(/images/page-title/page-title-3.jpg)"
-                    }}
-                ></div>
-                <div className="content">
-                    <div className="container">
-                        <div className="row">
-                            <div className="col-12">
-                                <h3 className="title">Check Out</h3>
-                                <ul className="breadcrumb">
-                                    <li>
-                                        <Link href="/">Home</Link>
-                                    </li>
-                                    <li>Checkout</li>
-                                </ul>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
+            <Breadcrum title={"Checkout"}/>
             <section>
                 <div className="container">
                     <div className="row">

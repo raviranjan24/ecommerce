@@ -1,34 +1,10 @@
+import Breadcrum from "@/components/common/breadcrum";
 import Link from "next/link";
 
 export default function Login() {
   return (
     <>
-      <div className="page-title relative">
-        <div
-          className="paralaximg"
-          data-parallax="scroll"
-          data-image-src="/images/page-title/page-title-5.jpg"
-          style={{
-            backgroundImage: "url(/images/page-title/page-title-5.jpg)"
-          }}
-        ></div>
-        <div className="content">
-          <div className="container">
-            <div className="row">
-              <div className="col-12">
-                <h3 className="title">Login</h3>
-                <ul className="breadcrumb">
-                  <li>
-                    <Link href="/">Homepage</Link>
-                  </li>
-                  <li>Account</li>
-                </ul>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-      {/* /.page-title */}
+      <Breadcrum title={"Login"}/>
       <section className="flat-spacing">
         <div className="container">
           <div className="login-wrap">

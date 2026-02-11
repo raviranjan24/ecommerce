@@ -1,31 +1,10 @@
+import Breadcrum from "@/components/common/breadcrum";
 import Link from "next/link";
 
 export default function Cart() {
     return (
         <>
-            <div className="page-title relative">
-                <div
-                    className="paralaximg"
-                    data-parallax="scroll"
-                    data-image-src="/images/page-title/page-title-3.jpg"
-                ></div>
-                <div className="content">
-                    <div className="container">
-                        <div className="row">
-                            <div className="col-12">
-                                <h3 className="title">Cart</h3>
-                                <ul className="breadcrumb">
-                                    <li>
-                                        <Link href="/">Home</Link>
-                                    </li>
-                                    <li>Shopping Cart</li>
-                                </ul>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            {/* /.page-title */}
+            <Breadcrum title={"Cart"}/>
             {/* section-cart */}
             <section className="flat-spacing pb-0">
                 <div className="container">

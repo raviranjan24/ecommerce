@@ -1,33 +1,10 @@
+import Breadcrum from "@/components/common/breadcrum";
 import Link from "next/link";
 
 export default function Categories() {
   return (
     <>
-      <div className="page-title relative">
-        <div
-          className="paralaximg"
-          data-parallax="scroll"
-          data-image-src="/images/page-title/page-title-9.jpg"
-          style={{
-            backgroundImage: "url(/images/page-title/page-title-9.jpg)"
-          }}
-        ></div>
-        <div className="content">
-          <div className="container">
-            <div className="row">
-              <div className="col-12">
-                <h3 className="title">Shop</h3>
-                <ul className="breadcrumb">
-                  <li>
-                    <Link href="/">Home</Link>
-                  </li>
-                  <li>Shop</li>
-                </ul>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
+      <Breadcrum title={"Product Category"}/>
       <section className="flat-spacing">
         <div className="container-fluid">
           <div className="tf-shop-control">

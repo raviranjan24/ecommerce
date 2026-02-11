@@ -1,27 +1,11 @@
+import Breadcrum from "@/components/common/breadcrum";
 import { wishlistProducts } from "@/utils/wishlistProducts";
 import Link from "next/link";
 
 const Wishlist=()=>{
   return (
     <>
-      <div className="page-title relative">
-        <div
-          className="paralaximg"
-          data-parallax="scroll"
-          data-image-src="/images/page-title/page-title-3.jpg"
-        />
-        <div className="content">
-          <div className="container">
-            <h3 className="title">Your Wishlist</h3>
-            <ul className="breadcrumb">
-              <li>
-                <Link href="/">Homepage</Link>
-              </li>
-              <li>Your Wishlist</li>
-            </ul>
-          </div>
-        </div>
-      </div>
+    <Breadcrum title={"Your Wishlist"}/>
       <section className="flat-spacing pb-0">
         <div className="container">
           <div className="tf-grid-layout tf-col-2 lg-col-4">
