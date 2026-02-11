@@ -9,18 +9,53 @@ import ShopByCategory from "@/components/common/shopByCategory";
 import CollectionStyle from "@/components/common/collection-style1";
 import CollectionStyle2 from "@/components/common/collection-style2";
 import TopSellers from "@/components/home/topSellers";
+import SingleImage from "@/components/home/singleImage";
+import BannerGrid from "@/components/home/multipleGrid";
 
 export default function page() {
   return (
     <>
       <HomeSlider />
       <ShopByCategory />
+      <SingleImage
+        imageUrl="/images/1.jpg"
+        link="/categories/100"
+        alt="Mega Sale Banner"
+      />
       <MostSellerProducts />
+      <SingleImage
+        imageUrl="/images/10.webp"
+        link="/categories/100"
+        alt="Mega Sale Banner"
+      />
       <CollectionStyle />
+      <BannerGrid />
       <TopSellers />
+      <SingleImage
+        imageUrl="/images/9.jpg"
+        link="/categories/100"
+        alt="Mega Sale Banner"
+      />
       <CollectionStyle />
+      <BannerGrid />
+      <SingleImage
+        imageUrl="/images/3.webp"
+        link="/categories/100"
+        alt="Mega Sale Banner"
+      />
       <MostSellerProducts />
+      <SingleImage
+        imageUrl="/images/5.webp"
+        link="/categories/100"
+        alt="Mega Sale Banner"
+      />
       <CollectionStyle2 />
+      <BannerGrid />
+      <SingleImage
+        imageUrl="/images/7.webp"
+        link="/categories/100"
+        alt="Mega Sale Banner"
+      />
       <Search />
       <ShopingCart />
       <QuickView />
