@@ -156,3 +156,34 @@
   background: white;
   box-shadow: none;
 }
+
+.mega-menu-list {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 40px;
+}
+
+.mega-menu-item {
+  min-width: 180px;
+}
+
+.menu-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.menu-list li {
+  margin-bottom: 6px;
+}
+
+.menu-list li strong {
+  display: block;
+  margin-bottom: 10px;
+  font-weight: 600;
+}
+
+.sub-menu.mega-menu {
+  width: 100%;
+  padding: 30px 0;
+}
