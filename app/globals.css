@@ -53,3 +53,106 @@
   font-size: 13px;
   color: #666;
 }
+
+.product-details-wrapper {
+  padding: 30px;
+  max-width: 600px;
+}
+
+.product-title {
+  font-size: 28px;
+  font-weight: 600;
+}
+
+.collection-link {
+  display: inline-block;
+  margin-bottom: 10px;
+  color: #666;
+  text-decoration: underline;
+}
+
+.product-price {
+  font-size: 26px;
+  font-weight: bold;
+  margin: 15px 0;
+}
+
+.product-rating {
+  font-size: 14px;
+  color: #555;
+  margin-bottom: 25px;
+}
+
+.option-item {
+  border-top: 1px solid #e5e5e5;
+  padding: 18px 0;
+}
+
+.option-header {
+  display: flex;
+  justify-content: space-between;
+  cursor: pointer;
+}
+
+.option-grid {
+  margin-top: 15px;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 10px;
+}
+
+.option-grid button {
+  padding: 12px;
+  border: 1px solid #ccc;
+  background: white;
+  cursor: pointer;
+}
+
+.option-grid button.active {
+  border: 2px solid black;
+}
+
+.selection-summary {
+  background: #f6f6f6;
+  padding: 20px;
+  margin-top: 25px;
+}
+
+.add-to-cart-section {
+  margin-top: 30px;
+}
+
+.add-to-cart-btn {
+  width: 100%;
+  padding: 16px;
+  background: black;
+  color: white;
+  font-size: 16px;
+  border-radius: 40px;
+  border: none;
+}
+
+.option-btn {
+  padding: 14px;
+  border: 1px solid #ddd;
+  background: white;
+  font-size: 14px;
+  transition: 0.2s ease;
+}
+
+.option-btn:hover {
+  border-color: black;
+}
+
+.option-btn.active {
+  border: 2px solid black;
+}
+
+.accordion-button::after {
+  background-size: 14px;
+}
+
+.accordion-button:not(.collapsed) {
+  background: white;
+  box-shadow: none;
+}

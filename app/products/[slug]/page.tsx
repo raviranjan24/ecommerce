@@ -42,7 +42,7 @@ export default function Products() {
           </div>
         </div>
       </div>
-      
+
       <section className="">
         <div className="container">
           <div className="row">
@@ -313,47 +313,6 @@ export default function Products() {
                           </label>
                         </div>
                       </div>
-                      <div className="variant-picker-item">
-                        <div className="d-flex justify-content-between mb_12">
-                          <div className="variant-picker-label">
-                            Size:
-                            <span className="text-title variant-picker-label-value">
-                              Size c - Large
-                            </span>
-                          </div>
-                          <a className="size-guide text-title link show-size-guide">
-                            Find Your Size
-                          </a>
-                        </div>
-                        <div className="variant-picker-values gap12">
-                          <input type="radio" name="size2" id="values-s1" />
-                          <label
-                            className="style-text size-btn"
-                            htmlFor="values-s1"
-                            data-value="Size A - Small"
-                          >
-                            <span className="text-title">Size A - Small</span>
-                          </label>
-                          <input type="radio" name="size2" id="values-s2" />
-                          <label
-                            className="style-text size-btn"
-                            htmlFor="values-s2"
-                            data-price="89.99"
-                            data-value="Size B - Medium"
-                          >
-                            <span className="text-title">Size B - Medium</span>
-                          </label>
-                          <input type="radio" name="size2" id="values-s3" />
-                          <label
-                            className="style-text size-btn"
-                            htmlFor="values-s3"
-                            data-price="99.99"
-                            data-value="Size C - Large"
-                          >
-                            <span className="text-title">Size C - Large</span>
-                          </label>
-                        </div>
-                      </div>
                       <div className="tf-product-info-quantity">
                         <div className="title mb_12">Quantity:</div>
                         <div className="wg-quantity">
@@ -366,6 +325,145 @@ export default function Products() {
                           />
                           <span className="btn-quantity btn-increase">+</span>
                         </div>
+                      </div>
+                      {/* Accordion */}
+                      <div className="accordion" id="productAccordion">
+
+                        {/* 1. Size */}
+                        <div className="accordion-item border-0 border-top">
+                          <h2 className="accordion-header">
+                            <button
+                              className="accordion-button collapsed px-0 shadow-none"
+                              type="button"
+                              data-bs-toggle="collapse"
+                              data-bs-target="#collapseSize"
+                            >
+                              <div className="w-100 d-flex justify-content-between">
+                                <span><strong>1. Size</strong></span>
+                                <span className="text-muted">88" 2-Seat Sofa</span>
+                              </div>
+                            </button>
+                          </h2>
+
+                          <div
+                            id="collapseSize"
+                            className="accordion-collapse collapse"
+                            data-bs-parent="#productAccordion"
+                          >
+                            <div className="accordion-body px-0">
+                              <div className="row g-2">
+                                <div className="col-6">
+                                  <button className="option-btn w-100">
+                                    66" 2-Seat Loveseat
+                                  </button>
+                                </div>
+                                <div className="col-6">
+                                  <button className="option-btn w-100">
+                                    76" 2-Seat Sofa
+                                  </button>
+                                </div>
+                                <div className="col-6">
+                                  <button className="option-btn active w-100">
+                                    88" 2-Seat Sofa
+                                  </button>
+                                </div>
+                                <div className="col-6">
+                                  <button className="option-btn w-100">
+                                    88" 3-Seat Sofa
+                                  </button>
+                                </div>
+                                <div className="col-6">
+                                  <button className="option-btn w-100">
+                                    105" 3-Seat Sofa
+                                  </button>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+
+                        {/* 2. Depth */}
+                        <div className="accordion-item border-0 border-top">
+                          <h2 className="accordion-header">
+                            <button
+                              className="accordion-button collapsed px-0 shadow-none"
+                              type="button"
+                              data-bs-toggle="collapse"
+                              data-bs-target="#collapseDepth"
+                            >
+                              <div className="w-100 d-flex justify-content-between">
+                                <span><strong>2. Depth</strong></span>
+                                <span className="text-muted">Regular: 43"</span>
+                              </div>
+                            </button>
+                          </h2>
+
+                          <div
+                            id="collapseDepth"
+                            className="accordion-collapse collapse"
+                            data-bs-parent="#productAccordion"
+                          >
+                            <div className="accordion-body px-0">
+                              <div className="row g-2">
+                                <div className="col-6">
+                                  <button className="option-btn w-100 active">
+                                    Regular 43"
+                                  </button>
+                                </div>
+                                <div className="col-6">
+                                  <button className="option-btn w-100">
+                                    Deep 47"
+                                  </button>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+
+                        {/* 3. Cushion */}
+                        <div className="accordion-item border-0 border-top">
+                          <h2 className="accordion-header">
+                            <button
+                              className="accordion-button collapsed px-0 shadow-none"
+                              type="button"
+                              data-bs-toggle="collapse"
+                              data-bs-target="#collapseCushion"
+                            >
+                              <div className="w-100 d-flex justify-content-between">
+                                <span><strong>3. Cushion Options</strong></span>
+                                <span className="text-muted">Multi-Cushion</span>
+                              </div>
+                            </button>
+                          </h2>
+
+                          <div
+                            id="collapseCushion"
+                            className="accordion-collapse collapse"
+                            data-bs-parent="#productAccordion"
+                          >
+                            <div className="accordion-body px-0">
+                              <div className="row g-2">
+                                <div className="col-6">
+                                  <button className="option-btn w-100 active">
+                                    Multi-Cushion
+                                  </button>
+                                </div>
+                                <div className="col-6">
+                                  <button className="option-btn w-100">
+                                    Bench Cushion
+                                  </button>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                      {/* Selection Summary */}
+                      <div className="bg-light p-3 mt-4">
+                        <h6 className="fw-semibold">Selection Summary</h6>
+                        <p className="mb-1 small">Size: 88" 2-Seat Sofa</p>
+                        <p className="mb-1 small">Depth: Regular 43"</p>
+                        <p className="mb-1 small">Cushion: Multi-Cushion</p>
                       </div>
                       <div>
                         <div className="tf-product-info-by-btn mb_12">
@@ -614,7 +712,7 @@ export default function Products() {
         </div>
       </section>
       {/* /Section product */}
-      <br/>
+      <br />
       <section className="">
         <div className="container">
           <div className="row">
