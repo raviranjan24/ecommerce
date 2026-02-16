@@ -1,1367 +1,322 @@
-import Breadcrum from "@/components/common/breadcrum";
+"use client";
+import { useState, useMemo } from "react";
 import Link from "next/link";
+// import Breadcrum from "@/components/common/breadcrum";
+const productData = Array.from({ length: 30 }, (_, i) => ({
+  id: i + 1,
+  title:
+    i % 3 === 0
+      ? "Cairo NXT Fabric 3-Seater Recliner - Beige"
+      : i % 3 === 1
+        ? "Cairo NXT Fabric 3-Seater Electric Recliner - Beige"
+        : "Lambert Fabric 3-Seater Recliner - Beige",
+  price: 44999 + (i % 6) * 5000,
+  oldPrice: i % 2 === 0 ? Math.round((44999 + (i % 6) * 5000) * 1.4) : 0,
+  image: "/images/shop/product-1.jpg",
+  hoverImage: "/images/shop/product-1.1.jpg",
+  badge:
+    i % 3 === 0
+      ? "EXTRA 30% COUPON"
+      : i % 3 === 1
+        ? "EXTRA 30% COUPON"
+        : "EXTRA 10% COUPON",
+}));
+
+const PRODUCTS_PER_PAGE = 9;
 
 export default function Categories() {
+  const [currentPage, setCurrentPage] = useState(1);
+  const [sortType, setSortType] = useState("default");
+  const sortedProducts = useMemo(() => {
+    let sorted = [...productData];
+    if (sortType === "low-high") {
+      sorted.sort((a, b) => a.price - b.price);
+    }
+    if (sortType === "high-low") {
+      sorted.sort((a, b) => b.price - a.price);
+    }
+    return sorted;
+  }, [sortType]);
+
+  const totalPages = Math.ceil(sortedProducts.length / PRODUCTS_PER_PAGE);
+  const currentProducts = sortedProducts.slice(
+    (currentPage - 1) * PRODUCTS_PER_PAGE,
+    currentPage * PRODUCTS_PER_PAGE
+  );
   return (
     <>
-      <Breadcrum title={"Product Category"}/>
       <section className="flat-spacing">
         <div className="container-fluid">
-          <div className="tf-shop-control">
-            <div className="tf-control-filter">
-              <Link
-                href="#filterShop"
-                data-bs-toggle="offcanvas"
-                aria-controls="filterShop"
-                className="tf-btn-filter"
-              >
-                <span className="icon icon-filter" />
-                <span className="text">Filters</span>
-              </Link>
-              <div className="d-none d-lg-flex shop-sale-text">
-                <i className="icon icon-checkcircle" />
-                <p className="text-caption-1">Shop sale items only</p>
-              </div>
-            </div>
-            <ul className="tf-control-layout">
-              <li
-                className="tf-view-layout-switch sw-layout-list list-layout"
-                data-value-layout="list"
-              >
-                <div className="item">
-                  <svg
-                    className="icon"
-                    width={20}
-                    height={20}
-                    viewBox="0 0 20 20"
-                    fill="none"
-                    xmlns="http://www.w3.org/2000/svg"
+          <div className="tf-breadcrumb">
+            <div className="container">
+              <div className="tf-breadcrumb-wrap">
+                <div className="tf-breadcrumb-list">
+                  <Link href="/" className="text text-caption-1">
+                    Home
+                  </Link>
+                  <i className="icon icon-right" />
+                  <a href="#" className="text text-caption-1">
+                    Category
+                  </a>
+                  <i className="icon icon-right" />
+                  <span className="text_secondary2 text-caption-1">
+                    Ergonomic Chair
+                  </span>
+                </div>
+                <div className="tf-breadcrumb-prev-next">
+                  <a
+                    href="#"
+                    className="tf-breadcrumb-prev"
                   >
-                    <circle cx={3} cy={6} r="2.5" stroke="#181818" />
-                    <rect
-                      x="7.5"
-                      y="3.5"
-                      width={12}
-                      height={5}
-                      rx="2.5"
-                      stroke="#181818"
-                    />
-                    <circle cx={3} cy={14} r="2.5" stroke="#181818" />
-                    <rect
-                      x="7.5"
-                      y="11.5"
-                      width={12}
-                      height={5}
-                      rx="2.5"
-                      stroke="#181818"
-                    />
-                  </svg>
-                </div>
-              </li>
-              <li
-                className="tf-view-layout-switch sw-layout-2"
-                data-value-layout="tf-col-2"
-              >
-                <div className="item">
-                  <svg
-                    className="icon"
-                    width={20}
-                    height={20}
-                    viewBox="0 0 20 20"
-                    fill="none"
-                    xmlns="http://www.w3.org/2000/svg"
+                    <i className="icon icon-left" />
+                  </a>
+                  <a
+                    href="#"
+                    className="tf-breadcrumb-back"
                   >
-                    <circle cx={6} cy={6} r="2.5" stroke="#181818" />
-                    <circle cx={14} cy={6} r="2.5" stroke="#181818" />
-                    <circle cx={6} cy={14} r="2.5" stroke="#181818" />
-                    <circle cx={14} cy={14} r="2.5" stroke="#181818" />
-                  </svg>
-                </div>
-              </li>
-              <li
-                className="tf-view-layout-switch sw-layout-3"
-                data-value-layout="tf-col-3"
-              >
-                <div className="item">
-                  <svg
-                    className="icon"
-                    width={22}
-                    height={20}
-                    viewBox="0 0 22 20"
-                    fill="none"
-                    xmlns="http://www.w3.org/2000/svg"
+                    <i className="icon icon-squaresfour" />
+                  </a>
+                  <a
+                    href="#"
+                    className="tf-breadcrumb-next"
                   >
-                    <circle cx={3} cy={6} r="2.5" stroke="#181818" />
-                    <circle cx={11} cy={6} r="2.5" stroke="#181818" />
-                    <circle cx={19} cy={6} r="2.5" stroke="#181818" />
-                    <circle cx={3} cy={14} r="2.5" stroke="#181818" />
-                    <circle cx={11} cy={14} r="2.5" stroke="#181818" />
-                    <circle cx={19} cy={14} r="2.5" stroke="#181818" />
-                  </svg>
-                </div>
-              </li>
-              <li
-                className="tf-view-layout-switch sw-layout-4 active"
-                data-value-layout="tf-col-4"
-              >
-                <div className="item">
-                  <svg
-                    className="icon"
-                    width={30}
-                    height={20}
-                    viewBox="0 0 30 20"
-                    fill="none"
-                    xmlns="http://www.w3.org/2000/svg"
-                  >
-                    <circle cx={3} cy={6} r="2.5" stroke="#181818" />
-                    <circle cx={11} cy={6} r="2.5" stroke="#181818" />
-                    <circle cx={19} cy={6} r="2.5" stroke="#181818" />
-                    <circle cx={27} cy={6} r="2.5" stroke="#181818" />
-                    <circle cx={3} cy={14} r="2.5" stroke="#181818" />
-                    <circle cx={11} cy={14} r="2.5" stroke="#181818" />
-                    <circle cx={19} cy={14} r="2.5" stroke="#181818" />
-                    <circle cx={27} cy={14} r="2.5" stroke="#181818" />
-                  </svg>
-                </div>
-              </li>
-            </ul>
-            <div className="tf-control-sorting">
-              <p className="d-none d-lg-block text-caption-1">Sort by:</p>
-              <div className="tf-dropdown-sort" data-bs-toggle="dropdown">
-                <div className="btn-select">
-                  <span className="text-sort-value">Best Selling</span>
-                  <span className="icon icon-down" />
-                </div>
-                <div className="dropdown-menu">
-                  <div className="select-item" data-sort-value="best-selling">
-                    <span className="text-value-item">Best selling</span>
-                  </div>
-                  <div className="select-item" data-sort-value="a-z">
-                    <span className="text-value-item">Alphabetically, A-Z</span>
-                  </div>
-                  <div className="select-item" data-sort-value="z-a">
-                    <span className="text-value-item">Alphabetically, Z-A</span>
-                  </div>
-                  <div className="select-item" data-sort-value="price-low-high">
-                    <span className="text-value-item">Price, low to high</span>
-                  </div>
-                  <div className="select-item" data-sort-value="price-high-low">
-                    <span className="text-value-item">Price, high to low</span>
-                  </div>
+                    <i className="icon icon-right" />
+                  </a>
                 </div>
               </div>
             </div>
           </div>
-          <div className="wrapper-control-shop">
-            <div className="meta-filter-shop">
-              <div id="product-count-grid" className="count-text" />
-              <div id="product-count-list" className="count-text" />
-              <div id="applied-filters" />
-              <button
-                id="remove-all"
-                className="remove-all-filters text-btn-uppercase"
-                style={{ display: "none" }}
-              >
-                REMOVE ALL <i className="icon icon-close" />
-              </button>
+          {/* ===== Top Header + Description (exact match) ===== */}
+          <div className="mb-4">
+            <div className="d-flex justify-content-between align-items-center mb-3">
+              <div>
+                <h4 className="mb-0">3 Seater Recliners for Living Room</h4>
+                <p className="text-muted mb-0">
+                  {sortedProducts.length} products available
+                </p>
+              </div>
+
+              <div className="d-flex align-items-center gap-2">
+                <span className="text-uppercase fw-medium">SORT BY</span>
+                <select
+                  className="form-select w-auto"
+                  onChange={(e) => setSortType(e.target.value)}
+                  value={sortType}
+                >
+                  <option value="default">Relevance</option>
+                  <option value="low-high">Price Low to High</option>
+                  <option value="high-low">Price High to Low</option>
+                </select>
+              </div>
             </div>
-            
-            <div className="tf-grid-layout wrapper-shop tf-col-4" id="gridLayout">
-              {/* card product 1 */}
-              <div
-                className="card-product style-1 grid"
-                data-availability="Out of stock"
-                data-brand="adidas"
-              >
-                <div className="card-product-wrapper">
-                  <Link href="/products/100" className="image-wrap">
-                    <img
-                      className="lazyload img-product"
-                      data-src="/images/shop/product-1.jpg"
-                      src="/images/shop/product-1.jpg"
-                      alt="image-product"
-                    />
-                    <img
-                      className="lazyload img-hover"
-                      data-src="/images/shop/product-1.1.jpg"
-                      src="/images/shop/product-1.1.jpg"
-                      alt="image-product"
-                    />
-                  </Link>
-                  <div className="list-product-btn">
-                    <Link
-                      href="javascript:void(0);"
-                      className="box-icon wishlist btn-icon-action"
-                    >
-                      <span className="icon icon-heart" />
-                      <span className="tooltip">Wishlist</span>
-                    </Link>
-                    <Link
-                      href="#compare"
-                      data-bs-toggle="modal"
-                      aria-controls="compare"
-                      className="box-icon compare"
-                    >
-                      <span className="icon icon-compare" />
-                      <span className="tooltip">Compare</span>
-                    </Link>
-                    <Link
-                      href="#quickView"
-                      data-bs-toggle="modal"
-                      className="box-icon quickview tf-btn-loading"
-                    >
-                      <span className="icon icon-eye" />
-                      <span className="tooltip">Quick View</span>
-                    </Link>
-                  </div>
-                  <div className="list-btn-main">
-                    <Link
-                      href="#shoppingCart"
-                      data-bs-toggle="modal"
-                      className="btn-main-product"
-                    >
-                      Add To cart
-                    </Link>
+
+            {/* Description from screenshot */}
+            <p className="text-muted mb-0">
+              Find out the lavish comfort of our 3-seater recliners, designed to
+              elevate your relaxation experience. With a blend of style and
+              functionality, our 3-seater recliners are the perfect addition to
+              your living room.
+              <a href="#" className="text-primary ms-1">
+                Read more
+              </a>
+            </p>
+          </div>
+
+          <div className="row">
+            {/* ================= Sidebar (exact match to screenshot) ================= */}
+            <div className="col-lg-3">
+              <div className="p-3 border rounded bg-white sticky-top" style={{ top: "100px" }}>
+                <div className="d-flex justify-content-between align-items-center mb-3">
+                  <h5 className="mb-0">FILTERS</h5>
+                  <a href="#" className="text-primary text-decoration-underline small">
+                    Clear all
+                  </a>
+                </div>
+
+                {/* Price */}
+                <div className="mb-4">
+                  <h6 className="mb-2">Price</h6>
+                  <div className="d-flex gap-2">
+                    <div className="flex-fill">
+                      <small className="text-muted">Minimum</small>
+                      <input
+                        type="number"
+                        className="form-control mt-1"
+                        placeholder="₹34999"
+                      />
+                    </div>
+                    <div className="flex-fill">
+                      <small className="text-muted">Maximum</small>
+                      <input
+                        type="number"
+                        className="form-control mt-1"
+                        placeholder="₹204999"
+                      />
+                    </div>
                   </div>
                 </div>
-                <div className="card-product-info ">
-                  <Link href="/products/100" className="title link">
-                    Ergonomic Chair Pro
-                  </Link>
-                  <div className="price text-body-default ">
-                    <span className="text-caption-1 old-price">$98.00</span>
-                    <span className="current-price">$79.99</span>
+
+                {/* Other filters (collapsible style like screenshot) */}
+                <div className="filter-group">
+                  <div className="d-flex justify-content-between align-items-center py-2 border-bottom">
+                    <h6 className="mb-0">Promotions</h6>
+                    <span className="fs-5">+</span>
                   </div>
-                  <ul className="list-color-product">
-                    <li className="list-color-item color-swatch active">
-                      <span className="d-none text-capitalize color-filter">
-                        Light Blue
-                      </span>
-                      <span className="swatch-value bg-light-blue" />
-                      <img
-                        className="lazyload"
-                        data-src="/images/shop/product-1.2.jpg"
-                        src="/images/shop/product-1.2.jpg"
-                        alt="image-product"
-                      />
-                    </li>
-                    <li className="list-color-item color-swatch">
-                      <span className="d-none text-capitalize color-filter">
-                        Light Blue
-                      </span>
-                      <span className="swatch-value bg-light-blue-2" />
-                      <img
-                        className="lazyload"
-                        data-src="/images/shop/product-1.3.jpg"
-                        src="/images/shop/product-1.3.jpg"
-                        alt="image-product"
-                      />
-                    </li>
-                  </ul>
+                  <div className="d-flex justify-content-between align-items-center py-2 border-bottom">
+                    <h6 className="mb-0">Color</h6>
+                    <span className="fs-5">+</span>
+                  </div>
+                  <div className="d-flex justify-content-between align-items-center py-2 border-bottom">
+                    <h6 className="mb-0">Brand</h6>
+                    <span className="fs-5">+</span>
+                  </div>
+                  <div className="d-flex justify-content-between align-items-center py-2 border-bottom">
+                    <h6 className="mb-0">Browse</h6>
+                    <span className="fs-5">+</span>
+                  </div>
+                  <div className="d-flex justify-content-between align-items-center py-2 border-bottom">
+                    <h6 className="mb-0">Type</h6>
+                    <span className="fs-5">+</span>
+                  </div>
+                  <div className="d-flex justify-content-between align-items-center py-2 border-bottom">
+                    <h6 className="mb-0">Discount</h6>
+                    <span className="fs-5">+</span>
+                  </div>
+                  <div className="d-flex justify-content-between align-items-center py-2 border-bottom">
+                    <h6 className="mb-0">Upholstery Material</h6>
+                    <span className="fs-5">+</span>
+                  </div>
+                  <div className="d-flex justify-content-between align-items-center py-2">
+                    <h6 className="mb-0">Seating Capacity</h6>
+                    <span className="fs-5">+</span>
+                  </div>
                 </div>
               </div>
-              {/* card product 2 */}
-              <div
-                className="card-product style-1 grid"
-                data-availability="In stock"
-                data-brand="nike"
-              >
-                <div className="card-product-wrapper">
-                  <Link href="/products/100" className="image-wrap">
-                    <img
-                      className="lazyload img-product"
-                      data-src="/images/shop/product-2.jpg"
-                      src="/images/shop/product-2.jpg"
-                      alt="image-product"
-                    />
-                    <img
-                      className="lazyload img-hover"
-                      data-src="/images/shop/product-2.1.jpg"
-                      src="/images/shop/product-2.1.jpg"
-                      alt="image-product"
-                    />
-                  </Link>
-                  <div className="on-sale-wrap">
-                    <span className="on-sale-item">-25%</span>
+            </div>
+
+            {/* ================= Product Grid (exact match) ================= */}
+            <div className="col-lg-9">
+              <div className="row g-4">
+                {currentProducts.map((product) => (
+                  <div className="col-md-6 col-lg-4" key={product.id}>
+                    <div className="card-product style-1 grid">
+                      <div className="card-product-wrapper">
+                        <Link
+                          href={`/products/${product.id}`}
+                          className="image-wrap position-relative"
+                        >
+                          <img
+                            className="img-product w-100"
+                            src={product.image}
+                            alt={product.title}
+                          />
+                          <img
+                            className="img-hover w-100"
+                            src={product.hoverImage}
+                            alt={product.title}
+                          />
+
+                          {/* Offer badge (exact match to screenshot) */}
+                          {product.badge && (
+                            <div className="position-absolute top-0 start-0 m-3 bg-white px-3 py-1 rounded shadow-sm text-uppercase fw-medium small">
+                              {product.badge}
+                            </div>
+                          )}
+                        </Link>
+
+                        {/* Wishlist */}
+                        <div className="list-product-btn">
+                          <Link
+                            href="#"
+                            className="box-icon wishlist btn-icon-action"
+                          >
+                            <span className="icon icon-heart" />
+                          </Link>
+                        </div>
+
+                        {/* Add to cart (hidden on mobile, shows on hover like most themes) */}
+                        <div className="list-btn-main">
+                          <Link href="#" className="btn-main-product">
+                            Add To Cart
+                          </Link>
+                        </div>
+                      </div>
+
+                      <div className="card-product-info mt-3">
+                        <Link
+                          href={`/products/${product.id}`}
+                          className="title link text-decoration-none"
+                        >
+                          {product.title}
+                        </Link>
+
+                        <div className="price text-body-default mt-1">
+                          {product.oldPrice > 0 && (
+                            <span className="text-caption-1 old-price text-decoration-line-through me-2">
+                              ₹{product.oldPrice.toLocaleString("en-IN")}
+                            </span>
+                          )}
+                          <span className="current-price fw-medium">
+                            ₹{product.price.toLocaleString("en-IN")}
+                          </span>
+                        </div>
+                      </div>
+                    </div>
                   </div>
-                  <div className="list-product-btn">
-                    <Link
-                      href="javascript:void(0);"
-                      className="box-icon wishlist btn-icon-action"
-                    >
-                      <span className="icon icon-heart" />
-                      <span className="tooltip">Wishlist</span>
-                    </Link>
-                    <Link
-                      href="#compare"
-                      data-bs-toggle="modal"
-                      aria-controls="compare"
-                      className="box-icon compare"
-                    >
-                      <span className="icon icon-compare" />
-                      <span className="tooltip">Compare</span>
-                    </Link>
-                    <Link
-                      href="#quickView"
-                      data-bs-toggle="modal"
-                      className="box-icon quickview tf-btn-loading"
-                    >
-                      <span className="icon icon-eye" />
-                      <span className="tooltip">Quick View</span>
-                    </Link>
-                  </div>
-                  <div className="list-btn-main">
-                    <Link
-                      href="#shoppingCart"
-                      data-bs-toggle="modal"
-                      className="btn-main-product"
-                    >
-                      Add To cart
-                    </Link>
-                  </div>
-                </div>
-                <div className="card-product-info ">
-                  <Link href="/products/100" className="title link">
-                    Open Box - Adjustable Laptop Stand
-                  </Link>
-                  <div className="price text-body-default ">
-                    <span className="text-caption-1 old-price">$98.00</span>
-                    <span className="current-price">$69.99</span>
-                  </div>
-                  <ul className="list-color-product">
-                    <li className="list-color-item color-swatch active">
-                      <span className="d-none text-capitalize color-filter">
-                        Light Blue
-                      </span>
-                      <span className="swatch-value bg-light-blue" />
-                      <img
-                        className="lazyload"
-                        data-src="/images/shop/product-2.jpg"
-                        src="/images/shop/product-2.jpg"
-                        alt="image-product"
-                      />
-                    </li>
-                    <li className="list-color-item color-swatch">
-                      <span className="d-none text-capitalize color-filter">
-                        Light Blue
-                      </span>
-                      <span className="swatch-value bg-light-blue-2" />
-                      <img
-                        className="lazyload"
-                        data-src="/images/shop/product-2.2.jpg"
-                        src="/images/shop/product-2.2.jpg"
-                        alt="image-product"
-                      />
-                    </li>
-                  </ul>
-                </div>
+                ))}
               </div>
-              {/* card product 3 */}
-              <div
-                className="card-product style-1 grid"
-                data-availability="In stock"
-                data-brand="LV"
-              >
-                <div className="card-product-wrapper">
-                  <Link href="/products/100" className="image-wrap">
-                    <img
-                      className="lazyload img-product"
-                      data-src="/images/shop/product-3.jpg"
-                      src="/images/shop/product-3.jpg"
-                      alt="image-product"
-                    />
-                    <img
-                      className="lazyload img-hover"
-                      data-src="/images/shop/product-3.1.jpg"
-                      src="/images/shop/product-3.1.jpg"
-                      alt="image-product"
-                    />
-                  </Link>
-                  <div className="on-sale-wrap">
-                    <span className="on-sale-item">-25%</span>
-                  </div>
-                  <div className="list-product-btn">
-                    <Link
-                      href="javascript:void(0);"
-                      className="box-icon wishlist btn-icon-action"
-                    >
-                      <span className="icon icon-heart" />
-                      <span className="tooltip">Wishlist</span>
-                    </Link>
-                    <Link
-                      href="#compare"
-                      data-bs-toggle="modal"
-                      aria-controls="compare"
-                      className="box-icon compare"
-                    >
-                      <span className="icon icon-compare" />
-                      <span className="tooltip">Compare</span>
-                    </Link>
-                    <Link
-                      href="#quickView"
-                      data-bs-toggle="modal"
-                      className="box-icon quickview tf-btn-loading"
-                    >
-                      <span className="icon icon-eye" />
-                      <span className="tooltip">Quick View</span>
-                    </Link>
-                  </div>
-                  <div className="list-btn-main">
-                    <Link
-                      href="#shoppingCart"
-                      data-bs-toggle="modal"
-                      className="btn-main-product"
-                    >
-                      Add To cart
-                    </Link>
-                  </div>
-                </div>
-                <div className="card-product-info ">
-                  <Link href="/products/100" className="title link">
-                    Laptop Stand
-                  </Link>
-                  <div className="price text-body-default ">
-                    <span className="text-caption-1 old-price">$98.00</span>
-                    <span className="current-price">$69.99</span>
-                  </div>
-                  <ul className="list-color-product">
-                    <li className="list-color-item color-swatch active">
-                      <span className="d-none text-capitalize color-filter">
-                        Light Orange
-                      </span>
-                      <span className="swatch-value bg-light-orange" />
-                      <img
-                        className="lazyload"
-                        data-src="/images/shop/product-3.2.jpg"
-                        src="/images/shop/product-3.2.jpg"
-                        alt="image-product"
-                      />
-                    </li>
-                    <li className="list-color-item color-swatch">
-                      <span className="d-none text-capitalize color-filter">
-                        Light Grey
-                      </span>
-                      <span className="swatch-value bg-light-grey" />
-                      <img
-                        className="lazyload"
-                        data-src="/images/shop/product-3.3.jpg"
-                        src="/images/shop/product-3.3.jpg"
-                        alt="image-product"
-                      />
-                    </li>
-                  </ul>
-                </div>
-              </div>
-              {/* card product 4 */}
-              <div
-                className="card-product style-1 grid"
-                data-availability="Out of stock"
-                data-brand="gucci"
-              >
-                <div className="card-product-wrapper">
-                  <Link href="/products/100" className="image-wrap">
-                    <img
-                      className="lazyload img-product"
-                      data-src="/images/shop/product-4.jpg"
-                      src="/images/shop/product-4.jpg"
-                      alt="image-product"
-                    />
-                    <img
-                      className="lazyload img-hover"
-                      data-src="/images/shop/product-4.1.jpg"
-                      src="/images/shop/product-4.1.jpg"
-                      alt="image-product"
-                    />
-                  </Link>
-                  <div className="list-product-btn">
-                    <Link
-                      href="javascript:void(0);"
-                      className="box-icon wishlist btn-icon-action"
-                    >
-                      <span className="icon icon-heart" />
-                      <span className="tooltip">Wishlist</span>
-                    </Link>
-                    <Link
-                      href="#compare"
-                      data-bs-toggle="modal"
-                      aria-controls="compare"
-                      className="box-icon compare"
-                    >
-                      <span className="icon icon-compare" />
-                      <span className="tooltip">Compare</span>
-                    </Link>
-                    <Link
-                      href="#quickView"
-                      data-bs-toggle="modal"
-                      className="box-icon quickview tf-btn-loading"
-                    >
-                      <span className="icon icon-eye" />
-                      <span className="tooltip">Quick View</span>
-                    </Link>
-                  </div>
-                  <div className="list-btn-main">
-                    <Link
-                      href="#shoppingCart"
-                      data-bs-toggle="modal"
-                      className="btn-main-product"
-                    >
-                      Add To cart
-                    </Link>
-                  </div>
-                </div>
-                <div className="card-product-info ">
-                  <Link href="/products/100" className="title link">
-                    Double Standing Desk
-                  </Link>
-                  <div className="price text-body-default ">
-                    <span className="text-caption-1 old-price">$98.00</span>
-                    <span className="current-price">$79.99</span>
-                  </div>
-                  <ul className="list-color-product">
-                    <li className="list-color-item color-swatch active">
-                      <span className="d-none text-capitalize color-filter">
-                        Light Brown
-                      </span>
-                      <span className="swatch-value bg-light-brown" />
-                      <img
-                        className="lazyload"
-                        data-src="/images/shop/product-4.2.jpg"
-                        src="/images/shop/product-4.2.jpg"
-                        alt="image-product"
-                      />
-                    </li>
-                    <li className="list-color-item color-swatch">
-                      <span className="d-none text-capitalize color-filter">
-                        Light Bink
-                      </span>
-                      <span className="swatch-value bg-light-pink" />
-                      <img
-                        className="lazyload"
-                        data-src="/images/shop/product-4.3.jpg"
-                        src="/images/shop/product-4.3.jpg"
-                        alt="image-product"
-                      />
-                    </li>
-                    <li className="list-color-item color-swatch">
-                      <span className="d-none text-capitalize color-filter">
-                        Light Grey
-                      </span>
-                      <span className="swatch-value bg-dark-grey-2" />
-                      <img
-                        className="lazyload"
-                        data-src="/images/shop/product-4.4.jpg"
-                        src="/images/shop/product-4.4.jpg"
-                        alt="image-product"
-                      />
-                    </li>
-                  </ul>
-                </div>
-              </div>
-              {/* card product 5 */}
-              <div
-                className="card-product style-1 grid"
-                data-availability="Out of stock"
-                data-brand="hermes"
-              >
-                <div className="card-product-wrapper">
-                  <Link href="/products/100" className="image-wrap">
-                    <img
-                      className="lazyload img-product"
-                      data-src="/images/shop/product-5.jpg"
-                      src="/images/shop/product-5.jpg"
-                      alt="image-product"
-                    />
-                    <img
-                      className="lazyload img-hover"
-                      data-src="/images/shop/product-5.1.jpg"
-                      src="/images/shop/product-5.1.jpg"
-                      alt="image-product"
-                    />
-                  </Link>
-                  <div className="on-sale-wrap">
-                    <span className="on-sale-item">-25%</span>
-                  </div>
-                  <div className="list-product-btn">
-                    <Link
-                      href="javascript:void(0);"
-                      className="box-icon wishlist btn-icon-action"
-                    >
-                      <span className="icon icon-heart" />
-                      <span className="tooltip">Wishlist</span>
-                    </Link>
-                    <Link
-                      href="#compare"
-                      data-bs-toggle="modal"
-                      aria-controls="compare"
-                      className="box-icon compare"
-                    >
-                      <span className="icon icon-compare" />
-                      <span className="tooltip">Compare</span>
-                    </Link>
-                    <Link
-                      href="#quickView"
-                      data-bs-toggle="modal"
-                      className="box-icon quickview tf-btn-loading"
-                    >
-                      <span className="icon icon-eye" />
-                      <span className="tooltip">Quick View</span>
-                    </Link>
-                  </div>
-                  <div className="list-btn-main">
-                    <Link
-                      href="#shoppingCart"
-                      data-bs-toggle="modal"
-                      className="btn-main-product"
-                    >
-                      Add To cart
-                    </Link>
-                  </div>
-                </div>
-                <div className="card-product-info ">
-                  <Link href="/products/100" className="title link">
-                    Wireless Charging Dock
-                  </Link>
-                  <div className="price text-body-default ">
-                    <span className="text-caption-1 old-price">$98.00</span>
-                    <span className="current-price">$79.99</span>
-                  </div>
-                  <ul className="list-color-product">
-                    <li className="list-color-item color-swatch active">
-                      <span className="d-none text-capitalize color-filter">
-                        Light Orange
-                      </span>
-                      <span className="swatch-value bg-light-orange" />
-                      <img
-                        className="lazyload"
-                        data-src="/images/shop/product-5.2.jpg"
-                        src="/images/shop/product-5.2.jpg"
-                        alt="image-product"
-                      />
-                    </li>
-                    <li className="list-color-item color-swatch">
-                      <span className="d-none text-capitalize color-filter">
-                        Light Grey
-                      </span>
-                      <span className="swatch-value bg-light-grey" />
-                      <img
-                        className="lazyload"
-                        data-src="/images/shop/product-5.3.jpg"
-                        src="/images/shop/product-5.3.jpg"
-                        alt="image-product"
-                      />
-                    </li>
-                  </ul>
-                </div>
-              </div>
-              {/* card product 6 */}
-              <div
-                className="card-product style-1 grid"
-                data-availability="In stock"
-                data-brand="zalando"
-              >
-                <div className="card-product-wrapper">
-                  <Link href="/products/100" className="image-wrap">
-                    <img
-                      className="lazyload img-product"
-                      data-src="/images/shop/product-6.jpg"
-                      src="/images/shop/product-6.jpg"
-                      alt="image-product"
-                    />
-                    <img
-                      className="lazyload img-hover"
-                      data-src="/images/shop/product-6.1.jpg"
-                      src="/images/shop/product-6.1.jpg"
-                      alt="image-product"
-                    />
-                  </Link>
-                  <div className="list-product-btn">
-                    <Link
-                      href="javascript:void(0);"
-                      className="box-icon wishlist btn-icon-action"
-                    >
-                      <span className="icon icon-heart" />
-                      <span className="tooltip">Wishlist</span>
-                    </Link>
-                    <Link
-                      href="#compare"
-                      data-bs-toggle="modal"
-                      aria-controls="compare"
-                      className="box-icon compare"
-                    >
-                      <span className="icon icon-compare" />
-                      <span className="tooltip">Compare</span>
-                    </Link>
-                    <Link
-                      href="#quickView"
-                      data-bs-toggle="modal"
-                      className="box-icon quickview tf-btn-loading"
-                    >
-                      <span className="icon icon-eye" />
-                      <span className="tooltip">Quick View</span>
-                    </Link>
-                  </div>
-                  <div className="list-btn-main">
-                    <Link
-                      href="#shoppingCart"
-                      data-bs-toggle="modal"
-                      className="btn-main-product"
-                    >
-                      Add To cart
-                    </Link>
-                  </div>
-                </div>
-                <div className="card-product-info ">
-                  <Link href="/products/100" className="title link">
-                    Ergonomic Headrest
-                  </Link>
-                  <div className="price text-body-default ">
-                    <span className="text-caption-1 old-price">$98.00</span>
-                    <span className="current-price">$79.99</span>
-                  </div>
-                  <ul className="list-color-product">
-                    <li className="list-color-item color-swatch active">
-                      <span className="d-none text-capitalize color-filter">
-                        Light Blue
-                      </span>
-                      <span className="swatch-value bg-light-blue" />
-                      <img
-                        className="lazyload"
-                        data-src="/images/shop/product-6.jpg"
-                        src="/images/shop/product-6.jpg"
-                        alt="image-product"
-                      />
-                    </li>
-                    <li className="list-color-item color-swatch">
-                      <span className="d-none text-capitalize color-filter">
-                        Light Blue
-                      </span>
-                      <span className="swatch-value bg-light-blue-2" />
-                      <img
-                        className="lazyload"
-                        data-src="/images/shop/product-6.2.jpg"
-                        src="/images/shop/product-6.2.jpg"
-                        alt="image-product"
-                      />
-                    </li>
-                  </ul>
-                </div>
-              </div>
-              {/* card product 7 */}
-              <div
-                className="card-product style-1 grid"
-                data-availability="In stock"
-                data-brand="nike"
-              >
-                <div className="card-product-wrapper">
-                  <Link href="/products/100" className="image-wrap">
-                    <img
-                      className="lazyload img-product"
-                      data-src="/images/shop/product-7.jpg"
-                      src="/images/shop/product-7.jpg"
-                      alt="image-product"
-                    />
-                    <img
-                      className="lazyload img-hover"
-                      data-src="/images/shop/product-7.1.jpg"
-                      src="/images/shop/product-7.1.jpg"
-                      alt="image-product"
-                    />
-                  </Link>
-                  <div className="on-sale-wrap">
-                    <span className="on-sale-item">-25%</span>
-                  </div>
-                  <div className="list-product-btn">
-                    <Link
-                      href="javascript:void(0);"
-                      className="box-icon wishlist btn-icon-action"
-                    >
-                      <span className="icon icon-heart" />
-                      <span className="tooltip">Wishlist</span>
-                    </Link>
-                    <Link
-                      href="#compare"
-                      data-bs-toggle="modal"
-                      aria-controls="compare"
-                      className="box-icon compare"
-                    >
-                      <span className="icon icon-compare" />
-                      <span className="tooltip">Compare</span>
-                    </Link>
-                    <Link
-                      href="#quickView"
-                      data-bs-toggle="modal"
-                      className="box-icon quickview tf-btn-loading"
-                    >
-                      <span className="icon icon-eye" />
-                      <span className="tooltip">Quick View</span>
-                    </Link>
-                  </div>
-                  <div className="list-btn-main">
-                    <Link
-                      href="#shoppingCart"
-                      data-bs-toggle="modal"
-                      className="btn-main-product"
-                    >
-                      Add To cart
-                    </Link>
-                  </div>
-                </div>
-                <div className="card-product-info ">
-                  <Link href="/products/100" className="title link">
-                    Hybrid Laptop Sleeve
-                  </Link>
-                  <div className="price text-body-default ">
-                    <span className="text-caption-1 old-price">$98.00</span>
-                    <span className="current-price">$69.99</span>
-                  </div>
-                  <ul className="list-color-product">
-                    <li className="list-color-item color-swatch active">
-                      <span className="d-none text-capitalize color-filter">
-                        Light Blue
-                      </span>
-                      <span className="swatch-value bg-light-blue" />
-                      <img
-                        className="lazyload"
-                        data-src="/images/shop/product-7.2.jpg"
-                        src="/images/shop/product-7.2.jpg"
-                        alt="image-product"
-                      />
-                    </li>
-                    <li className="list-color-item color-swatch">
-                      <span className="d-none text-capitalize color-filter">
-                        Light Blue
-                      </span>
-                      <span className="swatch-value bg-light-blue-2" />
-                      <img
-                        className="lazyload"
-                        data-src="/images/shop/product-7.3.jpg"
-                        src="/images/shop/product-7.3.jpg"
-                        alt="image-product"
-                      />
-                    </li>
-                  </ul>
-                </div>
-              </div>
-              {/* card product 8 */}
-              <div
-                className="card-product style-1 grid"
-                data-availability="In stock"
-                data-brand="LV"
-              >
-                <div className="card-product-wrapper">
-                  <Link href="/products/100" className="image-wrap">
-                    <img
-                      className="lazyload img-product"
-                      data-src="/images/shop/product-8.jpg"
-                      src="/images/shop/product-8.jpg"
-                      alt="image-product"
-                    />
-                    <img
-                      className="lazyload img-hover"
-                      data-src="/images/shop/product-8.1.jpg"
-                      src="/images/shop/product-8.1.jpg"
-                      alt="image-product"
-                    />
-                  </Link>
-                  <div className="list-product-btn">
-                    <Link
-                      href="javascript:void(0);"
-                      className="box-icon wishlist btn-icon-action"
-                    >
-                      <span className="icon icon-heart" />
-                      <span className="tooltip">Wishlist</span>
-                    </Link>
-                    <Link
-                      href="#compare"
-                      data-bs-toggle="modal"
-                      aria-controls="compare"
-                      className="box-icon compare"
-                    >
-                      <span className="icon icon-compare" />
-                      <span className="tooltip">Compare</span>
-                    </Link>
-                    <Link
-                      href="#quickView"
-                      data-bs-toggle="modal"
-                      className="box-icon quickview tf-btn-loading"
-                    >
-                      <span className="icon icon-eye" />
-                      <span className="tooltip">Quick View</span>
-                    </Link>
-                  </div>
-                  <div className="list-btn-main">
-                    <Link
-                      href="#shoppingCart"
-                      data-bs-toggle="modal"
-                      className="btn-main-product"
-                    >
-                      Add To cart
-                    </Link>
-                  </div>
-                </div>
-                <div className="card-product-info ">
-                  <Link href="/products/100" className="title link">
-                    Wireless Charging Tray
-                  </Link>
-                  <div className="price text-body-default ">
-                    <span className="text-caption-1 old-price">$98.00</span>
-                    <span className="current-price">$79.99</span>
-                  </div>
-                  <ul className="list-color-product">
-                    <li className="list-color-item color-swatch active">
-                      <span className="d-none text-capitalize color-filter">
-                        Light Brown
-                      </span>
-                      <span className="swatch-value bg-light-brown" />
-                      <img
-                        className="lazyload"
-                        data-src="/images/shop/product-8.2.jpg"
-                        src="/images/shop/product-8.2.jpg"
-                        alt="image-product"
-                      />
-                    </li>
-                    <li className="list-color-item color-swatch">
-                      <span className="d-none text-capitalize color-filter">
-                        Light Bink
-                      </span>
-                      <span className="swatch-value bg-light-pink" />
-                      <img
-                        className="lazyload"
-                        data-src="/images/shop/product-8.3.jpg"
-                        src="/images/shop/product-8.3.jpg"
-                        alt="image-product"
-                      />
-                    </li>
-                    <li className="list-color-item color-swatch">
-                      <span className="d-none text-capitalize color-filter">
-                        Light Grey
-                      </span>
-                      <span className="swatch-value bg-dark-grey-2" />
-                      <img
-                        className="lazyload"
-                        data-src="/images/shop/product-8.4.jpg"
-                        src="/images/shop/product-8.4.jpg"
-                        alt="image-product"
-                      />
-                    </li>
-                  </ul>
-                </div>
-              </div>
-              {/* card product 9 */}
-              <div
-                className="card-product style-1 grid"
-                data-availability="In stock"
-                data-brand="hermes"
-              >
-                <div className="card-product-wrapper">
-                  <Link href="/products/100" className="image-wrap">
-                    <img
-                      className="lazyload img-product"
-                      data-src="/images/shop/product-9.jpg"
-                      src="/images/shop/product-9.jpg"
-                      alt="image-product"
-                    />
-                    <img
-                      className="lazyload img-hover"
-                      data-src="/images/shop/product-9.1.jpg"
-                      src="/images/shop/product-9.1.jpg"
-                      alt="image-product"
-                    />
-                  </Link>
-                  <div className="list-product-btn">
-                    <Link
-                      href="javascript:void(0);"
-                      className="box-icon wishlist btn-icon-action"
-                    >
-                      <span className="icon icon-heart" />
-                      <span className="tooltip">Wishlist</span>
-                    </Link>
-                    <Link
-                      href="#compare"
-                      data-bs-toggle="modal"
-                      aria-controls="compare"
-                      className="box-icon compare"
-                    >
-                      <span className="icon icon-compare" />
-                      <span className="tooltip">Compare</span>
-                    </Link>
-                    <Link
-                      href="#quickView"
-                      data-bs-toggle="modal"
-                      className="box-icon quickview tf-btn-loading"
-                    >
-                      <span className="icon icon-eye" />
-                      <span className="tooltip">Quick View</span>
-                    </Link>
-                  </div>
-                  <div className="list-btn-main">
-                    <Link
-                      href="#shoppingCart"
-                      data-bs-toggle="modal"
-                      className="btn-main-product"
-                    >
-                      Add To cart
-                    </Link>
-                  </div>
-                </div>
-                <div className="card-product-info ">
-                  <Link href="/products/100" className="title link">
-                    Softside Chair
-                  </Link>
-                  <div className="price text-body-default ">
-                    <span className="text-caption-1 old-price">$98.00</span>
-                    <span className="current-price">$79.99</span>
-                  </div>
-                  <ul className="list-color-product">
-                    <li className="list-color-item color-swatch active">
-                      <span className="d-none text-capitalize color-filter">
-                        Light Blue
-                      </span>
-                      <span className="swatch-value bg-light-blue" />
-                      <img
-                        className="lazyload"
-                        data-src="/images/shop/product-9.2.jpg"
-                        src="/images/shop/product-9.2.jpg"
-                        alt="image-product"
-                      />
-                    </li>
-                    <li className="list-color-item color-swatch">
-                      <span className="d-none text-capitalize color-filter">
-                        Light Blue
-                      </span>
-                      <span className="swatch-value bg-light-blue-2" />
-                      <img
-                        className="lazyload"
-                        data-src="/images/shop/product-9.3.jpg"
-                        src="/images/shop/product-9.3.jpg"
-                        alt="image-product"
-                      />
-                    </li>
-                  </ul>
-                </div>
-              </div>
-              {/* card product 10 */}
-              <div
-                className="card-product style-1 grid"
-                data-availability="In stock"
-                data-brand="gucci"
-              >
-                <div className="card-product-wrapper">
-                  <Link href="/products/100" className="image-wrap">
-                    <img
-                      className="lazyload img-product"
-                      data-src="/images/shop/product-10.jpg"
-                      src="/images/shop/product-10.jpg"
-                      alt="image-product"
-                    />
-                    <img
-                      className="lazyload img-hover"
-                      data-src="/images/shop/product-10.1.jpg"
-                      src="/images/shop/product-10.1.jpg"
-                      alt="image-product"
-                    />
-                  </Link>
-                  <div className="on-sale-wrap">
-                    <span className="on-sale-item">-25%</span>
-                  </div>
-                  <div className="list-product-btn">
-                    <Link
-                      href="javascript:void(0);"
-                      className="box-icon wishlist btn-icon-action"
-                    >
-                      <span className="icon icon-heart" />
-                      <span className="tooltip">Wishlist</span>
-                    </Link>
-                    <Link
-                      href="#compare"
-                      data-bs-toggle="modal"
-                      aria-controls="compare"
-                      className="box-icon compare"
-                    >
-                      <span className="icon icon-compare" />
-                      <span className="tooltip">Compare</span>
-                    </Link>
-                    <Link
-                      href="#quickView"
-                      data-bs-toggle="modal"
-                      className="box-icon quickview tf-btn-loading"
-                    >
-                      <span className="icon icon-eye" />
-                      <span className="tooltip">Quick View</span>
-                    </Link>
-                  </div>
-                  <div className="list-btn-main">
-                    <Link
-                      href="#shoppingCart"
-                      data-bs-toggle="modal"
-                      className="btn-main-product"
-                    >
-                      Add To cart
-                    </Link>
-                  </div>
-                </div>
-                <div className="card-product-info ">
-                  <Link href="/products/100" className="title link">
-                    Double Standing Desk
-                  </Link>
-                  <div className="price text-body-default ">
-                    <span className="text-caption-1 old-price">$98.00</span>
-                    <span className="current-price">$79.99</span>
-                  </div>
-                  <ul className="list-color-product">
-                    <li className="list-color-item color-swatch active">
-                      <span className="d-none text-capitalize color-filter">
-                        Light Blue
-                      </span>
-                      <span className="swatch-value bg-light-blue" />
-                      <img
-                        className="lazyload"
-                        data-src="/images/shop/product-10.2.jpg"
-                        src="/images/shop/product-10.2.jpg"
-                        alt="image-product"
-                      />
-                    </li>
-                    <li className="list-color-item color-swatch">
-                      <span className="d-none text-capitalize color-filter">
-                        Light Blue
-                      </span>
-                      <span className="swatch-value bg-light-blue-2" />
-                      <img
-                        className="lazyload"
-                        data-src="/images/shop/product-10.3.jpg"
-                        src="/images/shop/product-10.3.jpg"
-                        alt="image-product"
-                      />
-                    </li>
-                  </ul>
-                </div>
-              </div>
-              {/* card product 11 */}
-              <div
-                className="card-product style-1 grid"
-                data-availability="In stock"
-                data-brand="zalando"
-              >
-                <div className="card-product-wrapper">
-                  <Link href="/products/100" className="image-wrap">
-                    <img
-                      className="lazyload img-product"
-                      data-src="/images/shop/product-11.jpg"
-                      src="/images/shop/product-11.jpg"
-                      alt="image-product"
-                    />
-                    <img
-                      className="lazyload img-hover"
-                      data-src="/images/shop/product-11.1.jpg"
-                      src="/images/shop/product-11.1.jpg"
-                      alt="image-product"
-                    />
-                  </Link>
-                  <div className="on-sale-wrap">
-                    <span className="on-sale-item">-25%</span>
-                  </div>
-                  <div className="list-product-btn">
-                    <Link
-                      href="javascript:void(0);"
-                      className="box-icon wishlist btn-icon-action"
-                    >
-                      <span className="icon icon-heart" />
-                      <span className="tooltip">Wishlist</span>
-                    </Link>
-                    <Link
-                      href="#compare"
-                      data-bs-toggle="modal"
-                      aria-controls="compare"
-                      className="box-icon compare"
-                    >
-                      <span className="icon icon-compare" />
-                      <span className="tooltip">Compare</span>
-                    </Link>
-                    <Link
-                      href="#quickView"
-                      data-bs-toggle="modal"
-                      className="box-icon quickview tf-btn-loading"
-                    >
-                      <span className="icon icon-eye" />
-                      <span className="tooltip">Quick View</span>
-                    </Link>
-                  </div>
-                  <div className="list-btn-main">
-                    <Link
-                      href="#shoppingCart"
-                      data-bs-toggle="modal"
-                      className="btn-main-product"
-                    >
-                      Add To cart
-                    </Link>
-                  </div>
-                </div>
-                <div className="card-product-info ">
-                  <Link href="/products/100" className="title link">
-                    Duo Standing Desk
-                  </Link>
-                  <div className="price text-body-default ">
-                    <span className="text-caption-1 old-price">$98.00</span>
-                    <span className="current-price">$69.99</span>
-                  </div>
-                  <ul className="list-color-product">
-                    <li className="list-color-item color-swatch active">
-                      <span className="d-none text-capitalize color-filter">
-                        Light Orange
-                      </span>
-                      <span className="swatch-value bg-light-orange" />
-                      <img
-                        className="lazyload"
-                        data-src="/images/shop/product-11.2.jpg"
-                        src="/images/shop/product-11.2.jpg"
-                        alt="image-product"
-                      />
-                    </li>
-                    <li className="list-color-item color-swatch">
-                      <span className="d-none text-capitalize color-filter">
-                        Light Grey
-                      </span>
-                      <span className="swatch-value bg-light-grey" />
-                      <img
-                        className="lazyload"
-                        data-src="/images/shop/product-11.3.jpg"
-                        src="/images/shop/product-11.3.jpg"
-                        alt="image-product"
-                      />
-                    </li>
-                  </ul>
-                </div>
-              </div>
-              {/* card product 12 */}
-              <div
-                className="card-product style-1 grid"
-                data-availability="In stock"
-                data-brand="adidas"
-              >
-                <div className="card-product-wrapper">
-                  <Link href="/products/100" className="image-wrap">
-                    <img
-                      className="lazyload img-product"
-                      data-src="/images/shop/product-12.jpg"
-                      src="/images/shop/product-12.jpg"
-                      alt="image-product"
-                    />
-                    <img
-                      className="lazyload img-hover"
-                      data-src="/images/shop/product-12.1.jpg"
-                      src="/images/shop/product-12.1.jpg"
-                      alt="image-product"
-                    />
-                  </Link>
-                  <div className="list-product-btn">
-                    <Link
-                      href="javascript:void(0);"
-                      className="box-icon wishlist btn-icon-action"
-                    >
-                      <span className="icon icon-heart" />
-                      <span className="tooltip">Wishlist</span>
-                    </Link>
-                    <Link
-                      href="#compare"
-                      data-bs-toggle="modal"
-                      aria-controls="compare"
-                      className="box-icon compare"
-                    >
-                      <span className="icon icon-compare" />
-                      <span className="tooltip">Compare</span>
-                    </Link>
-                    <Link
-                      href="#quickView"
-                      data-bs-toggle="modal"
-                      className="box-icon quickview tf-btn-loading"
-                    >
-                      <span className="icon icon-eye" />
-                      <span className="tooltip">Quick View</span>
-                    </Link>
-                  </div>
-                  <div className="list-btn-main">
-                    <Link
-                      href="#shoppingCart"
-                      data-bs-toggle="modal"
-                      className="btn-main-product"
-                    >
-                      Add To cart
-                    </Link>
-                  </div>
-                </div>
-                <div className="card-product-info ">
-                  <Link href="/products/100" className="title link">
-                    Alumina Lamp
-                  </Link>
-                  <div className="price text-body-default ">
-                    <span className="text-caption-1 old-price">$98.00</span>
-                    <span className="current-price">$79.99</span>
-                  </div>
-                  <ul className="list-color-product">
-                    <li className="list-color-item color-swatch active">
-                      <span className="d-none text-capitalize color-filter">
-                        Light Brown
-                      </span>
-                      <span className="swatch-value bg-light-brown" />
-                      <img
-                        className="lazyload"
-                        data-src="/images/shop/product-12.2.jpg"
-                        src="/images/shop/product-12.2.jpg"
-                        alt="image-product"
-                      />
-                    </li>
-                    <li className="list-color-item color-swatch">
-                      <span className="d-none text-capitalize color-filter">
-                        Light Bink
-                      </span>
-                      <span className="swatch-value bg-light-pink" />
-                      <img
-                        className="lazyload"
-                        data-src="/images/shop/product-12.3.jpg"
-                        src="/images/shop/product-12.3.jpg"
-                        alt="image-product"
-                      />
-                    </li>
-                    <li className="list-color-item color-swatch">
-                      <span className="d-none text-capitalize color-filter">
-                        Light Grey
-                      </span>
-                      <span className="swatch-value bg-dark-grey-2" />
-                      <img
-                        className="lazyload"
-                        data-src="/images/shop/product-12.4.jpg"
-                        src="/images/shop/product-12.4.jpg"
-                        alt="image-product"
-                      />
-                    </li>
-                  </ul>
-                </div>
-              </div>
-              {/* pagination */}
-              <ul className="wg-pagination justify-content-center">
-                <li>
-                  <Link href="#" className="pagination-item text-button">
-                    1
-                  </Link>
+
+              {/* ================= Your Pagination (kept as requested) ================= */}
+              <ul className="pagination justify-content-center mt-5">
+                <li
+                  className={`page-item ${currentPage === 1 ? "disabled" : ""}`}
+                >
+                  <button
+                    className="page-link"
+                    onClick={() => setCurrentPage(currentPage - 1)}
+                  >
+                    Prev
+                  </button>
                 </li>
-                <li className="active">
-                  <div className="pagination-item text-button">2</div>
-                </li>
-                <li>
-                  <Link href="#" className="pagination-item text-button">
-                    3
-                  </Link>
-                </li>
-                <li>
-                  <Link href="#" className="pagination-item text-button">
-                    <i className="icon-right" />
-                  </Link>
+                {Array.from({ length: totalPages }, (_, i) => (
+                  <li
+                    key={i}
+                    className={`page-item ${currentPage === i + 1 ? "active" : ""
+                      }`}
+                  >
+                    <button
+                      className="page-link"
+                      onClick={() => setCurrentPage(i + 1)}
+                    >
+                      {i + 1}
+                    </button>
+                  </li>
+                ))}
+                <li
+                  className={`page-item ${currentPage === totalPages ? "disabled" : ""
+                    }`}
+                >
+                  <button
+                    className="page-link"
+                    onClick={() => setCurrentPage(currentPage + 1)}
+                  >
+                    Next
+                  </button>
                 </li>
               </ul>
             </div>
           </div>
         </div>
       </section>
+      <style jsx>{`
+        .card-product-wrapper .image-wrap {
+          overflow: hidden;
+        }
+        .product-badge {
+          font-size: 12px;
+          padding: 6px 12px;
+        }
+      `}</style>
     </>
-  )
+  );
 }

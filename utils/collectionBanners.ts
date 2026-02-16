@@ -1,7 +1,7 @@
 export const collectionBanners = [
   {
     id: 1,
-    image: "images/banner/banner-4.jpg",
+    image: "/images/2.webp",
     title: "Ergonomic Chair Sale",
     description: "Reserved for long work hours.",
     titleLink: "/products/100",
@@ -12,7 +12,7 @@ export const collectionBanners = [
   },
   {
     id: 2,
-    image: "images/banner/banner-5.jpg",
+    image: "/images/4.gif",
     title: "Storage Cabinet Deals",
     description: "Reserved for organized workspaces.",
     titleLink: "/categories/100",
@@ -23,7 +23,7 @@ export const collectionBanners = [
   },
   {
     id: 3,
-    image: "images/banner/banner-1.jpg",
+    image: "/images/6.webp",
     title: "Super Sale Up To 50%",
     description: "Reserved for special occasions",
     titleLink: "/products/100",

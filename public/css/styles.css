@@ -324,8 +324,8 @@ h2 {
 }
 
 h3 {
-  font-size: 40px;
-  line-height: 48px;
+  font-size: 29px;
+  line-height: 18px;
 }
 
 h4,
@@ -1387,12 +1387,12 @@ header {
 .box-nav-ul {
   display: flex;
   align-items: center;
-  justify-content: center;
-  gap: 32px;
+  /* justify-content: center; */
+  gap: 24px;
 }
 .box-nav-ul .menu-item {
-  padding: 34px 0;
-  text-transform: uppercase;
+  /* padding: 34px 10px; */
+  /* text-transform: uppercase; */
 }
 .box-nav-ul .menu-item:hover > .sub-menu {
   pointer-events: all;
@@ -1424,7 +1424,7 @@ header {
   display: flex;
   gap: 4px;
   align-items: center;
-  font-size: 14px;
+  font-size: 15px;
   line-height: 22px;
   position: relative;
 }
@@ -2907,6 +2907,7 @@ footer .footer-bottom-wrap .left {
   align-items: center;
   max-width: max-content;
   gap: 8px;
+  font-weight: bold;
 }
 .btn-line span {
   position: relative;
@@ -12110,3 +12111,47 @@ ul.list-text.type-number {
 }
 
 /*# sourceMappingURL=styles.css.map */
+
+.mega-menu {
+  position: absolute;
+  left: 0;
+  width: 100%;
+  background: #fff;
+  padding: 40px 0;
+  display: none;
+}
+
+.mega-parent:hover .mega-menu {
+  display: block;
+}
+
+.mega-grid {
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
+  gap: 40px;
+}
+
+.mega-column h6 {
+  font-weight: 700;
+  margin-bottom: 10px;
+  font-size: 14px !important;
+}
+
+.mega-column ul {
+  list-style: none;
+  padding: 0;
+}
+
+.mega-column ul li {
+  margin-bottom: 8px;
+}
+
+.mega-column ul li a {
+  color: #555;
+  font-size: 13px;
+  text-decoration: none;
+}
+
+.mega-column ul li a:hover {
+  color: #000;
+}

@@ -3,7 +3,7 @@ import Link from "next/link";
 
 const MostSellerProducts = () => {
   return (
-    <section className="flat-spacing-5 pt-0">
+    <section className="pt-0">
       <div className="container-fluid">
         <div className="row">
           <div className="col-12">

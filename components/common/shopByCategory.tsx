@@ -3,7 +3,7 @@ import Link from "next/link";
 
 const ShopByCategory = () => {
   return (
-    <section className="flat-spacing-2">
+    <section>
       <div className="container-fluid">
         <div className="col-12">
           <div className="heading-section style-2">

@@ -6,7 +6,7 @@ export const sliderData = [
         title: "Ergonomic Chair Pro",
         description:
             "Get superior support and better posture with ergonomic chairs for long work hours",
-        link: "shop-default.html",
+        link: "/categories/100",
     },
     {
         id: 2,
@@ -15,7 +15,7 @@ export const sliderData = [
         title: "Wireless Charging Dock",
         description:
             "Get superior support and better posture with ergonomic chairs for long work hours",
-        link: "shop-default.html",
+        link: "/categories/100",
     },
     {
         id: 3,
@@ -24,7 +24,7 @@ export const sliderData = [
         title: "Ergonomic Chair Pro",
         description:
             "Get superior support and better posture with ergonomic chairs for long work hours",
-        link: "shop-default.html",
+        link: "/categories/100",
     },
     {
         id: 4,
@@ -33,6 +33,6 @@ export const sliderData = [
         title: "Ergonomic Duo Bundle",
         description:
             "Get superior support and better posture with ergonomic chairs for long work hours",
-        link: "shop-default.html",
+        link: "/categories/100",
     },
 ];

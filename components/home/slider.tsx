@@ -1,4 +1,5 @@
 import { sliderData } from "@/utils/sliderData";
+import Link from "next/link";
 const HomeSlider = () => {
     return (
         <div className="tf-slideshow style-default slider-nav-sw slider-effect-fade efect-2">
@@ -40,12 +41,12 @@ const HomeSlider = () => {
                                         </p>
                                     </div>
 
-                                    <a
+                                    <Link
                                         href={item.link}
                                         className="tf-btn btn-white fade-item fade-item-3"
                                     >
                                         Explore Collection <i className="icon-arrow-up-right" />
-                                    </a>
+                                    </Link>
                                 </div>
                             </div>
                         </div>
