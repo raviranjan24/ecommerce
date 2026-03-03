@@ -1388,7 +1388,7 @@ header {
   display: flex;
   align-items: center;
   /* justify-content: center; */
-  gap: 24px;
+  gap: 18px;
 }
 .box-nav-ul .menu-item {
   /* padding: 34px 10px; */
@@ -1424,7 +1424,7 @@ header {
   display: flex;
   gap: 4px;
   align-items: center;
-  font-size: 15px;
+  font-size: 13px;
   line-height: 22px;
   position: relative;
 }
@@ -2573,6 +2573,9 @@ footer .footer-bottom-wrap .left {
   height: 60px;
   width: 60px;
   top: calc(50% - 8px);
+}
+.swiper{
+  height: 400px;
 }
 .tf-slideshow .sw-button.swiper-button-next {
   right: 38px;

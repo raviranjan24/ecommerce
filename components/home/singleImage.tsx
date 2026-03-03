@@ -13,7 +13,7 @@ const SingleImage: React.FC<SingleImageProps> = ({
     alt = "banner",
 }) => {
     return (
-        <div style={{padding:"0px 0px 20px 0px"}}>
+        <div style={{padding:"0px 0px 0px 0px"}}>
             <Link href={link} style={{ width: "100%" }}>
                 <div
                     style={{

@@ -3,7 +3,7 @@ import SingleImage from "./singleImage";
 
 const BannerGrid = () => {
   return (
-    <div className="container-fluid">
+    <div className="container-fluid" style={{ margin: "-40px 0px -50px 0px" }}>
       <div className="row g-4">
         <div className="col-12 col-md-4">
           <SingleImage

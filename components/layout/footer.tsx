@@ -173,7 +173,7 @@ const Footer = () => {
                                             Copyright ©2026 Helios Home. All Rights Reserved.
                                         </p>
                                     </div>
-                                    <div className="center">
+                                    {/* <div className="center">
                                         <div className="tf-currencies">
                                             <select className="image-select center style-default style-box  type-currencies">
                                                 <option
@@ -186,7 +186,7 @@ const Footer = () => {
                                                 </option>
                                             </select>
                                         </div>
-                                    </div>
+                                    </div> */}
                                     <div className="tf-payment">
                                         <ul>
                                             <li>

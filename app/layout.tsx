@@ -34,7 +34,7 @@ export default function RootLayout({
         <ScrollToTop />
         <Preload />
         <div id="wrapper">
-          <TopBar />
+          {/* <TopBar /> */}
           <Header />
           <MobileMenu />
           {children}
