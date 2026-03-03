@@ -46,7 +46,7 @@ export default function Categories() {
   return (
     <>
       <section className="flat-spacing">
-        <div className="container-fluid">
+        <div className="container" style={{ padding: "0px 50px", marginTop: "-45px" }}>
           <div className="tf-breadcrumb">
             <div className="container">
               <div className="tf-breadcrumb-wrap">
@@ -90,8 +90,8 @@ export default function Categories() {
           <div className="mb-4">
             <div className="d-flex justify-content-between align-items-center mb-3">
               <div>
-                <h4 className="mb-0">3 Seater Recliners for Living Room</h4>
-                <p className="text-muted mb-0">
+                <h5 className="mb-0">3 Seater Recliners for Living Room</h5>
+                <p className="text-muted mb-0" style={{fontSize:"13px"}}>
                   {sortedProducts.length} products available
                 </p>
               </div>
@@ -109,17 +109,6 @@ export default function Categories() {
                 </select>
               </div>
             </div>
-
-            {/* Description from screenshot */}
-            <p className="text-muted mb-0">
-              Find out the lavish comfort of our 3-seater recliners, designed to
-              elevate your relaxation experience. With a blend of style and
-              functionality, our 3-seater recliners are the perfect addition to
-              your living room.
-              <a href="#" className="text-primary ms-1">
-                Read more
-              </a>
-            </p>
           </div>
 
           <div className="row">

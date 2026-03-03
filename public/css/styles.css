@@ -338,12 +338,12 @@ h4,
 }
 
 h5 {
-  font-size: 24px;
+  font-size: 16px;
   line-height: 30px;
 }
 
 h6 {
-  font-size: 20px;
+  font-size: 14px;
   line-height: 28px;
 }
 
@@ -6971,13 +6971,15 @@ form .cols>* {
 
 .card-product .card-product-info {
   display: grid;
-  gap: 4px;
+  gap: 0px;
+  font-size: 13px;
 }
 
 .card-product .card-product-info .price {
   display: flex;
-  gap: 8px;
+  gap: 0px;
   align-items: center;
+  font-size: 12px;
 }
 
 .card-product .card-product-info .price .old-price {
