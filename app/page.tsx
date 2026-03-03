@@ -50,13 +50,16 @@ export default function page() {
         link="/categories/100"
         alt="Mega Sale Banner"
       />
+      <br/>
       <MostSellerProducts />
+      <br/>
       <SingleImage
         imageUrl="/images/5.webp"
         link="/categories/100"
         alt="Mega Sale Banner"
       />
       {/* <CollectionStyle2 /> */}
+      <br/>
       <BannerGrid />
       <SingleImage
         imageUrl="/images/7.webp"
