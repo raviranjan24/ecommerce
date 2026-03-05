@@ -16,6 +16,128 @@ const Header = () => {
                             <div className="col-xl-8 d-none d-xl-block">
                                 <nav className="box-navigation text-center">
                                     <ul className="box-nav-ul justify-content-start">
+                                        {/* ================= BEDROOM ================= */}
+
+                                        <li className="menu-item mega-parent">
+                                            <Link href="#" className="item-link">
+                                                Bedroom <i className="icon icon-down" />
+                                            </Link>
+
+                                            <div className="sub-menu mega-menu">
+                                                <div className="container">
+                                                    <div className="mega-grid bedroom-grid">
+
+                                                        {/* Column 1 */}
+                                                        <div className="mega-column">
+                                                            <h6>Beds</h6>
+                                                            <ul>
+                                                                <li><Link href="/categories/120">King Beds</Link></li>
+                                                                <li><Link href="/categories/121">Queen Beds</Link></li>
+                                                                <li><Link href="/categories/122">Single Beds</Link></li>
+                                                                <li><Link href="/categories/123">Bunk Beds</Link></li>
+                                                            </ul>
+                                                        </div>
+
+                                                        {/* Column 2 */}
+                                                        <div className="mega-column">
+                                                            <h6>Wardrobes</h6>
+                                                            <ul>
+                                                                <li><Link href="/categories/124">2 Door Wardrobes</Link></li>
+                                                                <li><Link href="/categories/125">3 Door Wardrobes</Link></li>
+                                                                <li><Link href="/categories/126">4 Door Wardrobes</Link></li>
+                                                                <li><Link href="/categories/127">Sliding Wardrobes</Link></li>
+                                                            </ul>
+                                                        </div>
+
+                                                        {/* Column 3 */}
+                                                        <div className="mega-column">
+                                                            <h6>Mattresses</h6>
+                                                            <ul>
+                                                                <li><Link href="/categories/128">King Mattresses</Link></li>
+                                                                <li><Link href="/categories/129">Queen Mattresses</Link></li>
+                                                                <li><Link href="/categories/130">Single Mattresses</Link></li>
+                                                            </ul>
+                                                        </div>
+
+                                                        {/* Column 4 */}
+                                                        <div className="mega-column">
+                                                            <h6>Bed Side Tables</h6>
+                                                            <h6 style={{ marginTop: "25px" }}>Chest of Drawers</h6>
+                                                            <h6 style={{ marginTop: "25px" }}>Dresser Mirrors</h6>
+                                                        </div>
+
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </li>
+                                        {/* ================= Furnishings ================= */}
+                                        <li className="menu-item mega-parent">
+                                            <Link href="#" className="item-link">
+                                                Furnishings <i className="icon icon-down" />
+                                            </Link>
+
+                                            <div className="sub-menu mega-menu">
+                                                <div className="container">
+                                                    <div className="mega-grid furnishings-grid">
+
+                                                        {/* Column 1 */}
+                                                        <div className="mega-column">
+                                                            <h6>Bedding</h6>
+                                                            <ul>
+                                                                <li><Link href="#">Double Bedsheets</Link></li>
+                                                                <li><Link href="#">Single Bedsheets</Link></li>
+                                                                <li><Link href="#">Bedding Sets</Link></li>
+                                                                <li><Link href="#">Pillows & Pillow Covers</Link></li>
+                                                                <li><Link href="#">Blankets & Quilts</Link></li>
+                                                                <li><Link href="#">Comforters</Link></li>
+                                                                <li><Link href="#">Throws</Link></li>
+                                                                <li><Link href="#">Duvets & Duvet Covers</Link></li>
+                                                                <li><Link href="#">Dohars</Link></li>
+                                                                <li><Link href="#">Bed Covers</Link></li>
+                                                                <li><Link href="#">Mattress Protectors & Toppers</Link></li>
+                                                            </ul>
+                                                        </div>
+
+                                                        {/* Column 2 */}
+                                                        <div className="mega-column">
+                                                            <h6>Cushions</h6>
+                                                            <ul>
+                                                                <li><Link href="#">Cushion Covers</Link></li>
+                                                                <li><Link href="#">Filled Cushions</Link></li>
+                                                                <li><Link href="#">Cushion Fillers</Link></li>
+                                                                <li><Link href="#">Floor Cushions</Link></li>
+                                                            </ul>
+
+                                                            <h6 style={{ marginTop: "30px" }}>Curtains & Blinds</h6>
+                                                            <ul>
+                                                                <li><Link href="#">Door Curtains</Link></li>
+                                                                <li><Link href="#">Window Curtains</Link></li>
+                                                                <li><Link href="#">Blinds</Link></li>
+                                                                <li><Link href="#">Rods & Accessories</Link></li>
+                                                            </ul>
+                                                        </div>
+
+                                                        {/* Column 3 */}
+                                                        <div className="mega-column">
+                                                            <h6>Accessories</h6>
+                                                            <ul>
+                                                                <li><Link href="#">Bags</Link></li>
+                                                                <li><Link href="#">Pads & Mats</Link></li>
+                                                                <li><Link href="#">Sofa Covers</Link></li>
+                                                            </ul>
+
+                                                            <h6 style={{ marginTop: "30px" }}>Floor Coverings</h6>
+                                                            <ul>
+                                                                <li><Link href="#">Carpets & Rugs</Link></li>
+                                                                <li><Link href="#">Dhurries</Link></li>
+                                                                <li><Link href="#">Doormats</Link></li>
+                                                            </ul>
+                                                        </div>
+
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </li>
                                         {/* ================= LIVING ROOM ================= */}
                                         <li className="menu-item mega-parent">
                                             <Link href="#" className="item-link">
@@ -170,61 +292,6 @@ const Header = () => {
                                             </div>
                                         </li>
 
-                                        {/* ================= BEDROOM ================= */}
-
-                                        <li className="menu-item mega-parent">
-                                            <Link href="#" className="item-link">
-                                                Bedroom <i className="icon icon-down" />
-                                            </Link>
-
-                                            <div className="sub-menu mega-menu">
-                                                <div className="container">
-                                                    <div className="mega-grid bedroom-grid">
-
-                                                        {/* Column 1 */}
-                                                        <div className="mega-column">
-                                                            <h6>Beds</h6>
-                                                            <ul>
-                                                                <li><Link href="/categories/120">King Beds</Link></li>
-                                                                <li><Link href="/categories/121">Queen Beds</Link></li>
-                                                                <li><Link href="/categories/122">Single Beds</Link></li>
-                                                                <li><Link href="/categories/123">Bunk Beds</Link></li>
-                                                            </ul>
-                                                        </div>
-
-                                                        {/* Column 2 */}
-                                                        <div className="mega-column">
-                                                            <h6>Wardrobes</h6>
-                                                            <ul>
-                                                                <li><Link href="/categories/124">2 Door Wardrobes</Link></li>
-                                                                <li><Link href="/categories/125">3 Door Wardrobes</Link></li>
-                                                                <li><Link href="/categories/126">4 Door Wardrobes</Link></li>
-                                                                <li><Link href="/categories/127">Sliding Wardrobes</Link></li>
-                                                            </ul>
-                                                        </div>
-
-                                                        {/* Column 3 */}
-                                                        <div className="mega-column">
-                                                            <h6>Mattresses</h6>
-                                                            <ul>
-                                                                <li><Link href="/categories/128">King Mattresses</Link></li>
-                                                                <li><Link href="/categories/129">Queen Mattresses</Link></li>
-                                                                <li><Link href="/categories/130">Single Mattresses</Link></li>
-                                                            </ul>
-                                                        </div>
-
-                                                        {/* Column 4 */}
-                                                        <div className="mega-column">
-                                                            <h6>Bed Side Tables</h6>
-                                                            <h6 style={{ marginTop: "25px" }}>Chest of Drawers</h6>
-                                                            <h6 style={{ marginTop: "25px" }}>Dresser Mirrors</h6>
-                                                        </div>
-
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </li>
-
                                         {/* ================= DINING ROOM ================= */}
                                         <li className="menu-item mega-parent">
                                             <Link href="#" className="item-link">
@@ -350,74 +417,6 @@ const Header = () => {
                                                                 <li><Link href="/categories/172">Artificial Plants & Flowers</Link></li>
                                                                 <li><Link href="/categories/173">Pots & Planters</Link></li>
                                                                 <li><Link href="/categories/174">Fountains</Link></li>
-                                                            </ul>
-                                                        </div>
-
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </li>
-                                        {/* ================= Furnishings ================= */}
-                                        <li className="menu-item mega-parent">
-                                            <Link href="#" className="item-link">
-                                                Furnishings <i className="icon icon-down" />
-                                            </Link>
-
-                                            <div className="sub-menu mega-menu">
-                                                <div className="container">
-                                                    <div className="mega-grid furnishings-grid">
-
-                                                        {/* Column 1 */}
-                                                        <div className="mega-column">
-                                                            <h6>Bedding</h6>
-                                                            <ul>
-                                                                <li><Link href="#">Double Bedsheets</Link></li>
-                                                                <li><Link href="#">Single Bedsheets</Link></li>
-                                                                <li><Link href="#">Bedding Sets</Link></li>
-                                                                <li><Link href="#">Pillows & Pillow Covers</Link></li>
-                                                                <li><Link href="#">Blankets & Quilts</Link></li>
-                                                                <li><Link href="#">Comforters</Link></li>
-                                                                <li><Link href="#">Throws</Link></li>
-                                                                <li><Link href="#">Duvets & Duvet Covers</Link></li>
-                                                                <li><Link href="#">Dohars</Link></li>
-                                                                <li><Link href="#">Bed Covers</Link></li>
-                                                                <li><Link href="#">Mattress Protectors & Toppers</Link></li>
-                                                            </ul>
-                                                        </div>
-
-                                                        {/* Column 2 */}
-                                                        <div className="mega-column">
-                                                            <h6>Cushions</h6>
-                                                            <ul>
-                                                                <li><Link href="#">Cushion Covers</Link></li>
-                                                                <li><Link href="#">Filled Cushions</Link></li>
-                                                                <li><Link href="#">Cushion Fillers</Link></li>
-                                                                <li><Link href="#">Floor Cushions</Link></li>
-                                                            </ul>
-
-                                                            <h6 style={{ marginTop: "30px" }}>Curtains & Blinds</h6>
-                                                            <ul>
-                                                                <li><Link href="#">Door Curtains</Link></li>
-                                                                <li><Link href="#">Window Curtains</Link></li>
-                                                                <li><Link href="#">Blinds</Link></li>
-                                                                <li><Link href="#">Rods & Accessories</Link></li>
-                                                            </ul>
-                                                        </div>
-
-                                                        {/* Column 3 */}
-                                                        <div className="mega-column">
-                                                            <h6>Accessories</h6>
-                                                            <ul>
-                                                                <li><Link href="#">Bags</Link></li>
-                                                                <li><Link href="#">Pads & Mats</Link></li>
-                                                                <li><Link href="#">Sofa Covers</Link></li>
-                                                            </ul>
-
-                                                            <h6 style={{ marginTop: "30px" }}>Floor Coverings</h6>
-                                                            <ul>
-                                                                <li><Link href="#">Carpets & Rugs</Link></li>
-                                                                <li><Link href="#">Dhurries</Link></li>
-                                                                <li><Link href="#">Doormats</Link></li>
                                                             </ul>
                                                         </div>
 

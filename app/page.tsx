@@ -16,17 +16,11 @@ export default function page() {
   return (
     <>
       <HomeSlider />
-      <SingleImage
-        imageUrl="/images/bannerHome.png"
-        link="/categories/100"
-        alt="Mega Sale Banner"
-      />
+      <br/>
       <BannerGrid />
-      <SingleImage
-        imageUrl="/images/1.jpg"
-        link="/categories/100"
-        alt="Mega Sale Banner"
-      />
+      <br/>
+      <br/>
+      <br/>
       <ShopByCategory />
       <br/>
       <SingleImage
@@ -34,33 +28,21 @@ export default function page() {
         link="/categories/100"
         alt="Mega Sale Banner"
       />
+      <br/>
       <MostSellerProducts />
       <br/>
-      <BannerGrid />
-      <TopSellers />
       <SingleImage
         imageUrl="/images/9.jpg"
         link="/categories/100"
         alt="Mega Sale Banner"
       />
-      {/* <CollectionStyle /> */}
+      <TopSellers />
       <BannerGrid />
-      <SingleImage
-        imageUrl="/images/3.webp"
-        link="/categories/100"
-        alt="Mega Sale Banner"
-      />
+      <br/>
+      <br/>
       <br/>
       <MostSellerProducts />
       <br/>
-      <SingleImage
-        imageUrl="/images/5.webp"
-        link="/categories/100"
-        alt="Mega Sale Banner"
-      />
-      {/* <CollectionStyle2 /> */}
-      <br/>
-      <BannerGrid />
       <SingleImage
         imageUrl="/images/7.webp"
         link="/categories/100"
