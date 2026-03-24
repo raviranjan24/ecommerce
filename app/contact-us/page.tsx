@@ -1,9 +1,54 @@
+"use client";
+import axios from "axios";
+import { toast } from "react-toastify";
+import { useFormik } from "formik";
+import * as Yup from "yup";
 import Breadcrum from '@/components/common/breadcrum'
 
 const ContactUs = () => {
+    const validationSchema = Yup.object({
+        name: Yup.string().required("Name is required"),
+        email: Yup.string()
+            .email("Invalid email")
+            .required("Email is required"),
+        phone: Yup.string()
+            .matches(/^[0-9]{10}$/, "Phone must be 10 digits")
+            .required("Phone is required"),
+        msg: Yup.string().required("Message is required"),
+    });
+
+    const formik = useFormik({
+        initialValues: {
+            name: "",
+            email: "",
+            phone: "",
+            msg: "",
+        },
+        validationSchema,
+        onSubmit: async (values, { resetForm, setSubmitting }) => {
+            try {
+                const res = await axios.post(
+                    `https://helioshome-backend.vercel.app/api/contact/submit`,
+                    values
+                );
+                if (res.data.success) {
+                    console.log("res",res);
+                    toast.success(res.data.message);
+                    resetForm();
+                } else {
+                    toast.error(res.data.message || "Something went wrong");
+                }
+            } catch (error) {
+                console.error(error);
+                toast.error("Server error");
+            } finally {
+                setSubmitting(false);
+            }
+        },
+    });
     return (
         <>
-            <Breadcrum title={"Contact Us"}/>
+            <Breadcrum title={"Contact Us"} />
             <div className="main-content">
                 <section className="flat-spacing">
                     <div className="container">
@@ -45,87 +90,53 @@ const ContactUs = () => {
                                     >
                                         Use the form below to get in touch with the sales team
                                     </p>
-                                    <form
-                                        id="contactform"
-                                        action="#"
-                                        method="post"
-                                        className="form-leave-comment"
-                                    >
-                                        <div className="wrap">
-                                            <div className="cols">
-                                                <fieldset className="">
-                                                    <input
-                                                        className=""
-                                                        type="text"
-                                                        placeholder="Your Name*"
-                                                        name="name"
-                                                        id="name"
-                                                        tabIndex={2}
-                                                        defaultValue=""
-                                                        aria-required="true"
-                                                    //required=""
-                                                    />
-                                                </fieldset>
-                                                <fieldset className="">
-                                                    <input
-                                                        className=""
-                                                        type="email"
-                                                        placeholder="Your Email*"
-                                                        name="email"
-                                                        id="email"
-                                                        tabIndex={2}
-                                                        defaultValue=""
-                                                        aria-required="true"
-                                                    //required=""
-                                                    />
-                                                </fieldset>
-                                            </div>
-                                            <div className="cols">
-                                                <fieldset className="">
-                                                    <input
-                                                        className=""
-                                                        type="number"
-                                                        placeholder="Phone*"
-                                                        name="phone"
-                                                        id="phone"
-                                                        tabIndex={2}
-                                                        defaultValue=""
-                                                        aria-required="true"
-                                                    //required=""
-                                                    />
-                                                </fieldset>
-                                                <fieldset className="">
-                                                    <input
-                                                        className=""
-                                                        type="number"
-                                                        placeholder="Order Numbers*"
-                                                        name="order-numbers"
-                                                        id="order-numbers"
-                                                        tabIndex={2}
-                                                        defaultValue=""
-                                                        aria-required="true"
-                                                    //required=""
-                                                    />
-                                                </fieldset>
-                                            </div>
-                                            <fieldset className="">
-                                                <textarea
-                                                    name="message"
-                                                    id="message"
-                                                    rows={4}
-                                                    placeholder="Your Message*"
-                                                    tabIndex={2}
-                                                    aria-required="true"
-                                                    //required=""
-                                                    defaultValue={""}
-                                                />
-                                            </fieldset>
-                                        </div>
-                                        <div className="button-submit send-wrap">
-                                            <button className="tf-btn btn-onsurface" type="submit">
-                                                Send Message <i className="icon-arrow-up-right" />
-                                            </button>
-                                        </div>
+                                    <form onSubmit={formik.handleSubmit} className="form-leave-comment">
+                                        <input
+                                            type="text"
+                                            name="name"
+                                            placeholder="Your Name*"
+                                            value={formik.values.name}
+                                            onChange={formik.handleChange}
+                                            onBlur={formik.handleBlur}
+                                        />
+                                        {formik.touched.name && formik.errors.name && (
+                                            <p className="error">{formik.errors.name}</p>
+                                        )}
+                                        <input
+                                            type="email"
+                                            name="email"
+                                            placeholder="Your Email*"
+                                            value={formik.values.email}
+                                            onChange={formik.handleChange}
+                                            onBlur={formik.handleBlur}
+                                        />
+                                        {formik.touched.email && formik.errors.email && (
+                                            <p className="error">{formik.errors.email}</p>
+                                        )}
+                                        <input
+                                            type="text"
+                                            name="phone"
+                                            placeholder="Phone*"
+                                            value={formik.values.phone}
+                                            onChange={formik.handleChange}
+                                            onBlur={formik.handleBlur}
+                                        />
+                                        {formik.touched.phone && formik.errors.phone && (
+                                            <p className="error">{formik.errors.phone}</p>
+                                        )}
+                                        <textarea
+                                            name="message"
+                                            placeholder="Your Message*"
+                                            value={formik.values.msg}
+                                            onChange={formik.handleChange}
+                                            onBlur={formik.handleBlur}
+                                        />
+                                        {formik.touched.msg && formik.errors.msg && (
+                                            <p className="error">{formik.errors.msg}</p>
+                                        )}
+                                        <button type="submit" className="btn btn-primary" disabled={formik.isSubmitting}>
+                                            {formik.isSubmitting ? "Sending..." : "Send Message"}
+                                        </button>
                                     </form>
                                 </div>
                             </div>

@@ -1,10 +1,72 @@
+"use client";
+import React from "react";
 import Breadcrum from "@/components/common/breadcrum";
 import Link from "next/link";
+import axios from "axios";
+import { toast } from "react-toastify";
+import { useFormik } from "formik";
+import * as Yup from "yup";
+import { useRouter } from "next/navigation";
 
 export default function Register() {
+    const router = useRouter();
+    const validationSchema = Yup.object({
+        name: Yup.string().required("Name is required"),
+        email: Yup.string()
+            .email("Invalid email")
+            .required("Email is required"),
+
+        password: Yup.string()
+            .min(6, "Minimum 6 characters")
+            .required("Password is required"),
+
+        confirmPassword: Yup.string()
+            .oneOf([Yup.ref("password")], "Passwords must match")
+            .required("Confirm password is required"),
+
+        agree: Yup.boolean().oneOf([true], "You must accept terms"),
+    });
+
+    const formik = useFormik({
+        initialValues: {
+            name: "",
+            email: "",
+            password: "",
+            confirmPassword: "",
+            agree: false,
+        },
+
+        validationSchema,
+
+        onSubmit: async (values, { resetForm, setSubmitting }) => {
+            try {
+                const res = await axios.post(
+                    `https://helioshome-backend.vercel.app/api/user/register`,
+                    {
+                        name: values.name,
+                        email: values.email,
+                        password: values.password,
+                    }
+                );
+
+                if (res.data.success) {
+                    toast.success(res.data.message);
+                    router.push("/auth/login");
+                    resetForm();
+                } else {
+                    toast.error(res.data.message || "Something went wrong");
+                }
+            } catch (error) {
+                console.error(error);
+                toast.error("Server error");
+            } finally {
+                setSubmitting(false);
+            }
+        },
+    });
     return (
         <>
-            <Breadcrum title={"Register"}/>
+            <Breadcrum title={"Register"} />
             <section className="flat-spacing">
                 <div className="container">
                     <div className="login-wrap">
@@ -12,75 +74,68 @@ export default function Register() {
                             <div className="heading">
                                 <h4>Register</h4>
                             </div>
-                            <form action="#" className="form-login form-has-password">
+                            <form onSubmit={formik.handleSubmit} className="form-login form-has-password">
                                 <div className="wrap">
-                                    <fieldset className="">
-                                        <input
-                                            className=""
-                                            type="email"
-                                            placeholder="Username or email address*"
-                                            name="email"
-                                            tabIndex={2}
-                                            defaultValue=""
-                                            aria-required="true"
-                                        />
-                                    </fieldset>
-                                    <fieldset className="position-relative password-item">
-                                        <input
-                                            className="input-password"
-                                            type="password"
-                                            placeholder="Password*"
-                                            name="password"
-                                            tabIndex={2}
-                                            defaultValue=""
-                                            aria-required="true"
-                                        />
-                                        <span className="toggle-password unshow">
-                                            <i className="icon-eye-hide" />
-                                        </span>
-                                    </fieldset>
-                                    <fieldset className="position-relative password-item">
-                                        <input
-                                            className="input-password"
-                                            type="password"
-                                            placeholder="Confirm Password*"
-                                            name="password"
-                                            tabIndex={2}
-                                            defaultValue=""
-                                            aria-required="true"
-                                        />
-                                        <span className="toggle-password unshow">
-                                            <i className="icon-eye-hide" />
-                                        </span>
-                                    </fieldset>
+                                    <input
+                                        type="text"
+                                        name="name"
+                                        placeholder="Name*"
+                                        value={formik.values.name}
+                                        onChange={formik.handleChange}
+                                        onBlur={formik.handleBlur}
+                                    />
+                                    {formik.touched.name && formik.errors.name && (
+                                        <p className="error">{formik.errors.name}</p>
+                                    )}
+                                    <input
+                                        type="email"
+                                        name="email"
+                                        placeholder="Email address*"
+                                        value={formik.values.email}
+                                        onChange={formik.handleChange}
+                                        onBlur={formik.handleBlur}
+                                    />
+                                    {formik.touched.email && formik.errors.email && (
+                                        <p className="error">{formik.errors.email}</p>
+                                    )}
+
+                                    <input
+                                        type="password"
+                                        name="password"
+                                        placeholder="Password*"
+                                        value={formik.values.password}
+                                        onChange={formik.handleChange}
+                                        onBlur={formik.handleBlur}
+                                    />
+                                    {formik.touched.password && formik.errors.password && (
+                                        <p className="error">{formik.errors.password}</p>
+                                    )}
+                                    <input
+                                        type="password"
+                                        name="confirmPassword"
+                                        placeholder="Confirm Password*"
+                                        value={formik.values.confirmPassword}
+                                        onChange={formik.handleChange}
+                                        onBlur={formik.handleBlur}
+                                    />
+                                    {formik.touched.confirmPassword && formik.errors.confirmPassword && (
+                                        <p className="error">{formik.errors.confirmPassword}</p>
+                                    )}
+
                                     <div className="d-flex align-items-center">
-                                        <div className="tf-cart-checkbox">
-                                            <div className="tf-checkbox-wrapp">
-                                                <input
-                                                    className=""
-                                                    type="checkbox"
-                                                    id="login-form_agree"
-                                                    name="agree_checkbox"
-                                                />
-                                                <div>
-                                                    <i className="icon-check" />
-                                                </div>
-                                            </div>
-                                            <label
-                                                className="text-secondary-2"
-                                                htmlFor="login-form_agree"
-                                            >
-                                                I agree to the &nbsp;
-                                            </label>
-                                        </div>
-                                        <a href="term-of-use.html" title="Terms of Service">
-                                            Terms of User
-                                        </a>
+                                        <input
+                                            type="checkbox"
+                                            name="agree"
+                                            checked={formik.values.agree}
+                                            onChange={formik.handleChange}
+                                        />
+                                        <label>&nbsp;I agree to Terms</label>
                                     </div>
-                                </div>
-                                <div className="button-submit">
-                                    <button className="tf-btn btn-onsurface" type="submit">
-                                        Register
+                                    {formik.errors.agree && (
+                                        <p className="error">{formik.errors.agree}</p>
+                                    )}
+                                    <button className="tf-btn btn-onsurface" type="submit" disabled={formik.isSubmitting}>
+                                        {formik.isSubmitting ? "Registering..." : "Register"}
                                     </button>
                                 </div>
                             </form>

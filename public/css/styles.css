@@ -3749,6 +3749,7 @@ form .cols>* {
 
 .form-leave-comment input {
   height: 48px;
+  margin-bottom: 10px;
 }
 
 .form-leave-comment .tf-btn {

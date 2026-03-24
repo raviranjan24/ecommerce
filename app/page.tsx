@@ -6,31 +6,37 @@ import QuickView from "@/components/cart/quickView";
 import Compare from "@/components/common/compare";
 import SizeGuide from "@/components/common/sizeGuide";
 import ShopByCategory from "@/components/common/shopByCategory";
-import CollectionStyle from "@/components/common/collection-style1";
-import CollectionStyle2 from "@/components/common/collection-style2";
 import TopSellers from "@/components/home/topSellers";
 import SingleImage from "@/components/home/singleImage";
 import BannerGrid from "@/components/home/multipleGrid";
+import { getSliders } from "@/services/public/service";
 
-export default function page() {
+export default async function page() {
+  const sliders: any = await getSliders();
   return (
     <>
-      <HomeSlider />
-      <br/>
+      {sliders && sliders?.data?.length > 0 ? (
+        <HomeSlider sliders={sliders?.data} />
+      ) : (
+        <div style={{ textAlign: "center", padding: "20px" }}>
+          No slider data found
+        </div>
+      )}
+      <br />
       <BannerGrid />
-      <br/>
-      <br/>
-      <br/>
+      <br />
+      <br />
+      <br />
       <ShopByCategory />
-      <br/>
+      <br />
       <SingleImage
         imageUrl="/images/10.webp"
         link="/categories/100"
         alt="Mega Sale Banner"
       />
-      <br/>
+      <br />
       <MostSellerProducts />
-      <br/>
+      <br />
       <SingleImage
         imageUrl="/images/9.jpg"
         link="/categories/100"
@@ -38,11 +44,11 @@ export default function page() {
       />
       <TopSellers />
       <BannerGrid />
-      <br/>
-      <br/>
-      <br/>
+      <br />
+      <br />
+      <br />
       <MostSellerProducts />
-      <br/>
+      <br />
       <SingleImage
         imageUrl="/images/7.webp"
         link="/categories/100"

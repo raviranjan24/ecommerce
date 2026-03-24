@@ -6,7 +6,9 @@ import Header from "@/components/layout/header";
 import Footer from "@/components/layout/footer";
 import MobileMenu from "@/components/common/mobileMenu";
 import JqueryLoader from "@/components/common/JqueryLoader";
+import "react-toastify/dist/ReactToastify.css";
 import "./globals.css";
+import { ToastContainer } from "react-toastify";
 
 export const metadata: Metadata = {
   title: "Helios Home",
@@ -31,6 +33,7 @@ export default function RootLayout({
         <link rel="apple-touch-icon-precomposed" href="/images/logo/favicon.png" />
       </head>
       <body>
+        <ToastContainer position="top-right" autoClose={3000} />
         <ScrollToTop />
         <Preload />
         <div id="wrapper">
