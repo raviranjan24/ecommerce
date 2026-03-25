@@ -6,17 +6,18 @@ import QuickView from "@/components/cart/quickView";
 import Compare from "@/components/common/compare";
 import SizeGuide from "@/components/common/sizeGuide";
 import ShopByCategory from "@/components/common/shopByCategory";
-import TopSellers from "@/components/home/topSellers";
+// import TopSellers from "@/components/home/topSellers";
 import SingleImage from "@/components/home/singleImage";
 import BannerGrid from "@/components/home/multipleGrid";
-import { getSliders } from "@/services/public/service";
+import { getLatesetProduct, getSliders } from "@/services/public/service";
 
 export default async function page() {
   const sliders: any = await getSliders();
+  const latesetProducts: any = await getLatesetProduct();
   return (
     <>
-      {sliders && sliders?.data?.length > 0 ? (
-        <HomeSlider sliders={sliders?.data} />
+      {sliders && sliders?.data?.grid[0]?.length > 0 ? (
+        <HomeSlider sliders={sliders?.data?.grid[0]} />
       ) : (
         <div style={{ textAlign: "center", padding: "20px" }}>
           No slider data found
@@ -35,19 +36,32 @@ export default async function page() {
         alt="Mega Sale Banner"
       />
       <br />
-      <MostSellerProducts />
+      {latesetProducts && latesetProducts?.data?.products.length > 0 ? (
+        <MostSellerProducts products={latesetProducts?.data?.products} />
+      ) : (
+        <div style={{ textAlign: "center", padding: "20px" }}>
+          No product data found
+        </div>
+      )}
       <br />
       <SingleImage
         imageUrl="/images/9.jpg"
         link="/categories/100"
         alt="Mega Sale Banner"
       />
-      <TopSellers />
+      <br />
+      {/* <TopSellers /> */}
       <BannerGrid />
       <br />
       <br />
       <br />
-      <MostSellerProducts />
+      {latesetProducts && latesetProducts?.data?.products.length > 0 ? (
+        <MostSellerProducts products={latesetProducts?.data?.products} />
+      ) : (
+        <div style={{ textAlign: "center", padding: "20px" }}>
+          No product data found
+        </div>
+      )}
       <br />
       <SingleImage
         imageUrl="/images/7.webp"

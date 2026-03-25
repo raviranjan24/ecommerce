@@ -9,12 +9,6 @@ const ShopByCategory = () => {
           <div className="heading-section style-2">
             <div className="left">
               <h3 className="wow fadeInUp">Shop By Categories</h3>
-              <p
-                className="text-body-default text_secondary wow fadeInUp"
-                data-wow-delay="0.1s"
-              >
-                Fresh styles just in! Elevate your look.
-              </p>
             </div>
 
             <div className="right wow fadeInUp">
@@ -25,20 +19,20 @@ const ShopByCategory = () => {
             </div>
           </div>
           <div className="wrap-categories overflow-x-auto style-2">
-            {categoryData?.map((cat) => (
+            {categoryData?.map((cat:any,ind) => (
               <div
-                key={cat.id}
+                key={ind}
                 className="categories-item hover-img style-2 wow fadeInUp"
                 data-wow-delay={cat.delay}
               >
                 <div className="img-style">
-                  <Link href={cat.slug}>
+                  <Link href={cat?.slug}>
                     <img src={cat.image} alt={cat.title} />
                   </Link>
                 </div>
                 <div className="content">
                   <h5 className="title">
-                    <Link href={cat.slug} className="link">
+                    <Link href={cat?.slug} className="link">
                       {cat.title}
                     </Link>
                   </h5>

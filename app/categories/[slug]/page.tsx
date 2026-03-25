@@ -1,7 +1,7 @@
 "use client";
-
 import { useState, useMemo } from "react";
 import Link from "next/link";
+// import { getSIngleProductCategory } from "@/services/public/service";
 
 const categories = [
   { name: "Bed Sets", image: "/images/section/categories-1.jpg" },
@@ -23,7 +23,12 @@ const productData = Array.from({ length: 30 }, (_, i) => ({
 
 const PRODUCTS_PER_PAGE = 9;
 
-export default function CategoriesPage() {
+export default async function CategoriesPage({ params }: { params: { slug: any }}) {
+  // const resolvedParams = await params;
+  //   const id = resolvedParams.slug;
+  //   const productsDetails: any = await getSIngleProductCategory(id);
+  //   console.log("getSIngleProductCategory",productsDetails?.data?.product);
+
   const [currentPage, setCurrentPage] = useState(1);
   const [sortType, setSortType] = useState("default");
 

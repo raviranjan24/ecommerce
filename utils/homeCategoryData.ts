@@ -1,10 +1,10 @@
 export const categoryData = [
   {
     id: 1,
-    title: "Desks Wood",
+    title: "Desks Woods",
     image: "images/section/categories-1.jpg",
     items: 12,
-    slug: "/categories/100",
+    slug: "/categories/69c385cd6d44b35f3b6c0871",
     delay: "0s",
   },
   {
@@ -12,7 +12,7 @@ export const categoryData = [
     title: "Office Chairs",
     image: "images/section/categories-2.jpg",
     items: 35,
-    slug: "/categories/100",
+    slug: "/categories/69ba2adbfe394651ba158bed",
     delay: "0.1s",
   },
   {
