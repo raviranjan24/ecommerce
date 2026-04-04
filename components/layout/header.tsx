@@ -1,11 +1,18 @@
 "use client";
 import { useSelector, useDispatch } from "react-redux";
 import Link from "next/link";
+import { useEffect, useState } from "react";
 // import { finalCategory, LINK } from "@/utils/finalCategory";
 
 const Header = () => {
     const cartCount = useSelector((state: any) => state?.cart?.count);
-    const token = localStorage.getItem("user.data.token");
+    const [token, setToken] = useState<any>(null);
+    useEffect(() => {
+        if (typeof window !== "undefined") {
+            const t = localStorage.getItem("token");
+            setToken(t);
+        }
+    }, []);
     return (
         <>
             <header id="header" className="header-default">
@@ -647,21 +654,17 @@ const Header = () => {
                                         </Link>
                                     </li>
                                     {token ?
-                                        <>
-                                            <li className="nav-account">
-                                                <Link href="/auth/login" className="nav-icon-item">
-                                                    <span className="icon icon-user" />
-                                                </Link>
-                                            </li>
-                                        </>
+                                        <li className="nav-account">
+                                            <Link href="/my-account" className="nav-icon-item">
+                                                <span className="icon icon-user" />
+                                            </Link>
+                                        </li>
                                         :
-                                        <>
-                                            <li className="nav-account">
-                                                <Link href="/my-account" className="nav-icon-item">
-                                                    <span className="icon icon-user" />
-                                                </Link>
-                                            </li>
-                                        </>
+                                        <li className="nav-account">
+                                            <Link href="/auth/login" className="nav-icon-item">
+                                                <span className="icon icon-user" />
+                                            </Link>
+                                        </li>
                                     }
 
                                     <li className="nav-wishlist">

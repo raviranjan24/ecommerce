@@ -1,5 +1,4 @@
 "use client";
-import React from "react";
 import Breadcrum from "@/components/common/breadcrum";
 import Link from "next/link";
 import axios from "axios";
@@ -7,9 +6,28 @@ import { toast } from "react-toastify";
 import { useFormik } from "formik";
 import * as Yup from "yup";
 import { useRouter } from "next/navigation";
+import { useEffect, useState } from "react";
+
+const getLocalStorage = (key: string) => {
+  if (typeof window !== "undefined") {
+    return localStorage.getItem(key);
+  }
+  return null;
+};
 
 export default function Login() {
   const router = useRouter();
+  const [isClient, setIsClient] = useState(false);
+
+  useEffect(() => {
+    setIsClient(true);
+
+    const token = getLocalStorage("token");
+    if (token) {
+      router.push("/my-account");
+    }
+  }, []);
+
   const validationSchema = Yup.object({
     email: Yup.string()
       .email("Invalid email")
@@ -39,16 +57,24 @@ export default function Login() {
 
         if (res.data.success) {
           toast.success(res.data.message || "Login successful");
-          console.log("res",res.data);
-          localStorage.setItem("user", JSON.stringify(res.data.data.user));
-          localStorage.setItem("token", JSON.stringify(res.data.data.token));
+          if (typeof window !== "undefined") {
+            localStorage.setItem(
+              "user",
+              JSON.stringify(res.data.data.user)
+            );
+            localStorage.setItem(
+              "token",
+              JSON.stringify(res.data.data.token)
+            );
+          }
+
           setTimeout(() => {
             router.push("/my-account");
           }, 1000);
         } else {
           toast.error(res.data.message || "Invalid credentials");
         }
-      } catch (error:any) {
+      } catch (error: any) {
         toast.error(
           error.response?.data?.message || "Server error"
         );
@@ -57,6 +83,8 @@ export default function Login() {
       }
     },
   });
+
+  if (!isClient) return null;
   return (
     <>
       <Breadcrum title={"Login"} />
@@ -67,8 +95,13 @@ export default function Login() {
               <div className="heading">
                 <h4>Login</h4>
               </div>
-              <form onSubmit={formik.handleSubmit} className="form-login form-has-password">
+
+              <form
+                onSubmit={formik.handleSubmit}
+                className="form-login form-has-password"
+              >
                 <div className="wrap">
+                  
                   <input
                     type="email"
                     name="email"
@@ -80,6 +113,7 @@ export default function Login() {
                   {formik.touched.email && formik.errors.email && (
                     <p className="error">{formik.errors.email}</p>
                   )}
+
                   <input
                     type="password"
                     name="password"
@@ -91,6 +125,7 @@ export default function Login() {
                   {formik.touched.password && formik.errors.password && (
                     <p className="error">{formik.errors.password}</p>
                   )}
+
                   <div className="d-flex align-items-center justify-content-between">
                     <div>
                       <input
@@ -105,12 +140,17 @@ export default function Login() {
                     <a className="text-button">Forgot Password?</a>
                   </div>
 
-                  <button type="submit" className="tf-btn btn-onsurface" disabled={formik.isSubmitting}>
-                    {formik.isSubmitting ? "Logging in..." : "Login"}
+                  <button
+                    type="submit"
+                    className="tf-btn btn-onsurface"
+                    disabled={formik.isSubmitting}
+                  >
+                    {formik.isSubmitting
+                      ? "Logging in..."
+                      : "Login"}
                   </button>
                 </div>
               </form>
-
             </div>
             <div className="right">
               <h4 className="mb_8">New Customer</h4>
@@ -119,13 +159,18 @@ export default function Login() {
                 unlock a world of exclusive benefits, offers, and personalized
                 experiences.
               </p>
-              <Link href="/auth/register" className="tf-btn btn-onsurface">
+
+              <Link
+                href="/auth/register"
+                className="tf-btn btn-onsurface"
+              >
                 Register
               </Link>
             </div>
+
           </div>
         </div>
       </section>
     </>
-  )
+  );
 }
