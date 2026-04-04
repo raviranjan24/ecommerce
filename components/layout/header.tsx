@@ -1,7 +1,11 @@
+"use client";
+import { useSelector, useDispatch } from "react-redux";
 import Link from "next/link";
-import { finalCategory, LINK } from "@/utils/finalCategory";
+// import { finalCategory, LINK } from "@/utils/finalCategory";
 
 const Header = () => {
+    const cartCount = useSelector((state: any) => state?.cart?.count);
+    const token = localStorage.getItem("user.data.token");
     return (
         <>
             <header id="header" className="header-default">
@@ -642,24 +646,48 @@ const Header = () => {
                                             <span className="icon icon-search" />
                                         </Link>
                                     </li>
-                                    <li className="nav-account">
-                                        <Link href="/auth/login" className="nav-icon-item">
-                                            <span className="icon icon-user" />
-                                        </Link>
-                                    </li>
+                                    {token ?
+                                        <>
+                                            <li className="nav-account">
+                                                <Link href="/auth/login" className="nav-icon-item">
+                                                    <span className="icon icon-user" />
+                                                </Link>
+                                            </li>
+                                        </>
+                                        :
+                                        <>
+                                            <li className="nav-account">
+                                                <Link href="/my-account" className="nav-icon-item">
+                                                    <span className="icon icon-user" />
+                                                </Link>
+                                            </li>
+                                        </>
+                                    }
+
                                     <li className="nav-wishlist">
                                         <Link href="/wishlist" className="nav-icon-item">
                                             <span className="icon icon-heart" />
                                         </Link>
                                     </li>
-                                    <li className="nav-cart">
+                                    {/* <li className="nav-cart">
                                         <Link
-                                            href="#shoppingCart"
-                                            data-bs-toggle="modal"
+                                            href="/cart"
                                             className="nav-icon-item"
                                         >
                                             <span className="icon icon-cart" />
-                                            <span className="count-box text-button-small">1</span>
+                                            <span className="count-box text-button-small">2</span>
+                                        </Link>
+                                    </li> */}
+
+                                    <li className="nav-cart">
+                                        <Link
+                                            href="/cart"
+                                            className="nav-icon-item"
+                                        >
+                                            <span className="icon icon-cart" />
+                                            <span className="count-box text-button-small">
+                                                {cartCount || 0}
+                                            </span>
                                         </Link>
                                     </li>
                                 </ul>

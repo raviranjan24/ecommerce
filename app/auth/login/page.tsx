@@ -39,7 +39,9 @@ export default function Login() {
 
         if (res.data.success) {
           toast.success(res.data.message || "Login successful");
+          console.log("res",res.data);
           localStorage.setItem("user", JSON.stringify(res.data.data.user));
+          localStorage.setItem("token", JSON.stringify(res.data.data.token));
           setTimeout(() => {
             router.push("/my-account");
           }, 1000);

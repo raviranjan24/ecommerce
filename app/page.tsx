@@ -1,7 +1,6 @@
 import MostSellerProducts from "@/components/home/mostSellerProducts";
 import HomeSlider from "@/components/home/slider";
 import Search from "@/components/common/search";
-import ShopingCart from "@/components/cart/shoppingCart";
 import QuickView from "@/components/cart/quickView";
 import Compare from "@/components/common/compare";
 import SizeGuide from "@/components/common/sizeGuide";
@@ -69,7 +68,6 @@ export default async function page() {
         alt="Mega Sale Banner"
       />
       <Search />
-      <ShopingCart />
       <QuickView />
       <Compare />
       <SizeGuide />

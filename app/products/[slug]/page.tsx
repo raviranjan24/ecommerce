@@ -1,12 +1,13 @@
 // import RelatedProducts from "@/components/product/RelatedProducts";
 import { getSIngleProductDetails } from "@/services/public/service";
 import Link from "next/link";
+import AddToCartButton from "@/components/AddToCartButton";
 
-export default async function Products({ params }: { params: { slug: any }}) {
+export default async function Products({ params }: { params: { slug: any } }) {
   const resolvedParams = await params;
   const id = resolvedParams.slug;
   const productsDetails: any = await getSIngleProductDetails(id);
-  console.log("productsDetails",productsDetails?.data?.product);
+  // console.log("productsDetails", productsDetails?.data?.product);
   return (
     <>
       <div className="tf-breadcrumb">
@@ -460,30 +461,15 @@ export default async function Products({ params }: { params: { slug: any }}) {
                       </div>
                       <div>
                         <div className="tf-product-info-by-btn mb_12">
-                          <a className="tf-btn btn-onsurface flex-grow-1   show-shopping-cart">
+                          <AddToCartButton
+                            productId={productsDetails?.data?.product?._id}
+                          />
+                          {/* <a className="tf-btn btn-onsurface flex-grow-1   show-shopping-cart">
                             <span>Add to cart -&nbsp;</span>
                             <span className="tf-qty-price total-price">$79.99</span>
-                          </a>
-                          <a
-                            href="#compare"
-                            data-bs-toggle="modal"
-                            aria-controls="compare"
-                            className="box-icon hover-tooltip compare  show-compare"
-                          >
-                            <span className="icon icon-compare" />
-                            <span className="tooltip text-caption-2">Compare</span>
-                          </a>
-                          <a
-                            href="javascript:void(0);"
-                            className="box-icon hover-tooltip text-caption-2 wishlist btn-icon-action"
-                          >
-                            <span className="icon icon-heart" />
-                            <span className="tooltip text-caption-2">Wishlist</span>
-                          </a>
+                          </a> */}
                         </div>
-                        <a href="#" className="tf-btn btn-primary w-full">
-                          Buy it now
-                        </a>
+                        
                       </div>
                       <div className="tf-product-info-help gap-12">
                         <div className="wrap">

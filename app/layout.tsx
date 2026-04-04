@@ -1,14 +1,14 @@
 import type { Metadata } from "next";
 import ScrollToTop from "@/components/common/scrollToTop";
 import Preload from "@/components/common/preload";
-import TopBar from "@/components/common/topBar";
 import Header from "@/components/layout/header";
 import Footer from "@/components/layout/footer";
 import MobileMenu from "@/components/common/mobileMenu";
 import JqueryLoader from "@/components/common/JqueryLoader";
 import "react-toastify/dist/ReactToastify.css";
-import "./globals.css";
 import { ToastContainer } from "react-toastify";
+import ReduxProvider from "@/redux/ReduxProvider";
+import "./globals.css";
 
 export const metadata: Metadata = {
   title: "Helios Home",
@@ -33,17 +33,18 @@ export default function RootLayout({
         <link rel="apple-touch-icon-precomposed" href="/images/logo/favicon.png" />
       </head>
       <body>
+        <ReduxProvider>
         <ToastContainer position="top-right" autoClose={3000} />
         <ScrollToTop />
         <Preload />
         <div id="wrapper">
-          {/* <TopBar /> */}
           <Header />
           <MobileMenu />
           {children}
           <Footer />
         </div>
         <JqueryLoader />
+        </ReduxProvider>
       </body>
     </html>
   );
