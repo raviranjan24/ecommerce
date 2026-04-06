@@ -1,7 +1,6 @@
-import { categoryData } from "@/utils/homeCategoryData";
 import Link from "next/link";
 
-const ShopByCategory = () => {
+const ShopByCategory = ({data}:any) => {
   return (
     <section>
       <div className="container-fluid">
@@ -19,7 +18,7 @@ const ShopByCategory = () => {
             </div>
           </div>
           <div className="wrap-categories overflow-x-auto style-2">
-            {categoryData?.map((cat:any,ind) => (
+            {data?.data?.map((cat:any,ind:any) => (
               <div
                 key={ind}
                 className="categories-item hover-img style-2 wow fadeInUp"
@@ -27,17 +26,17 @@ const ShopByCategory = () => {
               >
                 <div className="img-style">
                   <Link href={cat?.slug}>
-                    <img src={cat.image} alt={cat.title} />
+                    <img src={cat?.image} alt={cat?.title} />
                   </Link>
                 </div>
                 <div className="content">
                   <h5 className="title">
                     <Link href={cat?.slug} className="link">
-                      {cat.title}
+                      {cat?.title}
                     </Link>
                   </h5>
                   <p className="text-body-default text_secondary">
-                    {cat.items} items
+                    {cat?.items} items
                   </p>
                 </div>
               </div>

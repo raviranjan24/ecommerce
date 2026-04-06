@@ -33,7 +33,7 @@ export const getLatesetProduct = async () => {
   if (!baseUrl) {
     throw new Error("API_BASE_URL environment variable is not set");
   }
-  const url = `${baseUrl}/api/product/latest`;
+  const url = `${baseUrl}/api/v1/products/latest?limit=4`;
   const res = await fetch(url, {
     cache: "no-store",
     signal: AbortSignal.timeout(30000),
@@ -44,7 +44,55 @@ export const getLatesetProduct = async () => {
   return res.json();
 };
 
-export const getSIngleProductDetails = async (id:any) => {
+export const getTopSellingProduct = async () => {
+  const baseUrl = process.env.API_BASE_URL;
+  if (!baseUrl) {
+    throw new Error("API_BASE_URL environment variable is not set");
+  }
+  const url = `${baseUrl}/api/v1/products/top-selling`;
+  const res = await fetch(url, {
+    cache: "no-store",
+    signal: AbortSignal.timeout(30000),
+  });
+  if (!res.ok) {
+    throw new Error(`Failed to fetch products: ${res.status} ${res.statusText}`);
+  }
+  return res.json();
+};
+
+export const getAllCatgoryList = async () => {
+  const baseUrl = process.env.API_BASE_URL;
+  if (!baseUrl) {
+    throw new Error("API_BASE_URL environment variable is not set");
+  }
+  const url = `${baseUrl}/api/category/list`;
+  const res = await fetch(url, {
+    cache: "no-store",
+    signal: AbortSignal.timeout(30000),
+  });
+  if (!res.ok) {
+    throw new Error(`Failed to fetch products: ${res.status} ${res.statusText}`);
+  }
+  return res.json();
+};
+
+export const getOfferBanner = async () => {
+  const baseUrl = process.env.API_BASE_URL;
+  if (!baseUrl) {
+    throw new Error("API_BASE_URL environment variable is not set");
+  }
+  const url = `${baseUrl}/api/v1/offer`;
+  const res = await fetch(url, {
+    cache: "no-store",
+    signal: AbortSignal.timeout(30000),
+  });
+  if (!res.ok) {
+    throw new Error(`Failed to fetch products: ${res.status} ${res.statusText}`);
+  }
+  return res.json();
+};
+
+export const getSIngleProductDetails = async (id: any) => {
   const baseUrl = process.env.API_BASE_URL;
   if (!baseUrl) {
     throw new Error("API_BASE_URL environment variable is not set");
@@ -60,7 +108,7 @@ export const getSIngleProductDetails = async (id:any) => {
   return res.json();
 };
 
-export const getSIngleProductCategory = async (id:any) => {
+export const getSIngleProductCategory = async (id: any) => {
   const baseUrl = process.env.API_BASE_URL;
   if (!baseUrl) {
     throw new Error("API_BASE_URL environment variable is not set");
@@ -76,27 +124,43 @@ export const getSIngleProductCategory = async (id:any) => {
   return res.json();
 };
 
-// export const getAddGridBannerList = async () => {
-//     const res = await fetch(`${process.env.NEXT_PUBLIC_API_BASE_URL}/api/category/list`, {
-//         cache: "no-store", // SSR (always fresh)
-//     });
+export const getAllProducts = async ({
+  page = 1,
+  limit = 9,
+  search = "",
+  category = "",
+  sortBy = "",
+  order = "",
+  minPrice = "",
+  maxPrice = "",
+}: any) => {
+  const baseUrl = "https://helioshome-backend.vercel.app";
+  if (!baseUrl) {
+    throw new Error("API_BASE_URL environment variable is not set");
+  }
 
-//     if (!res.ok) {
-//         throw new Error("Failed to fetch sliders");
-//     }
 
-//     return res.json();
-// };
+  const query = new URLSearchParams({
+    page,
+    limit,
+    search,
+    category,
+    sortBy,
+    order,
+    minPrice,
+    maxPrice,
+  });
 
-// export const getAddSingleBannerList = async () => {
-//     const res = await fetch(`${process.env.NEXT_PUBLIC_API_BASE_URL}/api/category/list`, {
-//         cache: "no-store", // SSR (always fresh)
-//     });
+  const url = `${baseUrl}/api/v1/products?${query.toString()}`;
 
-//     if (!res.ok) {
-//         throw new Error("Failed to fetch sliders");
-//     }
+  const res = await fetch(url, {
+    cache: "no-store",
+  });
 
-//     return res.json();
-// };
+  if (!res.ok) {
+    throw new Error("Failed to fetch products");
+  }
+
+  return res.json();
+};
 

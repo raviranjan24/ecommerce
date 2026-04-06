@@ -19,6 +19,10 @@ export default async function Products({ params }: { params: { slug: any } }) {
               </Link>
               <i className="icon icon-right" />
               <span className="text_secondary2 text-caption-1">
+                {productsDetails?.data?.product?.category?.title}
+              </span>
+              <i className="icon icon-right" />
+              <span className="text_secondary2 text-caption-1">
                 {productsDetails?.data?.product?.name}
               </span>
             </div>
@@ -65,6 +69,7 @@ export default async function Products({ params }: { params: { slug: any } }) {
                             data-src={productsDetails?.data?.product?.image}
                             src={productsDetails?.data?.product?.image}
                             alt=""
+                            data-zoom={productsDetails?.data?.product?.image}
                           />
                         </div>
                       </div>
@@ -74,6 +79,7 @@ export default async function Products({ params }: { params: { slug: any } }) {
                             className="lazyload"
                             data-src={productsDetails?.data?.product?.image}
                             src={productsDetails?.data?.product?.image}
+                            data-zoom={productsDetails?.data?.product?.image}
                             alt=""
                           />
                         </div>
@@ -143,8 +149,8 @@ export default async function Products({ params }: { params: { slug: any } }) {
                         >
                           <img
                             className="tf-image-zoom lazyload"
-                            data-zoom={productsDetails?.data?.product?.image}
                             data-src={productsDetails?.data?.product?.image}
+                            data-zoom={productsDetails?.data?.product?.image}
                             src={productsDetails?.data?.product?.image}
                             alt=""
                           />
@@ -226,7 +232,7 @@ export default async function Products({ params }: { params: { slug: any } }) {
                               <i className="icon icon-star" />
                               <i className="icon icon-star" />
                             </div>
-                            <div className="text text-caption-1">(134 reviews)</div>
+                            <div className="text text-caption-1">({productsDetails?.data?.product?.reviews_summary?.total_reviews} reviews)</div>
                           </div>
                           <div className="tf-product-info-sold">
                             <svg
@@ -249,10 +255,14 @@ export default async function Products({ params }: { params: { slug: any } }) {
                       </div>
                       <div className="tf-product-info-desc">
                         <div className="tf-product-info-price">
-                          <h5 className="price-on-sale">₹{productsDetails?.data?.product?.price}</h5>
-                          <div className="compare-at-price">₹98.99</div>
+                          <h5 className="price-on-sale">
+                            ₹{productsDetails?.data?.product?.price}
+                          </h5>
+                          <div className="compare-at-price">
+                            ₹{productsDetails?.data?.product?.price + productsDetails?.data?.product?.discount}
+                          </div>
                           <div className="badges-on-sale text-btn-uppercase">
-                            -25%
+                            -{productsDetails?.data?.product?.discount}%
                           </div>
                         </div>
                         <p>
@@ -469,7 +479,7 @@ export default async function Products({ params }: { params: { slug: any } }) {
                             <span className="tf-qty-price total-price">$79.99</span>
                           </a> */}
                         </div>
-                        
+
                       </div>
                       <div className="tf-product-info-help gap-12">
                         <div className="wrap">
@@ -507,8 +517,9 @@ export default async function Products({ params }: { params: { slug: any } }) {
                             <i className="icon-time" />
                           </div>
                           <p className="text-caption-1">
-                            Estimated Delivery:&nbsp;&nbsp;<span>12-26 days</span>{" "}
-                            (International), <span>3-6 days</span> (United States)
+                            Estimated Delivery:&nbsp;&nbsp;<span>
+                              {productsDetails?.data?.product?.delivery?.estimated_delivery}
+                            </span>
                           </p>
                         </div>
                         <div className="tf-product-info-return">
@@ -564,22 +575,21 @@ export default async function Products({ params }: { params: { slug: any } }) {
                         </li>
                         <li>
                           <p className="text-caption-1">Available:</p>
-                          <p className="text-caption-1 text-1">Instock</p>
+                          <p className="text-caption-1 text-1">
+                            {productsDetails?.data?.product?.inventory?.availability}
+                          </p>
                         </li>
                         <li>
                           <p className="text-caption-1">Categories:</p>
                           <p className="text-caption-1">
                             <a href="#" className="text-1 link">
-                              wood
+                              {productsDetails?.data?.product?.category?.title}
                             </a>
                             ,
                             <a href="#" className="text-1 link">
-                              chair
+                              {productsDetails?.data?.product?.category?.title}
                             </a>
-                            ,{" "}
-                            <a href="#" className="text-1 link">
-                              furniture
-                            </a>
+
                           </p>
                         </li>
                       </ul>

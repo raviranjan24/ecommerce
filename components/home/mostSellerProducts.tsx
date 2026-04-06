@@ -8,7 +8,7 @@ const MostSellerProducts = ({ products }: any) => {
         <div className="row">
           <div className="col-12">
             <div className="heading-section text-center">
-              <h3 className="wow fadeInUp">Trending Products</h3>
+              <h3 className="wow fadeInUp">Latest Products</h3>
             </div>
             <div className="tf-grid-layout tf-col-2 lg-col-4">
               {products?.map((item: any, ind: any) => {
@@ -50,12 +50,10 @@ const MostSellerProducts = ({ products }: any) => {
                         {item?.name}
                       </Link>
                       <div className="price text-body-default">
-                        {item?.oldPrice && (
-                          <span className="text-caption-1 old-price">
-                            <MdCurrencyRupee />{item?.oldPrice.toFixed(2)}
-                          </span>
-                        )}
-                        <MdCurrencyRupee />{item?.price.toFixed(2)}
+                        ₹ {item?.pricing?.regular_price}
+                        <span className="text-caption-1 old-price">
+                          ₹ {item?.pricing?.sell_price}
+                        </span>
                       </div>
                     </div>
                   </div>
