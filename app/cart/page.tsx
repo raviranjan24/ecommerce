@@ -1,277 +1,214 @@
+"use client";
 import Breadcrum from "@/components/common/breadcrum";
 import Link from "next/link";
+import { useEffect } from "react";
+import { useDispatch, useSelector } from "react-redux";
+import {
+  fetchCart,
+  updateCart,
+  removeCart,
+  clearCart,
+} from "@/redux/slices/cartSlice";
+import { getToken } from "@/utils/auth";
 
 export default function Cart() {
-    return (
-        <>
-            <Breadcrum title={"Cart"}/>
-            <section className="flat-spacing pb-0">
-                <div className="container">
-                    <div className="row">
-                        <div className="col-xl-8">
-                            <form>
-                                <table className="tf-table-page-cart">
-                                    <thead>
-                                        <tr>
-                                            <th>Products</th>
-                                            <th>Price</th>
-                                            <th>Quantity</th>
-                                            <th>Total Price</th>
-                                            <th />
-                                        </tr>
-                                    </thead>
-                                    <tbody>
-                                        <tr className="tf-cart-item file-delete">
-                                            <td className="tf-cart-item_product">
-                                                <a href="product-detail.html" className="img-box">
-                                                    <img src="/images/shop/product-4.jpg" alt="product" />
-                                                </a>
-                                                <div className="cart-info">
-                                                    <a
-                                                        href="product-detail.html"
-                                                        className="cart-title link"
-                                                    >
-                                                        Open Box - Adjustable...
-                                                    </a>
-                                                    <div className="variant text-caption-1">
-                                                        Gray, Size C
-                                                    </div>
-                                                </div>
-                                            </td>
-                                            <td
-                                                data-cart-title="Price"
-                                                className="tf-cart-item_price text-center"
-                                            >
-                                                <div className="cart-price text-button price-on-sale">
-                                                    $60.00
-                                                </div>
-                                            </td>
-                                            <td
-                                                data-cart-title="Quantity"
-                                                className="tf-cart-item_quantity"
-                                            >
-                                                <div className="wg-quantity mx-md-auto">
-                                                    <span className="btn-quantity btn-decrease">-</span>
-                                                    <input
-                                                        type="text"
-                                                        className="quantity-product"
-                                                        name="number"
-                                                        defaultValue={1}
-                                                    />
-                                                    <span className="btn-quantity btn-increase">+</span>
-                                                </div>
-                                            </td>
-                                            <td
-                                                data-cart-title="Total"
-                                                className="tf-cart-item_total text-center"
-                                            >
-                                                <div className="cart-total text-button total-price">
-                                                    $60.00
-                                                </div>
-                                            </td>
-                                            <td data-cart-title="Remove" className="remove-cart">
-                                                <span className="remove icon icon-close" />
-                                            </td>
-                                        </tr>
-                                        <tr className="tf-cart-item file-delete">
-                                            <td className="tf-cart-item_product">
-                                                <a href="product-detail.html" className="img-box">
-                                                    <img src="/images/shop/product-6.jpg" alt="product" />
-                                                </a>
-                                                <div className="cart-info">
-                                                    <a
-                                                        href="product-detail.html"
-                                                        className="cart-title link"
-                                                    >
-                                                        Ergonomic Chair Pro
-                                                    </a>
-                                                    <div className="variant text-caption-1">
-                                                        Gray, Size C
-                                                    </div>
-                                                </div>
-                                            </td>
-                                            <td
-                                                data-cart-title="Price"
-                                                className="tf-cart-item_price text-center"
-                                            >
-                                                <div className="cart-price text-button price-on-sale">
-                                                    $40.00
-                                                </div>
-                                            </td>
-                                            <td
-                                                data-cart-title="Quantity"
-                                                className="tf-cart-item_quantity"
-                                            >
-                                                <div className="wg-quantity mx-md-auto">
-                                                    <span className="btn-quantity btn-decrease">-</span>
-                                                    <input
-                                                        type="text"
-                                                        className="quantity-product"
-                                                        name="number"
-                                                        defaultValue={1}
-                                                    />
-                                                    <span className="btn-quantity btn-increase">+</span>
-                                                </div>
-                                            </td>
-                                            <td
-                                                data-cart-title="Total"
-                                                className="tf-cart-item_total text-center"
-                                            >
-                                                <div className="cart-total text-button total-price">
-                                                    $40.00
-                                                </div>
-                                            </td>
-                                            <td data-cart-title="Remove" className="remove-cart">
-                                                <span className="remove icon icon-close" />
-                                            </td>
-                                        </tr>
-                                        <tr className="tf-cart-item file-delete">
-                                            <td className="tf-cart-item_product">
-                                                <a href="product-detail.html" className="img-box">
-                                                    <img src="/images/shop/product-1.jpg" alt="product" />
-                                                </a>
-                                                <div className="cart-info">
-                                                    <a
-                                                        href="product-detail.html"
-                                                        className="cart-title link"
-                                                    >
-                                                        Double Standing Desk
-                                                    </a>
-                                                    <div className="variant text-caption-1">
-                                                        Gray, Size C
-                                                    </div>
-                                                </div>
-                                            </td>
-                                            <td
-                                                data-cart-title="Price"
-                                                className="tf-cart-item_price text-center"
-                                            >
-                                                <div className="cart-price">
-                                                    <span className="old-price">$80.00</span>
-                                                    <span className="text-button new-price price-on-sale">
-                                                        $129.00
-                                                    </span>
-                                                </div>
-                                            </td>
-                                            <td
-                                                data-cart-title="Quantity"
-                                                className="tf-cart-item_quantity"
-                                            >
-                                                <div className="wg-quantity mx-md-auto">
-                                                    <span className="btn-quantity btn-decrease">-</span>
-                                                    <input
-                                                        type="text"
-                                                        className="quantity-product"
-                                                        name="number"
-                                                        defaultValue={1}
-                                                    />
-                                                    <span className="btn-quantity btn-increase">+</span>
-                                                </div>
-                                            </td>
-                                            <td
-                                                data-cart-title="Total"
-                                                className="tf-cart-item_total text-center"
-                                            >
-                                                <div className="cart-total text-button total-price">
-                                                    $129.00
-                                                </div>
-                                            </td>
-                                            <td data-cart-title="Remove" className="remove-cart">
-                                                <span className="remove icon icon-close" />
-                                            </td>
-                                        </tr>
-                                    </tbody>
-                                </table>
-                            </form>
-                        </div>
-                        <div className="col-xl-4">
-                            <div className="fl-sidebar-cart">
-                                <div className="box-order bg-surface">
-                                    <h5 className="title">Order Summary</h5>
-                                    <div className="subtotal text-button d-flex justify-content-between align-items-center">
-                                        <span>Subtotal</span>
-                                        <span className="total">-$80.00</span>
-                                    </div>
-                                    <div className="discount text-button d-flex justify-content-between align-items-center">
-                                        <span>Discounts</span>
-                                        <span className="total">-$80.00</span>
-                                    </div>
-                                    <div className="ship">
-                                        <span className="text-button">Shipping</span>
-                                        <div className="flex-grow-1">
-                                            <fieldset className="ship-item">
-                                                <input
-                                                    type="radio"
-                                                    name="ship-check"
-                                                    className="tf-check-rounded"
-                                                    id="free"
-                                                />
-                                                <label htmlFor="free">
-                                                    <span>Free Shipping</span>
-                                                    <span className="price">$0.00</span>
-                                                </label>
-                                            </fieldset>
-                                            <fieldset className="ship-item">
-                                                <input
-                                                    type="radio"
-                                                    name="ship-check"
-                                                    className="tf-check-rounded"
-                                                    id="local"
-                                                />
-                                                <label htmlFor="local">
-                                                    <span>Local:</span>
-                                                    <span className="price">$35.00</span>
-                                                </label>
-                                            </fieldset>
-                                            <fieldset className="ship-item">
-                                                <input
-                                                    type="radio"
-                                                    name="ship-check"
-                                                    className="tf-check-rounded"
-                                                    id="rate"
-                                                />
-                                                <label htmlFor="rate">
-                                                    <span>Flat Rate:</span>
-                                                    <span className="price">$35.00</span>
-                                                </label>
-                                            </fieldset>
-                                        </div>
-                                    </div>
-                                    <h5 className="total-order d-flex justify-content-between align-items-center">
-                                        <span>Total</span>
-                                        <span className="total">$186,99</span>
-                                    </h5>
-                                    <div className="box-progress-checkout">
-                                        <fieldset className="check-agree">
-                                            <input
-                                                type="checkbox"
-                                                id="check-agree"
-                                                className="tf-check-rounded"
-                                            />
-                                            <label htmlFor="check-agree">
-                                                I agree with the{" "}
-                                                <a href="term-of-use.html" className="link">
-                                                    terms and conditions
-                                                </a>
-                                            </label>
-                                        </fieldset>
-                                        <Link href="/checkout" className="tf-btn btn-onsurface ">
-                                            Process To Checkout
-                                            <i className="icon-arrow-up-right" />
-                                        </Link>
-                                        <a
-                                            href="shop-default.html"
-                                            className="text-button text-center link"
-                                        >
-                                            Or continue shopping
-                                        </a>
-                                    </div>
-                                </div>
+  const dispatch = useDispatch();
+  const cartState = useSelector((state: any) => state.cart);
+  const cart = cartState?.items?.cart || {};
+  const items = cart?.items || [];
+  const subtotal = cart?.subtotal || 0;
+  const total = cart?.total || 0;
+
+  useEffect(() => {
+    const token = getToken();
+    if (token) {
+      dispatch(fetchCart(token) as any);
+    }
+  }, [dispatch]);
+
+  const refreshCart = () => {
+    const token = getToken();
+    if (token) {
+      dispatch(fetchCart(token) as any);
+    }
+  };
+
+  return (
+    <>
+      <Breadcrum title={"Cart"} />
+
+      <section className="flat-spacing pb-0">
+        <div className="container">
+          <div className="row">
+            <div className="col-xl-8">
+              <table className="tf-table-page-cart">
+                <thead>
+                  <tr>
+                    <th>Products</th>
+                    <th className="text-center">Price</th>
+                    <th className="text-center">Quantity</th>
+                    <th className="text-center">Total</th>
+                    <th />
+                  </tr>
+                </thead>
+                <tbody>
+                  {items.length > 0 ? (
+                    items.map((item: any, index: number) => (
+                      <tr key={index} className="tf-cart-item">
+                        <td className="tf-cart-item_product">
+                          <div className="d-flex gap-3 align-items-center">
+                            <img
+                              src={item?.image || "/images/placeholder.jpg"}
+                              width={70}
+                              height={70}
+                              alt="product"
+                            />
+                            <div>
+                              <p className="mb-1">
+                                Product ID: {item?.productId}
+                              </p>
+                              <small>Size: {item?.size}</small>
                             </div>
-                        </div>
-                    </div>
+                          </div>
+                        </td>
+                        <td className="text-center">
+                          ₹{item?.price}
+                        </td>
+                        <td>
+                          <div className="d-flex align-items-center gap-2 justify-content-center">
+                            <button
+                              onClick={async () => {
+                                if (item.quantity > 1) {
+                                  await dispatch(
+                                    updateCart({
+                                      productId: item.productId,
+                                      size: item.size,
+                                      quantity: item.quantity - 1,
+                                      token: getToken(),
+                                    }) as any
+                                  );
+                                  refreshCart();
+                                }
+                              }}
+                              className="btn btn-sm btn-light"
+                            >
+                              -
+                            </button>
+
+                            <span>{item.quantity}</span>
+                            <button
+                              onClick={async () => {
+                                await dispatch(
+                                  updateCart({
+                                    productId: item.productId,
+                                    size: item.size,
+                                    quantity: item.quantity + 1,
+                                    token: getToken(),
+                                  }) as any
+                                );
+                                refreshCart();
+                              }}
+                              className="btn btn-sm btn-light"
+                            >
+                              +
+                            </button>
+
+                          </div>
+                        </td>
+
+                        <td className="text-center">
+                          ₹{item.price * item.quantity}
+                        </td>
+
+                        <td className="text-center">
+                          <button
+                            onClick={async () => {
+                              await dispatch(
+                                removeCart({
+                                  productId: item.productId,
+                                  size: item.size,
+                                  token: getToken(),
+                                }) as any
+                              );
+                              refreshCart();
+                            }}
+                            className="btn btn-sm btn-danger"
+                          >
+                            ✕
+                          </button>
+                        </td>
+
+                      </tr>
+                    ))
+                  ) : (
+                    <tr>
+                      <td colSpan={5} className="text-center py-5">
+                        Your cart is empty 🛒
+                      </td>
+                    </tr>
+                  )}
+                </tbody>
+              </table>
+
+              {items.length > 0 && (
+                <div className="mt-3 text-end">
+                  <button
+                    onClick={async () => {
+                      await dispatch(clearCart(getToken()) as any);
+                      refreshCart();
+                    }}
+                    className="tf-btn btn-danger"
+                  >
+                    Clear Cart
+                  </button>
                 </div>
-            </section>
-        </>
-    )
+              )}
+            </div>
+
+            <div className="col-xl-4">
+              <div className="fl-sidebar-cart">
+                <div className="box-order bg-surface">
+
+                  <h5 className="title">Order Summary</h5>
+
+                  <div className="d-flex justify-content-between">
+                    <span>Subtotal</span>
+                    <span>₹{subtotal}</span>
+                  </div>
+
+                  <div className="mt-2">
+                    <span>Shipping</span>
+                    <div>Free</div>
+                  </div>
+
+                  <h5 className="d-flex justify-content-between mt-3">
+                    <span>Total</span>
+                    <span>₹{total}</span>
+                  </h5>
+
+                  <div className="mt-3">
+                    <Link
+                      href="/checkout"
+                      className="tf-btn btn-onsurface w-100"
+                    >
+                      Proceed To Checkout
+                    </Link>
+
+                    <Link
+                      href="/shop"
+                      className="text-center d-block mt-2"
+                    >
+                      Continue Shopping
+                    </Link>
+                  </div>
+
+                </div>
+              </div>
+            </div>
+
+          </div>
+        </div>
+      </section>
+    </>
+  );
 }
