@@ -22,7 +22,7 @@ const TopSellerProducts = ({ products }: any) => {
                                             <Link href={`/products/${item._id}`} className="image-wrap">
                                                 <img
                                                     className="img-product"
-                                                    src={item?.images?.main}
+                                                    src={item?.images?.main || "/no-image.png"}
                                                     alt={item?.title}
                                                 />
                                                 <img

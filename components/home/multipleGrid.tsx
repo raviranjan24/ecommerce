@@ -7,7 +7,7 @@ const BannerGrid = ({ banner }: any) => {
       <div className="row g-4">
         {banner?.offers?.map((data:any, id:any) => {
           return (
-            <div className="col-12 col-md-4">
+            <div className="col-12 col-md-4" key={id}>
               <SingleImage
                 imageUrl={data?.image}
                 link={`/products/${data?._id}`}

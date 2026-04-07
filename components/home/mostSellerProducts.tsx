@@ -1,5 +1,4 @@
 import Link from "next/link";
-import { MdCurrencyRupee } from "react-icons/md";
 
 const MostSellerProducts = ({ products }: any) => {
   return (
@@ -22,7 +21,7 @@ const MostSellerProducts = ({ products }: any) => {
                       <Link href={`/products/${item._id}`} className="image-wrap">
                         <img
                           className="lazyload img-product"
-                          src={item?.image}
+                          src={item?.images || "/no-image.png"}
                           data-src={item?.image}
                           alt={item?.name}
                         />
