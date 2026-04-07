@@ -38,10 +38,10 @@ export default function RootLayout({
         <ScrollToTop />
         <Preload />
         <div id="wrapper">
-          {/* <Header /> */}
+          <Header />
           <MobileMenu />
           {children}
-          {/* <Footer /> */}
+          <Footer />
         </div>
         <JqueryLoader />
         </ReduxProvider>
