@@ -133,8 +133,9 @@ export default function Login() {
                         name="remember"
                         checked={formik.values.remember}
                         onChange={formik.handleChange}
+                        style={{height:"15px"}}
                       />
-                      <label> Remember me</label>
+                      &nbsp;Remember me
                     </div>
 
                     <a className="text-button">Forgot Password?</a>

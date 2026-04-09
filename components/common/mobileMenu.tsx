@@ -663,10 +663,10 @@ const MobileMenu = () => {
                             </div>
                             <ul className="mb-info">
                                 <li>
-                                    Address: 1234 Fashion Street, Suite 567, <br /> New York, NY 10001
+                                    Address: Plot no. 37, Sector 155, Noida-201301
                                 </li>
                                 <li>
-                                    Email: <b>example@example.com</b>
+                                    Email: <b>info@helioshome.co.in</b>
                                 </li>
                                 <li>
                                     Phone: <b>(212) 555-1234</b>

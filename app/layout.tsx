@@ -5,9 +5,9 @@ import Header from "@/components/layout/header";
 import Footer from "@/components/layout/footer";
 import MobileMenu from "@/components/common/mobileMenu";
 import JqueryLoader from "@/components/common/JqueryLoader";
-import "react-toastify/dist/ReactToastify.css";
 import { ToastContainer } from "react-toastify";
 import ReduxProvider from "@/redux/ReduxProvider";
+import "react-toastify/dist/ReactToastify.css";
 import "./globals.css";
 
 export const metadata: Metadata = {
@@ -34,16 +34,18 @@ export default function RootLayout({
       </head>
       <body>
         <ReduxProvider>
-        <ToastContainer position="top-right" autoClose={3000} />
-        <ScrollToTop />
-        <Preload />
-        <div id="wrapper">
-          <Header />
-          <MobileMenu />
-          {children}
-          <Footer />
-        </div>
-        <JqueryLoader />
+          <ToastContainer position="top-right" autoClose={3000} />
+          <ScrollToTop />
+          <Preload />
+          <div id="wrapper">
+            <Header />
+            <MobileMenu />
+            <ReduxProvider>
+              {children}
+            </ReduxProvider>
+            <Footer />
+          </div>
+          <JqueryLoader />
         </ReduxProvider>
       </body>
     </html>

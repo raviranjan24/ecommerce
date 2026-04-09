@@ -25,19 +25,13 @@ export default async function page() {
           No slider data found
         </div>
       )}
-      <br />
       <BannerGrid banner={getOfferBannerData?.data} />
-      <br />
-      <br />
-      <br />
-      <ShopByCategory data={getAllCategoryList}/>
-      <br />
+      <ShopByCategory data={getAllCategoryList} />
       <SingleImage
         imageUrl="/images/10.webp"
         link="/categories/100"
         alt="Mega Sale Banner"
       />
-      <br />
       {latesetProducts && latesetProducts?.data?.products.length > 0 ? (
         <MostSellerProducts products={latesetProducts?.data?.products} />
       ) : (
@@ -45,18 +39,12 @@ export default async function page() {
           No product data found
         </div>
       )}
-      <br />
       <SingleImage
         imageUrl="/images/9.jpg"
-        link="/categories/100"
+        link="/categories/69ba2adbfe394651ba158bed"
         alt="Mega Sale Banner"
       />
-      <br />
-      {/* <TopSellers /> */}
       <BannerGrid />
-      <br />
-      <br />
-      <br />
       {getTopSellProductList && getTopSellProductList?.data?.length > 0 ? (
         <TopSellerProducts products={getTopSellProductList?.data} />
       ) : (
@@ -64,10 +52,9 @@ export default async function page() {
           No product data found
         </div>
       )}
-      <br />
       <SingleImage
         imageUrl="/images/7.webp"
-        link="/categories/100"
+        link="/categories/69ba2adbfe394651ba158bed"
         alt="Mega Sale Banner"
       />
       <Search />

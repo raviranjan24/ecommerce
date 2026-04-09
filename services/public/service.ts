@@ -1,17 +1,3 @@
-// export const getCategoryList = async () => {
-//     const res = await fetch(`${process.env.NEXT_PUBLIC_API_BASE_URL}/api/category/list`, {
-//         cache: "no-store", // SSR (always fresh)
-//     });
-
-//     if (!res.ok) {
-//         throw new Error("Failed to fetch sliders");
-//     }
-
-//     return res.json();
-// };
-
-// services/public/service.ts
-
 export const getSliders = async () => {
   const baseUrl = process.env.API_BASE_URL;
   if (!baseUrl) {
@@ -161,6 +147,22 @@ export const getAllProducts = async ({
     throw new Error("Failed to fetch products");
   }
 
+  return res.json();
+};
+
+export const searchProducts = async (query: string) => {
+  const baseUrl = "https://helioshome-backend.vercel.app";
+  if (!baseUrl) {
+    throw new Error("API_BASE_URL environment variable is not set");
+  }
+  const url = `${baseUrl}/api/v1/products/search?q=${query}`;
+  const res = await fetch(url, {
+    cache: "no-store",
+    signal: AbortSignal.timeout(30000),
+  });
+  if (!res.ok) {
+    throw new Error(`Search failed: ${res.status}`);
+  }
   return res.json();
 };
 

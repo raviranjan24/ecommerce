@@ -33,6 +33,8 @@ export default function Cart() {
     }
   };
 
+  console.log("items", items);
+
   return (
     <>
       <Breadcrum title={"Cart"} />
@@ -52,7 +54,7 @@ export default function Cart() {
                   </tr>
                 </thead>
                 <tbody>
-                  {items.length > 0 ? (
+                  {items?.length > 0 ? (
                     items.map((item: any, index: number) => (
                       <tr key={index} className="tf-cart-item">
                         <td className="tf-cart-item_product">
@@ -157,7 +159,7 @@ export default function Cart() {
                       await dispatch(clearCart(getToken()) as any);
                       refreshCart();
                     }}
-                    className="tf-btn btn-danger"
+                    className="btn btn-danger"
                   >
                     Clear Cart
                   </button>
@@ -166,44 +168,48 @@ export default function Cart() {
             </div>
 
             <div className="col-xl-4">
-              <div className="fl-sidebar-cart">
-                <div className="box-order bg-surface">
+              {items?.length > 0 ?
+                <>
+                  <div className="fl-sidebar-cart">
+                    <div className="box-order bg-surface">
 
-                  <h5 className="title">Order Summary</h5>
+                      <h5 className="title">Order Summary</h5>
 
-                  <div className="d-flex justify-content-between">
-                    <span>Subtotal</span>
-                    <span>₹{subtotal}</span>
+                      <div className="d-flex justify-content-between">
+                        <span>Subtotal</span>
+                        <span>₹{subtotal}</span>
+                      </div>
+
+                      <div className="mt-2">
+                        <span>Shipping</span>
+                        <div>Free</div>
+                      </div>
+
+                      <h5 className="d-flex justify-content-between mt-3">
+                        <span>Total</span>
+                        <span>₹{total}</span>
+                      </h5>
+
+                      <div className="mt-3">
+                        <Link
+                          href="/checkout"
+                          className="tf-btn btn-onsurface w-100"
+                        >
+                          Proceed To Checkout
+                        </Link>
+
+                        <Link
+                          href="/shop"
+                          className="text-center d-block mt-2"
+                        >
+                          Continue Shopping
+                        </Link>
+                      </div>
+
+                    </div>
                   </div>
-
-                  <div className="mt-2">
-                    <span>Shipping</span>
-                    <div>Free</div>
-                  </div>
-
-                  <h5 className="d-flex justify-content-between mt-3">
-                    <span>Total</span>
-                    <span>₹{total}</span>
-                  </h5>
-
-                  <div className="mt-3">
-                    <Link
-                      href="/checkout"
-                      className="tf-btn btn-onsurface w-100"
-                    >
-                      Proceed To Checkout
-                    </Link>
-
-                    <Link
-                      href="/shop"
-                      className="text-center d-block mt-2"
-                    >
-                      Continue Shopping
-                    </Link>
-                  </div>
-
-                </div>
-              </div>
+                </>
+                : ''}
             </div>
 
           </div>

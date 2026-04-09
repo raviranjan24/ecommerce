@@ -326,10 +326,10 @@ h2 {
   line-height: 50px;
 }
 
-h3 {
+/* h3 {
   font-size: 29px;
   line-height: 18px;
-}
+} */
 
 h4,
 .h4 {
@@ -13049,8 +13049,9 @@ ul.list-text.type-number {
   }
 
   h3 {
-    font-size: 24px;
+    font-size: 30px;
     line-height: 34px;
+    font-weight: bold !important;
   }
 
   h4 {

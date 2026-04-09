@@ -16,6 +16,7 @@ const SingleImage: React.FC<SingleImageProps> = ({
     <div
       style={{
         padding: "0px",
+        margin: "10px 0px 10px 0px"
       }}
     >
       <Link href={link} style={{ width: "100%", display: "block" }}>

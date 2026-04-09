@@ -129,7 +129,7 @@ export default function Register() {
                                             checked={formik.values.agree}
                                             onChange={formik.handleChange}
                                         />
-                                        <label>&nbsp;I agree to Terms</label>
+                                        <label>&nbsp;I agree to <Link href={'/terms-of-service'} style={{color:"blue"}}>Terms & Conditions</Link></label>
                                     </div>
                                     {formik.errors.agree && (
                                         <p className="error">{formik.errors.agree}</p>

@@ -86,6 +86,22 @@ export const clearCart = createAsyncThunk(
   }
 );
 
+export const placeOrder = createAsyncThunk(
+  "order/placeOrder",
+  async ({ orderData, token }: any) => {
+    const res = await fetch(`${baseUrl}/api/v1/orders`, {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+        Authorization: `Bearer ${token}`,
+      },
+      body: JSON.stringify(orderData),
+    });
+
+    return res.json();
+  }
+);
+
 const cartSlice = createSlice({
   name: "cart",
   initialState: {

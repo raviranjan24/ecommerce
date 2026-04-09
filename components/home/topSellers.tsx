@@ -2,7 +2,7 @@ import Link from "next/link";
 
 const TopSellerProducts = ({ products }: any) => {
     return (
-        <section className="pt-0">
+        <section className="pt-0" style={{ margin: "20px 0px 10px 0px" }}>
             <div className="container-fluid">
                 <div className="row">
                     <div className="col-12">

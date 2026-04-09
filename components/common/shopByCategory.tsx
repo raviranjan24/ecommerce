@@ -2,19 +2,12 @@ import Link from "next/link";
 
 const ShopByCategory = ({data}:any) => {
   return (
-    <section>
+    <section style={{ margin: "10px 0px 10px 0px" }}>
       <div className="container-fluid">
         <div className="col-12">
           <div className="heading-section style-2">
             <div className="left">
               <h3 className="wow fadeInUp">Shop By Categories</h3>
-            </div>
-
-            <div className="right wow fadeInUp">
-              <Link href="/categories/100" className="btn-line">
-                <span>View All Products</span>
-                <i className="icon-arrow-up-right" />
-              </Link>
             </div>
           </div>
           <div className="wrap-categories overflow-x-auto style-2">
