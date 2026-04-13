@@ -6549,8 +6549,9 @@ form .cols>* {
 
 .hover-img .article-thumb img,
 .hover-img .img-style img {
-  width: 100%;
-  height: 100%;
+  width: 200px;
+  height: 200px;
+  border-radius: 20px;
   object-fit: cover;
   -webkit-transition: opacity 0.5s ease, transform 2s cubic-bezier(0, 0, 0.44, 1.18);
   transition: opacity 0.5s ease, transform 2s cubic-bezier(0, 0, 0.44, 1.18);
@@ -6848,8 +6849,8 @@ form .cols>* {
 
 .card-product .card-product-wrapper .image-wrap {
   display: flex;
-  width: 100%;
-  height: 100%;
+  width: 300px;
+  height: 300px;
   position: relative;
 }
 
@@ -6857,7 +6858,7 @@ form .cols>* {
   display: block;
   height: 100%;
   width: 100%;
-  object-fit: cover;
+  object-fit: fill;
   object-position: center;
   transition-duration: 700ms;
 }
@@ -11178,9 +11179,9 @@ ul.list-tags.has-bg a {
 
 .categories-item:not(.categories-item.style-3).style-2 .img-style {
   margin: 0 auto;
-  max-width: 190px;
+  max-width: 300px;
   border-radius: 999px;
-  overflow: hidden;
+  overflow: inherit;
   margin-bottom: 16px;
 }
 

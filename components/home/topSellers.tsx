@@ -14,7 +14,7 @@ const TopSellerProducts = ({ products }: any) => {
                             {products?.slice(0, 4).map((item: any, ind: any) => {
                                 const regularPrice = item?.pricing?.regular_price || 0;
                                 const discount = Math.abs(item?.pricing?.sell_price || 0);
-                                const finalPrice = regularPrice - discount;
+                                const finalPrice = item?.pricing?.sell_price
                                 return (
                                     <div key={ind} className="card-product style-1">
 

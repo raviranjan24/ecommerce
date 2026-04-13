@@ -24,7 +24,7 @@ const Header = () => {
                                     <img src="/images/logo.jpeg" alt="logo" className="logo" />
                                 </Link>
                             </div>
-                            <div className="col-xl-8 d-none d-xl-block">
+                            <div className="col-xl-9 d-none d-xl-block">
                                 <Navbar />
                             </div>
                             <div className="col-md-2 col-2 d-xl-none">
@@ -46,7 +46,7 @@ const Header = () => {
                                 </Link>
                             </div>
 
-                            <div className="col-xl-2 col-md-4 col-2">
+                            <div className="col-xl-1 col-md-4 col-2">
                                 <ul className="nav-icon">
                                     <li className="nav-search">
                                         <Link

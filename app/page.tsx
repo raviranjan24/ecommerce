@@ -29,7 +29,7 @@ export default async function page() {
       <ShopByCategory data={getAllCategoryList} />
       <SingleImage
         imageUrl="/images/10.webp"
-        link="/categories/100"
+        link="/categories/69dc8c431a5af9c1b8f678fe"
         alt="Mega Sale Banner"
       />
       {latesetProducts && latesetProducts?.data?.products.length > 0 ? (
@@ -41,7 +41,7 @@ export default async function page() {
       )}
       <SingleImage
         imageUrl="/images/9.jpg"
-        link="/categories/69ba2adbfe394651ba158bed"
+        link="/categories/69dc8c431a5af9c1b8f678fe"
         alt="Mega Sale Banner"
       />
       <BannerGrid />
@@ -54,7 +54,7 @@ export default async function page() {
       )}
       <SingleImage
         imageUrl="/images/7.webp"
-        link="/categories/69ba2adbfe394651ba158bed"
+        link="/categories/69dc8c431a5af9c1b8f678fe"
         alt="Mega Sale Banner"
       />
       <Search />

@@ -21,13 +21,13 @@ const MostSellerProducts = ({ products }: any) => {
                       <Link href={`/products/${item._id}`} className="image-wrap">
                         <img
                           className="lazyload img-product"
-                          src={item?.images || "/no-image.png"}
+                          src={item?.images.main || "/no-image.png"}
                           data-src={item?.image}
                           alt={item?.name}
                         />
                         <img
                           className="lazyload img-hover"
-                          src={item?.image}
+                          src={item?.images.main}
                           data-src={item?.image}
                           alt={item?.name}
                         />

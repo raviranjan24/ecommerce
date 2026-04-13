@@ -69,8 +69,6 @@ export default function CategoriesPage({ params }: { params: { slug: string } })
     };
   };
 
-  console.log("products",products)
-
   return (
     <section className="container py-4">
       {/* Breadcrumb */}
@@ -266,9 +264,9 @@ export default function CategoriesPage({ params }: { params: { slug: string } })
         }
 
         .product-img img{
-          width:100%;
-          object-fit:cover;
-          height:300;
+          width:250px;
+          object-fit:contain;
+          height:250px;
         }
 
         .wishlist{

@@ -7,7 +7,6 @@ export default async function Products({ params }: { params: { slug: any } }) {
   const resolvedParams = await params;
   const id = resolvedParams.slug;
   const productsDetails: any = await getSIngleProductDetails(id);
-  // console.log("productsDetails", productsDetails?.data?.product);
   return (
     <>
       <div className="tf-breadcrumb">
@@ -23,7 +22,7 @@ export default async function Products({ params }: { params: { slug: any } }) {
               </span>
               <i className="icon icon-right" />
               <span className="text_secondary2 text-caption-1">
-                {productsDetails?.data?.product?.name}
+                {productsDetails?.data?.product?.title}
               </span>
             </div>
             <div className="tf-breadcrumb-prev-next">
@@ -66,10 +65,10 @@ export default async function Products({ params }: { params: { slug: any } }) {
                         <div className="item">
                           <img
                             className="lazyload"
-                            data-src={productsDetails?.data?.product?.image}
-                            src={productsDetails?.data?.product?.image}
+                            data-src={productsDetails?.data?.product?.images?.main}
+                            src={productsDetails?.data?.product?.images?.main}
                             alt=""
-                            data-zoom={productsDetails?.data?.product?.image}
+                            data-zoom={productsDetails?.data?.product?.images?.main}
                           />
                         </div>
                       </div>
@@ -77,9 +76,9 @@ export default async function Products({ params }: { params: { slug: any } }) {
                         <div className="item">
                           <img
                             className="lazyload"
-                            data-src={productsDetails?.data?.product?.image}
-                            src={productsDetails?.data?.product?.image}
-                            data-zoom={productsDetails?.data?.product?.image}
+                            data-src={productsDetails?.data?.product?.images?.main}
+                            src={productsDetails?.data?.product?.images?.main}
+                            data-zoom={productsDetails?.data?.product?.images?.main}
                             alt=""
                           />
                         </div>
@@ -132,16 +131,16 @@ export default async function Products({ params }: { params: { slug: any } }) {
                         >
                           <img
                             className="tf-image-zoom lazyload"
-                            data-zoom={productsDetails?.data?.product?.image}
-                            data-src={productsDetails?.data?.product?.image}
-                            src={productsDetails?.data?.product?.image}
+                            data-zoom={productsDetails?.data?.product?.images?.main}
+                            data-src={productsDetails?.data?.product?.images?.main}
+                            src={productsDetails?.data?.product?.images?.main}
                             alt=""
                           />
                         </a>
                       </div>
                       <div className="swiper-slide" data-color="grey">
                         <a
-                          href={productsDetails?.data?.product?.image}
+                          href={productsDetails?.data?.product?.images?.main}
                           target="_blank"
                           className="item"
                           data-pswp-width="600px"
@@ -149,9 +148,9 @@ export default async function Products({ params }: { params: { slug: any } }) {
                         >
                           <img
                             className="tf-image-zoom lazyload"
-                            data-src={productsDetails?.data?.product?.image}
-                            data-zoom={productsDetails?.data?.product?.image}
-                            src={productsDetails?.data?.product?.image}
+                            data-src={productsDetails?.data?.product?.images?.main}
+                            data-zoom={productsDetails?.data?.product?.images?.main}
+                            src={productsDetails?.data?.product?.images?.main}
                             alt=""
                           />
                         </a>
@@ -219,7 +218,7 @@ export default async function Products({ params }: { params: { slug: any } }) {
                   <div className="tf-product-info-list other-image-zoom">
                     <div className="tf-product-info-heading">
                       <div className="tf-product-info-name">
-                        <h3 className="name">{productsDetails?.data?.product?.name}</h3>
+                        <h3 className="name">{productsDetails?.data?.product?.title}</h3>
                         <div className="sub">
                           <div className="tf-product-tag text-caption-1">
                             Best Seller
@@ -256,13 +255,13 @@ export default async function Products({ params }: { params: { slug: any } }) {
                       <div className="tf-product-info-desc">
                         <div className="tf-product-info-price">
                           <h5 className="price-on-sale">
-                            ₹{productsDetails?.data?.product?.price}
+                            ₹{productsDetails?.data?.product?.pricing?.sell_price}
                           </h5>
                           <div className="compare-at-price">
-                            ₹{productsDetails?.data?.product?.price + productsDetails?.data?.product?.discount}
+                            ₹{productsDetails?.data?.product?.pricing?.regular_price}
                           </div>
                           <div className="badges-on-sale text-btn-uppercase">
-                            -{productsDetails?.data?.product?.discount}%
+                            -{productsDetails?.data?.product?.pricing?.discount_percentage}%
                           </div>
                         </div>
                         <p>
@@ -474,10 +473,6 @@ export default async function Products({ params }: { params: { slug: any } }) {
                           <AddToCartButton
                             productId={productsDetails?.data?.product?._id}
                           />
-                          {/* <a className="tf-btn btn-onsurface flex-grow-1   show-shopping-cart">
-                            <span>Add to cart -&nbsp;</span>
-                            <span className="tf-qty-price total-price">$79.99</span>
-                          </a> */}
                         </div>
 
                       </div>

@@ -10,7 +10,7 @@ const BannerGrid = ({ banner }: any) => {
             <div className="col-12 col-md-4" key={id}>
               <SingleImage
                 imageUrl={data?.image}
-                link={`/products/${data?._id}`}
+                link={`/categories/${data?._id}`}
                 alt={data?.title}
               />
             </div>
