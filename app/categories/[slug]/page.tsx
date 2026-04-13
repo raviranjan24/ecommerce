@@ -35,7 +35,6 @@ export default function CategoriesPage({ params }: { params: { slug: string } })
       setLoading(true);
       try {
         const res = await getAllProducts(filters);
-
         setProducts(res?.data?.products || []);
         setPagination(res?.data?.pagination || {});
       } catch (err) {
