@@ -89,12 +89,7 @@ const Footer = () => {
                 <div className="footer-contact">
                     <div>
                         <strong>Talk to us</strong>
-                        <p>+91-7870561523</p>
-                    </div>
-
-                    <div>
-                        <strong>Address</strong>
-                        <p>Plot no. 37, Sector 155, Noida-201301</p>
+                        <p>+91-7760298833</p>
                     </div>
 
                     <div>

@@ -64,21 +64,11 @@ const ContactUs = () => {
                                         <h6 className="mb_8">Email:</h6>
                                         <p className="text-body-default">info@helioshome.co.in</p>
                                     </div>
-                                    <div className="mb_28">
-                                        <h6 className="mb_8">Address:</h6>
-                                        <p className="text-body-default">
-                                            Plot no. 37, Sector 155, Noida-201301
-                                        </p>
-                                    </div>
                                     <div>
                                         <h6 className="mb_8">Open Time:</h6>
                                         <p className="text-body-default mb_4 open-time">
                                             <span>Mon - Sat:</span>
-                                            7:30am - 8:00pm PST
-                                        </p>
-                                        <p className="text-body-default open-time">
-                                            <span>Sunday:</span>
-                                            9:00am - 5:00pm PST
+                                            7:30am - 8:00pm IST
                                         </p>
                                     </div>
                                 </div>
