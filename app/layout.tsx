@@ -8,6 +8,13 @@ import JqueryLoader from "@/components/common/JqueryLoader";
 import { ToastContainer } from "react-toastify";
 import ReduxProvider from "@/redux/ReduxProvider";
 import "react-toastify/dist/ReactToastify.css";
+import "../public/fonts/fonts.css";
+import "../public/fonts/font-icons.css";
+import "../public/css/bootstrap.min.css";
+import "../public/css/swiper-bundle.min.css";
+import "../public/css/animate.css";
+import "../public/css//styles.css";
+import "react-toastify/dist/ReactToastify.css";
 import "./globals.css";
 
 export const metadata: Metadata = {
@@ -23,12 +30,6 @@ export default function RootLayout({
   return (
     <html lang="en">
       <head>
-        <link rel="stylesheet" href="/fonts/fonts.css" />
-        <link rel="stylesheet" href="/fonts/font-icons.css" />
-        <link rel="stylesheet" href="/css/bootstrap.min.css" />
-        <link rel="stylesheet" href="/css/swiper-bundle.min.css" />
-        <link rel="stylesheet" href="/css/animate.css" />
-        <link rel="stylesheet" type="text/css" href="/css/styles.css" />
         <link rel="shortcut icon" href="/images/logo/favicon.png" />
         <link rel="apple-touch-icon-precomposed" href="/images/logo/favicon.png" />
       </head>
