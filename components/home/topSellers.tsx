@@ -7,7 +7,7 @@ const TopSellerProducts = ({ products }: any) => {
                 <div className="row">
                     <div className="col-12">
                         <div className="heading-section text-center">
-                            <h3>Top Sell Products</h3>
+                            <h3 style={{ fontSize: "20px"}}>Top Sell Products</h3>
                         </div>
 
                         <div className="tf-grid-layout tf-col-2 lg-col-4">

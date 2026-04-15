@@ -7,7 +7,7 @@ const ShopByCategory = ({data}:any) => {
         <div className="col-12">
           <div className="heading-section style-2">
             <div className="left">
-              <h3 className="wow fadeInUp">Shop By Categories</h3>
+              <h3 className="wow fadeInUp" style={{ fontSize: "20px"}}>Shop By Categories</h3>
             </div>
           </div>
           <div className="wrap-categories overflow-x-auto style-2">
