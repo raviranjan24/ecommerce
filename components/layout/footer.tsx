@@ -1,6 +1,27 @@
+"use client";
+import axios from "axios";
 import Link from "next/link";
+import { useEffect, useState } from "react";
 
 const Footer = () => {
+    const [masterData, setMasterData] = useState<any>(null);
+    useEffect(() => {
+        const fetchMasterData = async () => {
+            try {
+                const res = await axios.get(
+                    "https://helioshome-backend.vercel.app/api/v1/master"
+                );
+
+                if (res.data.success) {
+                    setMasterData(res.data.data);
+                }
+            } catch (error) {
+                console.error("Error fetching master data:", error);
+            }
+        };
+
+        fetchMasterData();
+    }, []);
     return (
         <footer className="mega-footer">
             <div className="container">
@@ -52,10 +73,10 @@ const Footer = () => {
                             </li>
                             <li>
                                 <Link
-                                    href="/terms-of-service"
+                                    href="/terms-conditions"
                                     className="link footer-menu_item"
                                 >
-                                    Terms of service
+                                    Terms and Conditions
                                 </Link>
                             </li>
                             <li>
@@ -89,12 +110,12 @@ const Footer = () => {
                 <div className="footer-contact">
                     <div>
                         <strong>Talk to us</strong>
-                        <p>+91-7760298833</p>
+                        <p>{masterData?.primaryPhone}</p>
                     </div>
 
                     <div>
                         <strong>Write to us</strong>
-                        <p>info@helioshome.co.in</p>
+                        <p>{masterData?.primaryEmail}</p>
                     </div>
 
                     <div className="social-icons">

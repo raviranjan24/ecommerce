@@ -113,7 +113,6 @@ export const getSIngleProductCategory = async (id: any) => {
 export const getAllProducts = async ({
   page = 1,
   limit = 9,
-  search = "",
   category = "",
   sortBy = "",
   order = "",
@@ -124,12 +123,9 @@ export const getAllProducts = async ({
   if (!baseUrl) {
     throw new Error("API_BASE_URL environment variable is not set");
   }
-
-
   const query = new URLSearchParams({
     page,
     limit,
-    search,
     category,
     sortBy,
     order,

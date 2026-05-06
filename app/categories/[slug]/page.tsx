@@ -2,6 +2,7 @@
 import { useState, useEffect } from "react";
 import Link from "next/link";
 import { getAllProducts } from "@/services/public/service";
+import { useParams } from "next/navigation";
 
 
 const categories = [
@@ -14,16 +15,17 @@ const categories = [
   { name: "Benches", image: "/images/section/categories-5.jpg" },
 ];
 
-export default function CategoriesPage({ params }: { params: { slug: string } }) {
+export default function CategoriesPage() {
   const [products, setProducts] = useState<any[]>([]);
   const [pagination, setPagination] = useState<any>({});
   const [loading, setLoading] = useState(false);
+  const params = useParams();
+  const slug = params?.slug as string;
 
   const [filters, setFilters] = useState<any>({
     page: 1,
     limit: 9,
-    search: "",
-    category: params.slug,
+    category: slug,
     sortBy: "",
     order: "",
     minPrice: "",
