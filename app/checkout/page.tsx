@@ -1,5 +1,4 @@
 "use client";
-
 import Breadcrum from "@/components/common/breadcrum";
 import Link from "next/link";
 import { useEffect, useState } from "react";
@@ -37,8 +36,6 @@ export default function Checkout() {
 
   const cartData = useSelector((state: any) => state.cart.items || {});
   const cartItems = Array.isArray(cartData?.cart?.items) ? cartData?.cart?.items: [];
-
-  console.log("cartItemsjjjjjj======>", cartData.cart.items);
 
   const totalAmount = cartItems.reduce(
     (acc: number, item: any) =>

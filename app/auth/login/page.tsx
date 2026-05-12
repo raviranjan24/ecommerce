@@ -55,6 +55,8 @@ export default function Login() {
           }
         );
 
+        console.log("res", res);
+
         if (res.data.success) {
           toast.success(res.data.message || "Login successful");
           if (typeof window !== "undefined") {
@@ -62,10 +64,7 @@ export default function Login() {
               "user",
               JSON.stringify(res.data.data.user)
             );
-            localStorage.setItem(
-              "token",
-              JSON.stringify(res.data.data.token)
-            );
+            localStorage.setItem("token", res.data.data.token);
           }
 
           setTimeout(() => {
@@ -101,7 +100,7 @@ export default function Login() {
                 className="form-login form-has-password"
               >
                 <div className="wrap">
-                  
+
                   <input
                     type="email"
                     name="email"
@@ -133,7 +132,7 @@ export default function Login() {
                         name="remember"
                         checked={formik.values.remember}
                         onChange={formik.handleChange}
-                        style={{height:"15px"}}
+                        style={{ height: "15px" }}
                       />
                       &nbsp;Remember me
                     </div>

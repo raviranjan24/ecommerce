@@ -4,7 +4,6 @@ import Link from "next/link";
 import { getAllProducts } from "@/services/public/service";
 import { useParams } from "next/navigation";
 
-
 const categories = [
   { name: "Bed Sets", image: "/images/section/categories-1.jpg" },
   { name: "Beds", image: "/images/section/categories-2.jpg" },
@@ -75,17 +74,17 @@ export default function CategoriesPage() {
     <section className="container py-4">
       {/* Breadcrumb */}
       <div className="mb-3 text-sm">
-        <Link href="/">Home</Link> / Furniture / Bedroom Furniture
+        <Link href="/">Home</Link>/{products[0]?.category?.title}
       </div>
-      <h3 className="mb-2">Bedroom Furniture</h3>
-      <div className="category-scroll mb-4">
+      <h3 className="mb-2">{products[0]?.category?.title}</h3>
+      {/* <div className="category-scroll mb-4">
         {categories.map((cat, i) => (
           <div key={i} className="cat-item">
             <img src={cat.image} />
             <span>{cat.name}</span>
           </div>
         ))}
-      </div>
+      </div> */}
 
       <div className="filter-bar mb-4">
         <div className="filters">
