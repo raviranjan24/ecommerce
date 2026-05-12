@@ -4,15 +4,15 @@ import Link from "next/link";
 import { getAllProducts } from "@/services/public/service";
 import { useParams } from "next/navigation";
 
-const categories = [
-  { name: "Bed Sets", image: "/images/section/categories-1.jpg" },
-  { name: "Beds", image: "/images/section/categories-2.jpg" },
-  { name: "Nightstands", image: "/images/section/categories-3.jpg" },
-  { name: "Dressers", image: "/images/section/categories-4.jpg" },
-  { name: "Wardrobes", image: "/images/section/categories-5.jpg" },
-  { name: "Chest of Drawers", image: "/images/section/categories-6.jpg" },
-  { name: "Benches", image: "/images/section/categories-5.jpg" },
-];
+// const categories = [
+//   { name: "Bed Sets", image: "/images/section/categories-1.jpg" },
+//   { name: "Beds", image: "/images/section/categories-2.jpg" },
+//   { name: "Nightstands", image: "/images/section/categories-3.jpg" },
+//   { name: "Dressers", image: "/images/section/categories-4.jpg" },
+//   { name: "Wardrobes", image: "/images/section/categories-5.jpg" },
+//   { name: "Chest of Drawers", image: "/images/section/categories-6.jpg" },
+//   { name: "Benches", image: "/images/section/categories-5.jpg" },
+// ];
 
 export default function CategoriesPage() {
   const [products, setProducts] = useState<any[]>([]);

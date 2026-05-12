@@ -156,7 +156,7 @@ export default function Cart() {
                 <div className="mt-3 text-end">
                   <button
                     onClick={async () => {
-                      await dispatch(clearCart(getToken()) as any);
+                      await dispatch(clearCart(getToken()||"") as any);
                       refreshCart();
                     }}
                     className="btn btn-danger"
