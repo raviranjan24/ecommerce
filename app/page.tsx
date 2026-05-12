@@ -5,7 +5,7 @@ import QuickView from "@/components/cart/quickView";
 import Compare from "@/components/common/compare";
 import SizeGuide from "@/components/common/sizeGuide";
 import ShopByCategory from "@/components/common/shopByCategory";
-import SingleImage from "@/components/home/singleImage";
+// import SingleImage from "@/components/home/singleImage";
 import BannerGrid from "@/components/home/multipleGrid";
 import { getAllCatgoryList, getLatesetProduct, getOfferBanner, getSliders, getTopSellingProduct } from "@/services/public/service";
 import TopSellerProducts from "@/components/home/topSellers";
@@ -25,13 +25,7 @@ export default async function page() {
           No slider data found
         </div>
       )}
-      {/* <BannerGrid banner={getOfferBannerData?.data} /> */}
       <ShopByCategory data={getAllCategoryList} />
-      {/* <SingleImage
-        imageUrl="/images/10.webp"
-        link="/categories/69dc8c431a5af9c1b8f678fe"
-        alt="Mega Sale Banner"
-      /> */}
       {latesetProducts && latesetProducts?.data?.products.length > 0 ? (
         <MostSellerProducts products={latesetProducts?.data?.products} />
       ) : (
@@ -39,12 +33,11 @@ export default async function page() {
           No product data found
         </div>
       )}
-      <SingleImage
+      {/* <SingleImage
         imageUrl="/images/9.jpg"
         link="/categories/69dc8c431a5af9c1b8f678fe"
         alt="Mega Sale Banner"
-      />
-      <BannerGrid />
+      /> */}
       {getTopSellProductList && getTopSellProductList?.data?.length > 0 ? (
         <TopSellerProducts products={getTopSellProductList?.data} />
       ) : (
@@ -52,11 +45,7 @@ export default async function page() {
           No product data found
         </div>
       )}
-      {/* <SingleImage
-        imageUrl="/images/7.webp"
-        link="/categories/69dc8c431a5af9c1b8f678fe"
-        alt="Mega Sale Banner"
-      /> */}
+      <BannerGrid banner={getOfferBannerData?.data} />
       <Search />
       <QuickView />
       <Compare />

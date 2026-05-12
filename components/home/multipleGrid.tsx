@@ -1,4 +1,3 @@
-import React from "react";
 import SingleImage from "./singleImage";
 
 const BannerGrid = ({ banner }: any) => {
@@ -10,7 +9,7 @@ const BannerGrid = ({ banner }: any) => {
             <div className="col-12 col-md-4" key={id}>
               <SingleImage
                 imageUrl={data?.image}
-                link={`/categories/${data?._id}`}
+                link={`/products/${data?.product_id?._id}`}
                 alt={data?.title}
               />
             </div>

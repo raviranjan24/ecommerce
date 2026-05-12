@@ -24,7 +24,7 @@ const HomeSlider = ({ sliders }: any) => {
                     <SwiperSlide key={ind}>
                         <div className="relative h-full w-full">
                             <Link
-                                href={`/products/${item?._id}`}
+                                href={`/products/${item?.product_id?._id}`}
                             >
                                 <img
                                     src={item?.image}
