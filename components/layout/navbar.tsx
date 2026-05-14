@@ -71,10 +71,9 @@ const Navbar = () => {
 export default Navbar;
 
 export const getCategory = async () => {
-  const baseUrl = process.env.NEXT_PUBLIC_API_BASE_URL;
-
-  const url = `${baseUrl}/api/v1/header-categories`;
-
+  //const baseUrl = process.env.NEXT_PUBLIC_API_BASE_URL;
+  //const url = `${baseUrl}/api/v1/header-categories`;
+  const url="https://helioshome-backend.vercel.app/api/v1/header-categories";
   const res = await fetch(url, {
     cache: "no-store",
   });
