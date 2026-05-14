@@ -479,15 +479,6 @@ export default async function Products({ params }: { params: { slug: any } }) {
                       <div className="tf-product-info-help gap-12">
                         <div className="wrap">
                           <div className="dropdown dropdown-store-location">
-                            <div
-                              className="dropdown-title dropdown-backdrop"
-                              data-bs-toggle="dropdown"
-                              aria-haspopup="true"
-                            >
-                              <div className="tf-product-info-view link">
-                                <span>View Store Information</span>
-                              </div>
-                            </div>
                             <div className="dropdown-menu dropdown-menu-end">
                               <div className="dropdown-content">
                                 <div className="dropdown-content-heading">
@@ -565,10 +556,6 @@ export default async function Products({ params }: { params: { slug: any } }) {
                           <p className="text-caption-1 text-1">4321234</p>
                         </li>
                         <li>
-                          <p className="text-caption-1">Vendor:</p>
-                          <p className="text-caption-1 text-1">GearO</p>
-                        </li>
-                        <li>
                           <p className="text-caption-1">Available:</p>
                           <p className="text-caption-1 text-1">
                             {productsDetails?.data?.product?.inventory?.availability}
@@ -580,37 +567,9 @@ export default async function Products({ params }: { params: { slug: any } }) {
                             <a href="#" className="text-1 link">
                               {productsDetails?.data?.product?.category?.title}
                             </a>
-                            ,
-                            <a href="#" className="text-1 link">
-                              {productsDetails?.data?.product?.category?.title}
-                            </a>
-
                           </p>
                         </li>
                       </ul>
-                      <div className="tf-product-info-guranteed">
-                        <div className="text-title">Guranteed safe checkout:</div>
-                        <div className="tf-payment d-flex">
-                          <a href="#">
-                            <img src="/images/payment/payment-1.png" alt="" />
-                          </a>
-                          <a href="#">
-                            <img src="/images/payment/payment-2.png" alt="" />
-                          </a>
-                          <a href="#">
-                            <img src="/images/payment/payment-3.png" alt="" />
-                          </a>
-                          <a href="#">
-                            <img src="/images/payment/payment-4.png" alt="" />
-                          </a>
-                          <a href="#">
-                            <img src="/images/payment/payment-5.png" alt="" />
-                          </a>
-                          <a href="#">
-                            <img src="/images/payment/payment-6.png" alt="" />
-                          </a>
-                        </div>
-                      </div>
                     </div>
                   </div>
                 </div>
@@ -632,12 +591,6 @@ export default async function Products({ params }: { params: { slug: any } }) {
                   </li>
                   <li className="item-title">
                     <span className="inner">Customer Reviews</span>
-                  </li>
-                  <li className="item-title">
-                    <span className="inner">Shipping &amp; Returns</span>
-                  </li>
-                  <li className="item-title">
-                    <span className="inner">Return Policies</span>
                   </li>
                 </ul>
                 <div className="widget-content-tab">
@@ -1052,50 +1005,6 @@ export default async function Products({ params }: { params: { slug: any } }) {
                           </a>
                         </div>
                       </div>
-                    </div>
-                  </div>
-                  <div className="widget-content-inner">
-                    <div className="tab-policies">
-                      <h6 className=" mb_12">Return Policies</h6>
-                      <p className="mb_12 text_secondary">
-                        At GearO, we stand behind the quality of our products. If
-                        you're not completely satisfied with your purchase, we offer
-                        hassle-free returns within 30 days of delivery.
-                      </p>
-                      <h6 className=" mb_12">Easy Exchanges or Refunds</h6>
-                      <ul className="list-text type-disc mb_12 gap-6">
-                        <li className="text_secondary">
-                          Exchange your item for a different size, color, or style,
-                          or receive a full refund.
-                        </li>
-                        <li className="text_secondary">
-                          All returned items must be unworn, in their original
-                          packaging, and with tags attached.
-                        </li>
-                      </ul>
-                      <h6 className=" mb_12">Simple Process</h6>
-                      <ul className="list-text type-number">
-                        <li className="text_secondary">
-                          Initiate your return online or contact our customer
-                          service team for assistance.
-                        </li>
-                        <li className="text_secondary">
-                          Pack your item securely and include the original packing
-                          slip.
-                        </li>
-                        <li className="text_secondary">
-                          Ship your return back to us using our prepaid shipping
-                          label.
-                        </li>
-                        <li className="text_secondary">
-                          Once received, your refund will be processed promptly.
-                        </li>
-                      </ul>
-                      <p className="text_secondary">
-                        For any questions or concerns regarding returns, don't
-                        hesitate to reach out to our dedicated customer service
-                        team. Your satisfaction is our priority.
-                      </p>
                     </div>
                   </div>
                 </div>
