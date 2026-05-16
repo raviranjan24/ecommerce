@@ -1,17 +1,56 @@
 import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
 
 const baseUrl = process.env.NEXT_PUBLIC_API_BASE_URL;
+// export const addToCart = createAsyncThunk(
+//   "cart/addToCart",
+//   async ({ itemId, size, token }: any) => {
+//     const res = await fetch(`${baseUrl}/api/cart/add`, {
+//       method: "POST",
+//       headers: {
+//         "Content-Type": "application/json",
+//         Authorization: `Bearer ${token}`,
+//       },
+//       body: JSON.stringify({ itemId, size }),
+//     });
+
+//     return res.json();
+//   }
+// );
+
 export const addToCart = createAsyncThunk(
   "cart/addToCart",
-  async ({ itemId, size, token }: any) => {
-    const res = await fetch(`${baseUrl}/api/cart/add`, {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-        Authorization: `Bearer ${token}`,
-      },
-      body: JSON.stringify({ itemId, size }),
-    });
+  async (
+    {
+      itemId,
+      size,
+      color,
+      quantity,
+      image,
+      token,
+    }: any
+  ) => {
+
+    const payload = {
+      itemId,
+      size,
+      color,
+      quantity,
+      image,
+    };
+    console.log("ADD TO CART PAYLOAD", payload);
+    const res = await fetch(
+      `${baseUrl}/api/cart/add`,
+      {
+        method: "POST",
+
+        headers: {
+          "Content-Type": "application/json",
+          Authorization: `Bearer ${token}`,
+        },
+
+        body: JSON.stringify(payload),
+      }
+    );
 
     return res.json();
   }
