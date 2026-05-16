@@ -33,8 +33,6 @@ export default function Cart() {
     }
   };
 
-  console.log("items", items);
-
   return (
     <>
       <Breadcrum title={"Cart"} />
@@ -199,7 +197,7 @@ export default function Cart() {
                         </Link>
 
                         <Link
-                          href="/shop"
+                          href="/"
                           className="text-center d-block mt-2"
                         >
                           Continue Shopping

@@ -15,15 +15,12 @@ export default function Register() {
         email: Yup.string()
             .email("Invalid email")
             .required("Email is required"),
-
         password: Yup.string()
             .min(6, "Minimum 6 characters")
             .required("Password is required"),
-
         confirmPassword: Yup.string()
             .oneOf([Yup.ref("password")], "Passwords must match")
             .required("Confirm password is required"),
-
         agree: Yup.boolean().oneOf([true], "You must accept terms"),
     });
 
@@ -35,9 +32,7 @@ export default function Register() {
             confirmPassword: "",
             agree: false,
         },
-
         validationSchema,
-
         onSubmit: async (values, { resetForm, setSubmitting }) => {
             try {
                 const res = await axios.post(
@@ -129,7 +124,7 @@ export default function Register() {
                                             checked={formik.values.agree}
                                             onChange={formik.handleChange}
                                         />
-                                        <label>&nbsp;I agree to <Link href={'/terms-of-service'} style={{color:"blue"}}>Terms & Conditions</Link></label>
+                                        <label>&nbsp;I agree to <Link href={'/terms-conditions'} style={{ color: "blue" }}>Terms & Conditions</Link></label>
                                     </div>
                                     {formik.errors.agree && (
                                         <p className="error">{formik.errors.agree}</p>

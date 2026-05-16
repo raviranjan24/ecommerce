@@ -137,7 +137,7 @@ export default function Login() {
                       &nbsp;Remember me
                     </div>
 
-                    <a className="text-button">Forgot Password?</a>
+                    <Link href="/auth/forgot-password" className="text-button">Forgot Password?</Link>
                   </div>
 
                   <button
