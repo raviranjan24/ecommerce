@@ -7,6 +7,7 @@ import { toast } from "react-toastify";
 import { useFormik } from "formik";
 import * as Yup from "yup";
 import { useRouter } from "next/navigation";
+import { apiUrl } from "@/utils/apiurl";
 
 export default function Register() {
     const router = useRouter();
@@ -36,7 +37,7 @@ export default function Register() {
         onSubmit: async (values, { resetForm, setSubmitting }) => {
             try {
                 const res = await axios.post(
-                    `https://helioshome-backend.vercel.app/api/user/register`,
+                    `${apiUrl}/api/user/register`,
                     {
                         name: values.name,
                         email: values.email,

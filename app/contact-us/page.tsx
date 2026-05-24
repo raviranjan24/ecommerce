@@ -5,6 +5,7 @@ import { useFormik } from "formik";
 import * as Yup from "yup";
 import Breadcrum from "@/components/common/breadcrum";
 import { useEffect, useState } from "react";
+import { apiUrl } from "@/utils/apiurl";
 
 const ContactUs = () => {
     const [masterData, setMasterData] = useState<any>(null);
@@ -12,7 +13,7 @@ const ContactUs = () => {
         const fetchMasterData = async () => {
             try {
                 const res = await axios.get(
-                    "https://helioshome-backend.vercel.app/api/v1/master"
+                    `${apiUrl}/api/v1/master`
                 );
 
                 if (res.data.success) {
@@ -48,7 +49,7 @@ const ContactUs = () => {
         onSubmit: async (values, { resetForm, setSubmitting }) => {
             try {
                 const res = await axios.post(
-                    `https://helioshome-backend.vercel.app/api/contact/submit`,
+                    `${apiUrl}/api/contact/submit`,
                     values
                 );
 

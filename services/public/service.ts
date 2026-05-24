@@ -1,3 +1,5 @@
+import { apiUrl } from "@/utils/apiurl";
+
 export const getSliders = async () => {
   const baseUrl = process.env.API_BASE_URL;
   if (!baseUrl) {
@@ -119,7 +121,7 @@ export const getAllProducts = async ({
   minPrice = "",
   maxPrice = "",
 }: any) => {
-  const baseUrl = "https://helioshome-backend.vercel.app";
+  const baseUrl = `${apiUrl}`;
   if (!baseUrl) {
     throw new Error("API_BASE_URL environment variable is not set");
   }
@@ -147,7 +149,7 @@ export const getAllProducts = async ({
 };
 
 export const searchProducts = async (query: string) => {
-  const baseUrl = "https://helioshome-backend.vercel.app";
+  const baseUrl = `${apiUrl}`;
   if (!baseUrl) {
     throw new Error("API_BASE_URL environment variable is not set");
   }

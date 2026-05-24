@@ -1,4 +1,5 @@
 "use client";
+import { apiUrl } from "@/utils/apiurl";
 import Link from "next/link";
 import { useEffect, useState } from "react";
 
@@ -68,7 +69,7 @@ export default Navbar;
 export const getCategory = async () => {
   //const baseUrl = process.env.NEXT_PUBLIC_API_BASE_URL;
   //const url = `${baseUrl}/api/v1/header-categories`;
-  const url="https://helioshome-backend.vercel.app/api/v1/header-categories";
+  const url=`${apiUrl}/api/v1/header-categories`;
   const res = await fetch(url, {
     cache: "no-store",
   });

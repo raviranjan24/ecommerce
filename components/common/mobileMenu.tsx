@@ -1,4 +1,5 @@
 "use client";
+import { apiUrl } from "@/utils/apiurl";
 import Link from "next/link";
 import { useEffect, useState } from "react";
 
@@ -167,7 +168,7 @@ export default MobileMenu;
 
 export const getCategory = async () => {
     const url =
-        "https://helioshome-backend.vercel.app/api/v1/header-categories";
+        `${apiUrl}/api/v1/header-categories`;
 
     const res = await fetch(url, {
         cache: "no-store",

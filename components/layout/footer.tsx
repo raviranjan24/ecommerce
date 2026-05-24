@@ -1,4 +1,5 @@
 "use client";
+import { apiUrl } from "@/utils/apiurl";
 import axios from "axios";
 import Link from "next/link";
 import { useEffect, useState } from "react";
@@ -9,7 +10,7 @@ const Footer = () => {
         const fetchMasterData = async () => {
             try {
                 const res = await axios.get(
-                    "https://helioshome-backend.vercel.app/api/v1/master"
+                    `${apiUrl}/api/v1/master`
                 );
 
                 if (res.data.success) {
