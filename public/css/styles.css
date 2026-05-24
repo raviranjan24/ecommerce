@@ -13026,9 +13026,14 @@ ul.list-text.type-number {
     display: none;
   }
 
-  .header-default .main-header {
+  /* .header-default .main-header {
     padding-top: 15px;
     padding-bottom: 15px;
+  } */
+
+  .header-default .main-header {
+    padding-top: 0px;
+    padding-bottom: 0px;
   }
 
   .text-display {
