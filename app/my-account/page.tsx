@@ -534,7 +534,7 @@ export default function MyAccountPage() {
 
                                       <div>
                                         <div className="fw-bold">
-                                          {item.productId?.slice(-6)}
+                                          {item?.name}
                                         </div>
 
                                         <div className="text-muted">

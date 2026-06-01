@@ -175,7 +175,7 @@ export const generateInvoicePdf = async (order: any, invoice: any) => {
     head: [["#", "Product", "Size", "Qty", "Unit Rate", "Amount"]],
     body: order.items.map((item: any, i: number) => [
       i + 1,
-      item.productId,
+      item?.name,
       item.size,
       item.quantity,
       `Rs. ${Number(item.price).toFixed(2)}`,
